@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useTheme } from 'next-themes';
 import {
     Bars3Icon,
     XMarkIcon,
@@ -25,9 +24,6 @@ import {
     StarIcon,
     CheckBadgeIcon,
     ArrowRightIcon,
-    MoonIcon,
-    SunIcon,
-    GlobeAltIcon,
     BuildingOfficeIcon,
     AcademicCapIcon,
     DocumentTextIcon,
@@ -40,17 +36,14 @@ import {
     TrophyIcon,
     HeartIcon,
     LightBulbIcon,
-    RocketLaunchIcon,
-    EyeIcon,
-    CursorArrowRaysIcon,
-    SparklesIcon
+    RocketLaunchIcon
 } from '@heroicons/react/24/outline';
 
-// SEO Optimized Service Categories
+// Service Categories
 const servicesMenuData = [
     {
         category: 'طراحی و توسعه وب',
-        categorySlug: 'web-design',
+        categorySlug: 'web-development',
         categoryIcon: CodeBracketIcon,
         categoryDescription: 'خدمات کامل طراحی و توسعه وب‌سایت حرفه‌ای',
         services: [
@@ -60,8 +53,7 @@ const servicesMenuData = [
                 description: 'طراحی وب‌سایت حرفه‌ای برای شرکت‌ها و کسب‌وکارها',
                 icon: BuildingOfficeIcon,
                 featured: true,
-                price: 'از ۵ میلیون تومان',
-                isNew: false
+                price: 'از ۵ میلیون تومان'
             },
             {
                 title: 'طراحی فروشگاه اینترنتی',
@@ -69,8 +61,7 @@ const servicesMenuData = [
                 description: 'فروشگاه آنلاین با امکانات کامل درگاه پرداخت',
                 icon: ShoppingCartIcon,
                 featured: true,
-                price: 'از ۸ میلیون تومان',
-                isNew: false
+                price: 'از ۸ میلیون تومان'
             },
             {
                 title: 'طراحی سایت شخصی',
@@ -78,8 +69,7 @@ const servicesMenuData = [
                 description: 'وب‌سایت شخصی و پورتفولیو حرفه‌ای',
                 icon: UserGroupIcon,
                 featured: false,
-                price: 'از ۲ میلیون تومان',
-                isNew: false
+                price: 'از ۲ میلیون تومان'
             },
             {
                 title: 'طراحی وب اپلیکیشن',
@@ -87,14 +77,13 @@ const servicesMenuData = [
                 description: 'توسعه اپلیکیشن وب پیشرفته و تعاملی',
                 icon: DevicePhoneMobileIcon,
                 featured: true,
-                price: 'از ۱۲ میلیون تومان',
-                isNew: true
+                price: 'از ۱۲ میلیون تومان'
             }
         ]
     },
     {
         category: 'سئو و بهینه‌سازی',
-        categorySlug: 'seo',
+        categorySlug: 'seo-optimization',
         categoryIcon: MagnifyingGlassIcon,
         categoryDescription: 'خدمات تخصصی سئو و بهینه‌سازی موتورهای جستجو',
         services: [
@@ -104,8 +93,7 @@ const servicesMenuData = [
                 description: 'بهینه‌سازی فنی وب‌سایت برای موتورهای جستجو',
                 icon: CogIcon,
                 featured: true,
-                price: 'از ۳ میلیون تومان',
-                isNew: false
+                price: 'از ۳ میلیون تومان'
             },
             {
                 title: 'تولید محتوای سئو',
@@ -113,8 +101,7 @@ const servicesMenuData = [
                 description: 'تولید محتوای بهینه‌شده برای کلمات کلیدی',
                 icon: DocumentTextIcon,
                 featured: true,
-                price: 'از ۱.۵ میلیون تومان',
-                isNew: false
+                price: 'از ۱.۵ میلیون تومان'
             },
             {
                 title: 'سئو محلی',
@@ -122,8 +109,7 @@ const servicesMenuData = [
                 description: 'بهینه‌سازی برای جستجوهای محلی و منطقه‌ای',
                 icon: MapPinIcon,
                 featured: false,
-                price: 'از ۲ میلیون تومان',
-                isNew: false
+                price: 'از ۲ میلیون تومان'
             },
             {
                 title: 'تحلیل و گزارش سئو',
@@ -131,52 +117,47 @@ const servicesMenuData = [
                 description: 'تحلیل عملکرد و گزارش‌گیری تخصصی سئو',
                 icon: ChartBarIcon,
                 featured: true,
-                price: 'از ۱ میلیون تومان',
-                isNew: true
+                price: 'از ۱ میلیون تومان'
             }
         ]
     },
     {
-        category: 'طراحی گرافیک',
-        categorySlug: 'graphic-design',
+        category: 'طراحی گرافیک و برندینگ',
+        categorySlug: 'graphic-branding',
         categoryIcon: PhotoIcon,
         categoryDescription: 'خدمات کامل طراحی گرافیک و هویت بصری',
         services: [
             {
                 title: 'طراحی لوگو و هویت بصری',
-                href: '/services/graphic-design/logo-identity',
+                href: '/services/graphic/logo-identity',
                 description: 'طراحی لوگو حرفه‌ای و پکیج هویت بصری کامل',
                 icon: StarIcon,
                 featured: true,
-                price: 'از ۱.۵ میلیون تومان',
-                isNew: false
+                price: 'از ۱.۵ میلیون تومان'
             },
             {
                 title: 'طراحی کاتالوگ و بروشور',
-                href: '/services/graphic-design/catalog-brochure',
+                href: '/services/graphic/catalog-brochure',
                 description: 'طراحی مواد تبلیغاتی چاپی حرفه‌ای',
                 icon: DocumentTextIcon,
                 featured: false,
-                price: 'از ۸۰۰ هزار تومان',
-                isNew: false
+                price: 'از ۸۰۰ هزار تومان'
             },
             {
                 title: 'طراحی بنر و پوستر',
-                href: '/services/graphic-design/banner-poster',
+                href: '/services/graphic/banner-poster',
                 description: 'طراحی بنرهای تبلیغاتی و پوسترهای حرفه‌ای',
                 icon: PhotoIcon,
                 featured: false,
-                price: 'از ۵۰۰ هزار تومان',
-                isNew: false
+                price: 'از ۵۰۰ هزار تومان'
             },
             {
                 title: 'طراحی UI/UX',
-                href: '/services/graphic-design/ui-ux',
+                href: '/services/graphic/ui-ux',
                 description: 'طراحی رابط کاربری و تجربه کاربری',
                 icon: PaintBrushIcon,
                 featured: true,
-                price: 'از ۴ میلیون تومان',
-                isNew: true
+                price: 'از ۴ میلیون تومان'
             }
         ]
     }
@@ -185,18 +166,15 @@ const servicesMenuData = [
 // Company Information
 const companyInfo = {
     name: 'دیزاین پرداز',
-    englishName: 'Design Pardaz',
     slogan: 'طراحی وب حرفه‌ای',
     phone: '+98-21-3333-4444',
-    phoneDisplay: '021-3333-4444',
     email: 'info@designpardaz.ir',
     address: 'تهران، ایران',
     workingHours: 'شنبه تا چهارشنبه ۹-۱۸، پنج‌شنبه ۹-۱۴',
     establishedYear: '۱۳۹۶',
     projectsCount: '+۲۵۰',
     clientsCount: '+۱۸۰',
-    experienceYears: '+۸',
-    website: 'https://designpardaz.ir'
+    experienceYears: '+۸'
 };
 
 // Navigation Menu Items
@@ -216,7 +194,7 @@ const navigationItems = [
     },
     {
         title: 'مقالات',
-        href: '/blog',
+        href: '/articles',
         icon: NewspaperIcon,
         description: 'مقالات آموزشی طراحی وب و سئو'
     },
@@ -238,10 +216,6 @@ export default function Header({ className = '' }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [activeServiceCategory, setActiveServiceCategory] = useState(0);
-    const [isTopBarVisible, setIsTopBarVisible] = useState(true);
-    const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const [mounted, setMounted] = useState(false);
 
     // Refs
     const headerRef = useRef<HTMLElement>(null);
@@ -250,29 +224,12 @@ export default function Header({ className = '' }: HeaderProps) {
 
     // Hooks
     const pathname = usePathname();
-    const { theme, setTheme } = useTheme();
 
-    // Mount effect
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // Enhanced Scroll Detection
+    // Scroll Detection
     const handleScroll = useCallback(() => {
         const currentScrollY = window.scrollY;
-
         setIsScrolled(currentScrollY > 10);
-
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            setScrollDirection('down');
-            setIsTopBarVisible(false);
-        } else {
-            setScrollDirection('up');
-            setIsTopBarVisible(true);
-        }
-
-        setLastScrollY(currentScrollY);
-    }, [lastScrollY]);
+    }, []);
 
     // Initialize scroll listener
     useEffect(() => {
@@ -280,7 +237,7 @@ export default function Header({ className = '' }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
-    // Services menu handlers
+    // Handle services menu with delay
     const handleServicesMouseEnter = useCallback(() => {
         if (servicesTimeoutRef.current) {
             clearTimeout(servicesTimeoutRef.current);
@@ -321,19 +278,6 @@ export default function Header({ className = '' }: HeaderProps) {
         };
     }, [isMobileMenuOpen]);
 
-    // Keyboard navigation
-    const handleKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            setIsMobileMenuOpen(false);
-            setIsServicesOpen(false);
-        }
-    }, []);
-
-    useEffect(() => {
-        document.addEventListener('keydown', handleKeyDown);
-        return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [handleKeyDown]);
-
     // Check if current path is active
     const isActiveLink = (href: string): boolean => {
         if (href === '/') {
@@ -342,18 +286,9 @@ export default function Header({ className = '' }: HeaderProps) {
         return pathname.startsWith(href);
     };
 
-    // Toggle theme
-    const toggleTheme = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-    };
-
-    if (!mounted) {
-        return null;
-    }
-
     return (
         <>
-            {/* SEO Structured Data */}
+            {/* Structured Data for SEO */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -361,115 +296,84 @@ export default function Header({ className = '' }: HeaderProps) {
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": companyInfo.name,
-                        "alternateName": companyInfo.englishName,
-                        "url": companyInfo.website,
-                        "logo": `${companyInfo.website}/logo.png`,
+                        "url": "https://designpardaz.ir",
+                        "logo": "https://designpardaz.ir/logo.png",
                         "contactPoint": {
                             "@type": "ContactPoint",
                             "telephone": companyInfo.phone,
                             "contactType": "customer service",
-                            "availableLanguage": "Persian",
-                            "hoursAvailable": {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"],
-                                "opens": "09:00",
-                                "closes": "18:00"
-                            }
+                            "availableLanguage": "Persian"
                         },
                         "address": {
                             "@type": "PostalAddress",
                             "addressCountry": "IR",
-                            "addressLocality": "Tehran",
-                            "addressRegion": "Tehran"
-                        },
-                        "foundingDate": "2017",
-                        "numberOfEmployees": "15-25",
-                        "slogan": companyInfo.slogan
+                            "addressLocality": "Tehran"
+                        }
                     })
                 }}
             />
 
             <header
                 ref={headerRef}
-                className={`
-                    fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out
-                    ${isScrolled
-                    ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20'
-                    : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
-                }
-                    ${scrollDirection === 'down' && isScrolled ? '-translate-y-full' : 'translate-y-0'}
-                    ${className}
-                `}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${className}`}
                 role="banner"
                 aria-label="سایت اصلی ناوبری"
             >
-                {/* Top Contact Bar */}
-                <div
-                    className={`
-                        hidden lg:block bg-gradient-to-r from-sky-500 via-blue-600 to-blue-700 
-                        text-white transition-all duration-500 ease-in-out
-                        ${isTopBarVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
-                    `}
-                    itemScope
-                    itemType="https://schema.org/Organization"
-                >
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex justify-between items-center py-3 text-sm font-medium">
+                {/* Top Dark Bar */}
+                <div className="bg-gradient-to-r from-slate-800 via-gray-900 to-slate-800 text-white border-b border-gray-700">
+                    <div className="container mx-auto px-4">
+                        <div className="flex justify-between items-center py-3 text-sm">
+
                             {/* Contact Information */}
-                            <div className="flex items-center gap-8">
+                            <div className="hidden lg:flex items-center gap-8">
                                 <a
                                     href={`tel:${companyInfo.phone}`}
-                                    className="flex items-center gap-2 hover:text-yellow-300 transition-all duration-300 hover:scale-105 group"
-                                    itemProp="telephone"
+                                    className="flex items-center gap-2 hover:text-blue-400 transition-all duration-300 group"
                                     aria-label={`تماس با ${companyInfo.name}`}
                                 >
                                     <PhoneIcon className="w-4 h-4 group-hover:animate-pulse" />
-                                    <span dir="ltr" className="font-mono">{companyInfo.phoneDisplay}</span>
-                                    <span className="hidden xl:inline-block text-xs opacity-80">تماس رایگان</span>
+                                    <span dir="ltr" className="font-mono">021-3333-4444</span>
+                                    <span className="hidden xl:inline-block text-xs opacity-70">تماس رایگان</span>
                                 </a>
 
                                 <a
                                     href={`mailto:${companyInfo.email}`}
-                                    className="flex items-center gap-2 hover:text-yellow-300 transition-all duration-300 hover:scale-105 group"
-                                    itemProp="email"
+                                    className="flex items-center gap-2 hover:text-blue-400 transition-all duration-300 group"
                                     aria-label={`ایمیل به ${companyInfo.name}`}
                                 >
                                     <EnvelopeIcon className="w-4 h-4 group-hover:animate-bounce" />
                                     <span>{companyInfo.email}</span>
-                                    <span className="hidden xl:inline-block text-xs opacity-80">پشتیبانی ۲۴/۷</span>
+                                    <span className="hidden xl:inline-block text-xs opacity-70">پشتیبانی ۲۴/۷</span>
                                 </a>
 
-                                <div
-                                    className="flex items-center gap-2"
-                                    itemProp="address"
-                                    itemScope
-                                    itemType="https://schema.org/PostalAddress"
-                                >
-                                    <MapPinIcon className="w-4 h-4" />
-                                    <span itemProp="addressLocality">{companyInfo.address}</span>
-                                    <span className="hidden xl:inline-block text-xs opacity-80">خدمات سراسری</span>
+                                <div className="flex items-center gap-2">
+                                    <MapPinIcon className="w-4 h-4 text-blue-400" />
+                                    <span className="opacity-70">خدمات سراسری ایران</span>
                                 </div>
                             </div>
 
-                            {/* Company Stats */}
-                            <div className="flex items-center gap-6">
-                                <div className="flex items-center gap-2 text-xs">
-                                    <ClockIcon className="w-4 h-4" />
-                                    <span>{companyInfo.workingHours}</span>
+                            {/* Working Hours & Stats */}
+                            <div className="hidden lg:flex items-center gap-8 text-xs">
+                                <div className="flex items-center gap-2">
+                                    <ClockIcon className="w-4 h-4 text-green-400" />
+                                    <span className="opacity-70">{companyInfo.workingHours}</span>
                                 </div>
 
-                                <div className="flex items-center gap-4 text-xs">
+                                <div className="flex items-center gap-6">
                                     <div className="flex items-center gap-1">
-                                        <TrophyIcon className="w-4 h-4 text-yellow-300" />
-                                        <span>{companyInfo.projectsCount} پروژه</span>
+                                        <TrophyIcon className="w-4 h-4 text-yellow-400" />
+                                        <span className="font-bold text-yellow-400">{companyInfo.projectsCount}</span>
+                                        <span className="opacity-70">پروژه</span>
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <HeartIcon className="w-4 h-4 text-red-300" />
-                                        <span>{companyInfo.clientsCount} مشتری</span>
+                                        <HeartIcon className="w-4 h-4 text-red-400" />
+                                        <span className="font-bold text-red-400">{companyInfo.clientsCount}</span>
+                                        <span className="opacity-70">مشتری</span>
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <StarIcon className="w-4 h-4 text-yellow-300" />
-                                        <span>{companyInfo.experienceYears} سال تجربه</span>
+                                        <StarIcon className="w-4 h-4 text-blue-400" />
+                                        <span className="font-bold text-blue-400">{companyInfo.experienceYears}</span>
+                                        <span className="opacity-70">سال</span>
                                     </div>
                                 </div>
                             </div>
@@ -477,295 +381,266 @@ export default function Header({ className = '' }: HeaderProps) {
                     </div>
                 </div>
 
-                {/* Main Navigation */}
-                <nav
-                    className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"
-                    role="navigation"
-                    aria-label="اصلی ناوبری منو"
-                >
-                    <div className="flex items-center justify-between h-16 lg:h-20">
-                        {/* Enhanced Brand */}
-                        <Link
-                            href="/public"
-                            className="flex items-center gap-3 group"
-                            itemScope
-                            itemType="https://schema.org/Organization"
-                            aria-label={`${companyInfo.name} - ${companyInfo.slogan}`}
-                        >
-                            <div className="relative">
-                                <Image
-                                    src="/logo.png"
-                                    alt={`لوگو ${companyInfo.name} - ${companyInfo.slogan}`}
-                                    width={52}
-                                    height={52}
-                                    className="w-12 h-12 lg:w-13 lg:h-13 group-hover:scale-110 transition-transform duration-300"
-                                    priority
-                                    itemProp="logo"
-                                />
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse hidden lg:block"></div>
-                            </div>
+                {/* Main Navigation with Animation */}
+                <nav className={`
+                    bg-gradient-to-r from-slate-700 via-gray-800 to-slate-700 
+                    transition-all duration-500 ease-in-out
+                    ${isScrolled ? 'shadow-2xl backdrop-blur-md bg-opacity-95' : ''}
+                    relative overflow-hidden
+                `}>
 
-                            <div className="flex flex-col">
-                                <span
-                                    className="text-xl lg:text-2xl font-black tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
-                                    itemProp="name"
-                                >
-                                    {companyInfo.name}
-                                </span>
-                                <span
-                                    className="text-xs text-gray-500 dark:text-gray-400 font-normal hidden lg:block transition-colors duration-300 group-hover:text-blue-500"
-                                    itemProp="slogan"
-                                >
-                                    {companyInfo.slogan}
-                                </span>
-                                <div className="hidden lg:flex items-center gap-1 mt-0.5">
-                                    <div className="flex items-center">
+                    {/* Animated Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-gradient-x"></div>
+                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <defs>
+                                <pattern id="nav-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <circle cx="10" cy="10" r="0.5" fill="currentColor" className="text-white animate-pulse" opacity="0.3"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#nav-pattern)" />
+                        </svg>
+                    </div>
+
+                    {/* Floating Particles Animation */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        {[...Array(8)].map((_, i) => (
+                            <div
+                                key={i}
+                                className={`absolute w-1 h-1 bg-blue-400 rounded-full opacity-20 animate-float`}
+                                style={{
+                                    left: `${Math.random() * 100}%`,
+                                    animationDelay: `${i * 0.5}s`,
+                                    animationDuration: `${3 + Math.random() * 2}s`
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="flex items-center justify-between py-4">
+
+                            {/* Brand Logo */}
+                            <Link
+                                href="/"
+                                className="flex items-center gap-4 group hover:scale-105 transition-all duration-300"
+                                itemScope
+                                itemType="https://schema.org/Organization"
+                            >
+                                <div className="relative">
+                                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
+                                        <span className="text-white font-black text-xl">د</span>
+                                    </div>
+                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full animate-pulse"></div>
+                                </div>
+                                <div className="hidden sm:block">
+                                    <h1 className="text-xl font-black text-white group-hover:text-blue-300 transition-colors" itemProp="name">
+                                        {companyInfo.name}
+                                    </h1>
+                                    <p className="text-xs text-gray-300 group-hover:text-blue-200 transition-colors" itemProp="description">
+                                        {companyInfo.slogan}
+                                    </p>
+                                </div>
+
+                                {/* Rating Stars */}
+                                <div className="hidden lg:flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1">
+                                    <div className="flex">
                                         {[1,2,3,4,5].map((star) => (
                                             <StarIcon key={star} className="w-3 h-3 text-yellow-400 fill-current" />
                                         ))}
                                     </div>
-                                    <span className="text-xs text-gray-400 dark:text-gray-500 mr-1">۴.۹ از ۵</span>
+                                    <span className="text-xs text-white font-bold">۴.۹ از ۵</span>
                                 </div>
-                            </div>
-                        </Link>
-
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-                            {/* Home Link */}
-                            <Link
-                                href="/public"
-                                className={`
-                                    flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 group
-                                    ${isActiveLink('/')
-                                    ? 'bg-blue-600 text-white shadow-lg'
-                                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400'
-                                }
-                                `}
-                                aria-current={isActiveLink('/') ? 'page' : undefined}
-                            >
-                                <HomeIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                <span>صفحه اصلی</span>
-                                {isActiveLink('/') && <CheckBadgeIcon className="w-4 h-4 text-yellow-300" />}
                             </Link>
 
-                            {/* Services Mega Menu */}
-                            <div
-                                className="relative"
-                                onMouseEnter={handleServicesMouseEnter}
-                                onMouseLeave={handleServicesMouseLeave}
-                            >
-                                <button
-                                    className={`
-                                        flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 group
-                                        ${pathname.startsWith('/services')
-                                        ? 'bg-blue-600 text-white shadow-lg'
-                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400'
-                                    }
-                                    `}
-                                    aria-expanded={isServicesOpen}
-                                    aria-haspopup="true"
-                                    aria-label="منوی خدمات"
+                            {/* Desktop Navigation */}
+                            <div className="hidden lg:flex items-center gap-8">
+
+                                {/* Home Link */}
+                                <Link
+                                    href="/"
+                                    className={`nav-link group flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+                                        isActiveLink('/')
+                                            ? 'bg-blue-600 text-white shadow-lg'
+                                            : 'text-gray-200 hover:text-white hover:bg-white/10'
+                                    }`}
+                                    aria-current={isActiveLink('/') ? 'page' : undefined}
                                 >
-                                    <CogIcon className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
-                                    <span>خدمات ما</span>
-                                    <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                                    {pathname.startsWith('/services') && <CheckBadgeIcon className="w-4 h-4 text-yellow-300" />}
-                                </button>
+                                    <HomeIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                                    <span className="font-medium">صفحه اصلی</span>
+                                    {isActiveLink('/') && <CheckBadgeIcon className="w-4 h-4 text-blue-200" />}
+                                </Link>
 
-                                {/* Mega Menu Dropdown */}
-                                {isServicesOpen && (
-                                    <div className="absolute top-full right-0 mt-2 w-screen max-w-6xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden z-50">
-                                        {/* Menu Header */}
-                                        <div className="bg-gradient-to-r from-blue-600 to-sky-600 text-white p-6">
-                                            <div className="flex items-center justify-between">
-                                                <div>
-                                                    <h3 className="text-xl font-bold flex items-center gap-2">
-                                                        <RocketLaunchIcon className="w-6 h-6" />
-                                                        خدمات حرفه‌ای دیزاین پرداز
-                                                    </h3>
-                                                    <p className="text-sm opacity-90 mt-1">با بیش از ۸ سال تجربه در خدمت شما</p>
+                                {/* Services Dropdown */}
+                                <div
+                                    className="relative"
+                                    onMouseEnter={handleServicesMouseEnter}
+                                    onMouseLeave={handleServicesMouseLeave}
+                                >
+                                    <button
+                                        className="nav-link group flex items-center gap-2 px-4 py-2 rounded-lg text-gray-200 hover:text-white hover:bg-white/10 transition-all duration-300"
+                                        aria-expanded={isServicesOpen}
+                                        aria-haspopup="true"
+                                    >
+                                        <CogIcon className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                                        <span className="font-medium">خدمات ما</span>
+                                        <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    {/* Mega Menu */}
+                                    {isServicesOpen && (
+                                        <div className="absolute top-full left-0 mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 animate-fadeInUp">
+                                            {/* Menu Header */}
+                                            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+                                                <div className="flex items-center gap-3 mb-3">
+                                                    <RocketLaunchIcon className="w-6 h-6" />
+                                                    <h3 className="text-lg font-bold">خدمات حرفه‌ای دیزاین پرداز</h3>
                                                 </div>
-                                                <div className="flex items-center gap-4 text-sm">
-                                                    <div className="text-center">
-                                                        <div className="font-bold text-lg">۲۵۰+</div>
-                                                        <div className="opacity-80">پروژه موفق</div>
-                                                    </div>
-                                                    <div className="text-center">
-                                                        <div className="font-bold text-lg">۱۸۰+</div>
-                                                        <div className="opacity-80">مشتری راضی</div>
-                                                    </div>
-                                                </div>
+                                                <p className="text-blue-100 text-sm">
+                                                    با بیش از {companyInfo.experienceYears} سال تجربه و {companyInfo.projectsCount} پروژه موفق
+                                                </p>
                                             </div>
-                                        </div>
 
-                                        <div className="p-6">
-                                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                                                {servicesMenuData.map((category, categoryIndex) => (
-                                                    <div key={categoryIndex} className="space-y-4">
-                                                        {/* Category Header */}
-                                                        <div className="flex items-center gap-3 pb-3 border-b border-gray-200 dark:border-gray-700">
-                                                            <div className="p-2 bg-gradient-to-br from-blue-600 to-sky-600 text-white rounded-lg">
-                                                                <category.categoryIcon className="w-5 h-5" />
+                                            {/* Services Grid */}
+                                            <div className="p-8">
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                                    {servicesMenuData.map((category, categoryIndex) => (
+                                                        <div key={categoryIndex} className="space-y-4">
+                                                            {/* Category Header */}
+                                                            <div className="flex items-center gap-3 mb-4">
+                                                                <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg">
+                                                                    <category.categoryIcon className="w-5 h-5" />
+                                                                </div>
+                                                                <div>
+                                                                    <h4 className="font-bold text-gray-900">{category.category}</h4>
+                                                                    <p className="text-xs text-gray-500">{category.categoryDescription}</p>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <h4 className="font-bold text-gray-900 dark:text-white">{category.category}</h4>
-                                                                <p className="text-xs text-gray-500 dark:text-gray-400">{category.categoryDescription}</p>
-                                                            </div>
-                                                        </div>
 
-                                                        {/* Services List */}
-                                                        <div className="space-y-2">
-                                                            {category.services.map((service, serviceIndex) => (
-                                                                <Link
-                                                                    key={serviceIndex}
-                                                                    href={service.href}
-                                                                    className="group block p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]"
-                                                                >
-                                                                    <div className="flex items-start gap-3">
-                                                                        <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                                                            <service.icon className="w-4 h-4" />
-                                                                        </div>
-                                                                        <div className="flex-1 min-w-0">
-                                                                            <div className="flex items-center gap-2">
-                                                                                <h5 className="font-semibold text-gray-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                                                                                    {service.title}
-                                                                                </h5>
-                                                                                {service.featured && (
-                                                                                    <span className="px-2 py-0.5 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">
-                                                                                        پیشنهاد ویژه
-                                                                                    </span>
-                                                                                )}
-                                                                                {service.isNew && (
-                                                                                    <span className="px-2 py-0.5 bg-green-500 text-white text-xs rounded-full font-medium">
-                                                                                        جدید
-                                                                                    </span>
-                                                                                )}
+                                                            {/* Services List */}
+                                                            <div className="space-y-2">
+                                                                {category.services.map((service, serviceIndex) => (
+                                                                    <Link
+                                                                        key={serviceIndex}
+                                                                        href={service.href}
+                                                                        className="group block p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 hover:scale-[1.02]"
+                                                                    >
+                                                                        <div className="flex items-start gap-3">
+                                                                            <div className="p-2 bg-gray-100 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                                                                <service.icon className="w-4 h-4" />
                                                                             </div>
-                                                                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-                                                                                {service.description}
-                                                                            </p>
-                                                                            <div className="flex items-center justify-between mt-2">
-                                                                                <span className="text-xs font-medium text-blue-600 dark:text-blue-400">
-                                                                                    {service.price}
-                                                                                </span>
-                                                                                <ArrowRightIcon className="w-3 h-3 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                                                                            <div className="flex-1 min-w-0">
+                                                                                <div className="flex items-center gap-2">
+                                                                                    <h5 className="font-semibold text-gray-900 text-sm group-hover:text-blue-600">
+                                                                                        {service.title}
+                                                                                    </h5>
+                                                                                    {service.featured && (
+                                                                                        <span className="px-2 py-0.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs rounded-full">
+                                                                                            پیشنهاد ویژه
+                                                                                        </span>
+                                                                                    )}
+                                                                                </div>
+                                                                                <p className="text-xs text-gray-500 mt-1 line-clamp-2">
+                                                                                    {service.description}
+                                                                                </p>
+                                                                                <div className="flex items-center justify-between mt-2">
+                                                                                    <span className="text-xs font-medium text-blue-600">
+                                                                                        {service.price}
+                                                                                    </span>
+                                                                                    <ArrowRightIcon className="w-3 h-3 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                </Link>
-                                                            ))}
-                                                        </div>
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
 
-                                                        {/* Category CTA */}
+                                                            {/* Category CTA */}
+                                                            <Link
+                                                                href={`/services/${category.categorySlug}`}
+                                                                className="block w-full p-3 mt-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                                                            >
+                                                                <span className="text-sm font-medium">مشاهده همه خدمات {category.category}</span>
+                                                            </Link>
+                                                        </div>
+                                                    ))}
+                                                </div>
+
+                                                {/* Menu Footer */}
+                                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
+                                                                <ShieldCheckIcon className="w-4 h-4 text-green-500" />
+                                                                <span>گارانتی کیفیت</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
+                                                                <LightBulbIcon className="w-4 h-4 text-yellow-500" />
+                                                                <span>مشاوره رایگان</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
+                                                                <ChatBubbleLeftRightIcon className="w-4 h-4 text-blue-500" />
+                                                                <span>پشتیبانی ۲۴/۷</span>
+                                                            </div>
+                                                        </div>
                                                         <Link
-                                                            href={`/services/${category.categorySlug}`}
-                                                            className="block w-full p-3 mt-4 text-center bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                                                            href="/contact"
+                                                            className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-lg font-bold hover:shadow-lg transition-all duration-300"
                                                         >
-                                                            <span className="text-sm font-medium">مشاهده همه خدمات {category.category}</span>
+                                                            درخواست مشاوره رایگان
                                                         </Link>
                                                     </div>
-                                                ))}
-                                            </div>
-
-                                            {/* Menu Footer */}
-                                            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                                                <div className="flex items-center justify-between">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                            <ShieldCheckIcon className="w-4 h-4 text-green-500" />
-                                                            <span>گارانتی کیفیت</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                            <LightBulbIcon className="w-4 h-4 text-yellow-500" />
-                                                            <span>مشاوره رایگان</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                                            <ChatBubbleLeftRightIcon className="w-4 h-4 text-blue-500" />
-                                                            <span>پشتیبانی ۲۴/۷</span>
-                                                        </div>
-                                                    </div>
-                                                    <Link
-                                                        href="/contact"
-                                                        className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm font-medium"
-                                                    >
-                                                        درخواست مشاوره رایگان
-                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
+
+                                {/* Other Navigation Items */}
+                                {navigationItems.slice(1).map((item, index) => (
+                                    <Link
+                                        key={index}
+                                        href={item.href}
+                                        className={`nav-link group flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 ${
+                                            isActiveLink(item.href)
+                                                ? 'bg-blue-600 text-white shadow-lg'
+                                                : 'text-gray-200 hover:text-white hover:bg-white/10'
+                                        }`}
+                                        aria-current={isActiveLink(item.href) ? 'page' : undefined}
+                                        title={item.description}
+                                    >
+                                        <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                                        <span className="font-medium">{item.title}</span>
+                                        {isActiveLink(item.href) && <CheckBadgeIcon className="w-4 h-4 text-blue-200" />}
+                                    </Link>
+                                ))}
                             </div>
 
-                            {/* Other Navigation Items */}
-                            {navigationItems.slice(1).map((item, index) => (
+                            {/* Right Side Actions */}
+                            <div className="flex items-center gap-3">
+                                {/* CTA Button */}
                                 <Link
-                                    key={index}
-                                    href={item.href}
-                                    className={`
-                                        flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 group
-                                        ${isActiveLink(item.href)
-                                        ? 'bg-blue-600 text-white shadow-lg'
-                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400'
-                                    }
-                                    `}
-                                    aria-current={isActiveLink(item.href) ? 'page' : undefined}
-                                    title={item.description}
+                                    href="/contact"
+                                    className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105"
                                 >
-                                    <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                    <span>{item.title}</span>
-                                    {isActiveLink(item.href) && <CheckBadgeIcon className="w-4 h-4 text-yellow-300" />}
+                                    <ChatBubbleLeftRightIcon className="w-4 h-4" />
+                                    <span>مشاوره رایگان</span>
                                 </Link>
-                            ))}
-                        </div>
 
-                        {/* Right Side Actions */}
-                        <div className="flex items-center gap-3">
-                            {/* Theme Toggle */}
-                            <button
-                                onClick={toggleTheme}
-                                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-                                aria-label={theme === 'dark' ? 'تغییر به حالت روشن' : 'تغییر به حالت تاریک'}
-                                title={theme === 'dark' ? 'حالت روشن' : 'حالت تاریک'}
-                            >
-                                {theme === 'dark' ? (
-                                    <SunIcon className="w-5 h-5 text-yellow-500" />
-                                ) : (
-                                    <MoonIcon className="w-5 h-5 text-gray-600" />
-                                )}
-                            </button>
-
-                            {/* Language Toggle */}
-                            <button
-                                className="hidden sm:flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
-                                title="تغییر زبان"
-                            >
-                                <GlobeAltIcon className="w-4 h-4" />
-                                <span>FA</span>
-                            </button>
-
-                            {/* CTA Button */}
-                            <Link
-                                href="/contact"
-                                className="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm font-medium"
-                            >
-                                <ChatBubbleLeftRightIcon className="w-4 h-4" />
-                                <span>مشاوره رایگان</span>
-                            </Link>
-
-                            {/* Mobile Menu Toggle */}
-                            <button
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                aria-label={isMobileMenuOpen ? 'بستن منو' : 'باز کردن منو'}
-                                aria-expanded={isMobileMenuOpen}
-                            >
-                                {isMobileMenuOpen ? (
-                                    <XMarkIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                                ) : (
-                                    <Bars3Icon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                                )}
-                            </button>
+                                {/* Mobile Menu Toggle */}
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                    className="lg:hidden p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    aria-label={isMobileMenuOpen ? 'بستن منو' : 'باز کردن منو'}
+                                    aria-expanded={isMobileMenuOpen}
+                                >
+                                    {isMobileMenuOpen ? (
+                                        <XMarkIcon className="w-6 h-6 text-white" />
+                                    ) : (
+                                        <Bars3Icon className="w-6 h-6 text-white" />
+                                    )}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -782,154 +657,103 @@ export default function Header({ className = '' }: HeaderProps) {
                         {/* Mobile Menu Content */}
                         <div
                             ref={mobileMenuRef}
-                            className="fixed top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-2xl z-50 lg:hidden max-h-[80vh] overflow-y-auto"
+                            className="fixed top-full left-0 right-0 bg-white shadow-2xl z-50 lg:hidden max-h-[80vh] overflow-y-auto"
                         >
                             {/* Mobile Header */}
-                            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <Image
-                                            src="/logo.png"
-                                            alt={`لوگو ${companyInfo.name}`}
-                                            width={40}
-                                            height={40}
-                                            className="w-10 h-10"
-                                        />
-                                        <div>
-                                            <h3 className="font-bold text-gray-900 dark:text-white">{companyInfo.name}</h3>
-                                            <p className="text-sm text-gray-500 dark:text-gray-400">{companyInfo.slogan}</p>
-                                        </div>
+                            <div className="p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                        <span className="text-white font-black text-xl">د</span>
                                     </div>
-                                    <button
-                                        onClick={toggleTheme}
-                                        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                                        aria-label={theme === 'dark' ? 'تغییر به حالت روشن' : 'تغییر به حالت تاریک'}
-                                    >
-                                        {theme === 'dark' ? (
-                                            <SunIcon className="w-5 h-5 text-yellow-500" />
-                                        ) : (
-                                            <MoonIcon className="w-5 h-5 text-gray-600" />
-                                        )}
-                                    </button>
+                                    <div>
+                                        <h2 className="text-lg font-bold">{companyInfo.name}</h2>
+                                        <p className="text-blue-100 text-sm">{companyInfo.slogan}</p>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Quick Contact */}
-                            <div className="p-4 bg-gray-50 dark:bg-gray-800/50">
-                                <div className="grid grid-cols-2 gap-3">
-                                    <a
-                                        href={`tel:${companyInfo.phone}`}
-                                        className="flex items-center justify-center gap-2 p-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
-                                    >
-                                        <PhoneIcon className="w-4 h-4" />
-                                        <span className="text-sm font-medium">تماس</span>
-                                    </a>
-                                    <a
-                                        href={`mailto:${companyInfo.email}`}
-                                        className="flex items-center justify-center gap-2 p-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors"
-                                    >
-                                        <EnvelopeIcon className="w-4 h-4" />
-                                        <span className="text-sm font-medium">ایمیل</span>
-                                    </a>
-                                </div>
+                            <div className="p-4 bg-gray-50 grid grid-cols-2 gap-4">
+                                <a
+                                    href={`tel:${companyInfo.phone}`}
+                                    className="flex items-center justify-center gap-2 bg-green-500 text-white py-3 rounded-lg font-bold"
+                                >
+                                    <PhoneIcon className="w-4 h-4" />
+                                    <span>تماس</span>
+                                </a>
+                                <a
+                                    href={`mailto:${companyInfo.email}`}
+                                    className="flex items-center justify-center gap-2 bg-blue-500 text-white py-3 rounded-lg font-bold"
+                                >
+                                    <EnvelopeIcon className="w-4 h-4" />
+                                    <span>ایمیل</span>
+                                </a>
                             </div>
 
                             {/* Navigation Items */}
                             <div className="p-4 space-y-2">
-                                {/* Home */}
-                                <Link
-                                    href="/public"
-                                    className={`
-                                        flex items-center gap-3 p-4 rounded-xl transition-all duration-300
-                                        ${isActiveLink('/')
-                                        ? 'bg-blue-600 text-white'
-                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                                    }
-                                    `}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    <HomeIcon className="w-5 h-5" />
-                                    <span className="font-medium">صفحه اصلی</span>
-                                    {isActiveLink('/') && <CheckBadgeIcon className="w-4 h-4 text-yellow-300 mr-auto" />}
-                                </Link>
-
-                                {/* Services */}
-                                <div className="space-y-2">
-                                    <button
-                                        onClick={() => setIsServicesOpen(!isServicesOpen)}
-                                        className="flex items-center justify-between w-full p-4 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <CogIcon className="w-5 h-5" />
-                                            <span className="font-medium">خدمات ما</span>
-                                        </div>
-                                        <ChevronDownIcon className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
-                                    </button>
-
-                                    {isServicesOpen && (
-                                        <div className="mr-4 space-y-1">
-                                            {servicesMenuData.map((category, categoryIndex) => (
-                                                <div key={categoryIndex} className="space-y-1">
-                                                    <div className="flex items-center gap-2 p-3 text-sm font-medium text-gray-600 dark:text-gray-400">
-                                                        <category.categoryIcon className="w-4 h-4" />
-                                                        <span>{category.category}</span>
-                                                    </div>
-                                                    {category.services.map((service, serviceIndex) => (
-                                                        <Link
-                                                            key={serviceIndex}
-                                                            href={service.href}
-                                                            className="flex items-center gap-3 p-3 mr-4 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                                                            onClick={() => setIsMobileMenuOpen(false)}
-                                                        >
-                                                            <service.icon className="w-4 h-4" />
-                                                            <span>{service.title}</span>
-                                                            {service.isNew && (
-                                                                <span className="px-2 py-0.5 bg-green-500 text-white text-xs rounded-full">
-                                                                    جدید
-                                                                </span>
-                                                            )}
-                                                        </Link>
-                                                    ))}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Other Navigation Items */}
-                                {navigationItems.slice(1).map((item, index) => (
+                                {navigationItems.map((item, index) => (
                                     <Link
                                         key={index}
                                         href={item.href}
-                                        className={`
-                                            flex items-center gap-3 p-4 rounded-xl transition-all duration-300
-                                            ${isActiveLink(item.href)
-                                            ? 'bg-blue-600 text-white'
-                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                                        }
-                                        `}
+                                        className={`flex items-center gap-3 p-4 rounded-lg transition-colors ${
+                                            isActiveLink(item.href)
+                                                ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
+                                                : 'text-gray-700 hover:bg-gray-100'
+                                        }`}
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         <item.icon className="w-5 h-5" />
                                         <span className="font-medium">{item.title}</span>
-                                        {isActiveLink(item.href) && <CheckBadgeIcon className="w-4 h-4 text-yellow-300 mr-auto" />}
+                                        {isActiveLink(item.href) && <CheckBadgeIcon className="w-4 h-4 text-blue-600 mr-auto" />}
                                     </Link>
                                 ))}
+
+                                {/* Services in Mobile */}
+                                <div className="border-t pt-4 mt-4">
+                                    <h3 className="font-bold text-gray-900 mb-3 px-4">خدمات ما</h3>
+                                    {servicesMenuData.map((category, categoryIndex) => (
+                                        <div key={categoryIndex} className="mb-4">
+                                            <h4 className="font-medium text-gray-700 px-4 py-2 bg-gray-50 rounded-lg mb-2">
+                                                {category.category}
+                                            </h4>
+                                            <div className="space-y-1 pr-4">
+                                                {category.services.map((service, serviceIndex) => (
+                                                    <Link
+                                                        key={serviceIndex}
+                                                        href={service.href}
+                                                        className="block p-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                    >
+                                                        <div className="flex items-center gap-2">
+                                                            <service.icon className="w-4 h-4" />
+                                                            <span className="text-sm">{service.title}</span>
+                                                            {service.featured && (
+                                                                <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                                                                    جدید
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Mobile CTA */}
-                            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+                            <div className="p-4 bg-gray-50 border-t">
                                 <Link
                                     href="/contact"
-                                    className="flex items-center justify-center gap-2 w-full p-4 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 font-medium"
+                                    className="block w-full text-center bg-gradient-to-r from-orange-500 to-red-500 text-white py-4 rounded-xl font-bold"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                                    <span>درخواست مشاوره رایگان</span>
+                                    درخواست مشاوره رایگان
                                 </Link>
-                                <div className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
+                                <p className="text-center text-xs text-gray-500 mt-2">
                                     {companyInfo.experienceYears} سال تجربه • {companyInfo.projectsCount} پروژه موفق
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </>
@@ -937,12 +761,7 @@ export default function Header({ className = '' }: HeaderProps) {
             </header>
 
             {/* Header Spacer */}
-            <div
-                className={`
-                    transition-all duration-500 ease-in-out
-                    ${isTopBarVisible ? 'h-[60px] lg:h-[92px]' : 'h-16 lg:h-20'}
-                `}
-            />
+            <div className="h-32"></div>
         </>
     );
 }
