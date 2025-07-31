@@ -1,14 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import {
     ArrowRightIcon,
     ChevronDownIcon,
     PhoneIcon,
     EnvelopeIcon,
-    MapPinIcon,
     ClockIcon,
     StarIcon,
     CheckCircleIcon,
@@ -16,30 +13,19 @@ import {
     CodeBracketIcon,
     MagnifyingGlassIcon,
     PhotoIcon,
-    DevicePhoneMobileIcon,
     ComputerDesktopIcon,
     ShoppingCartIcon,
     RocketLaunchIcon,
-    LightBulbIcon,
     TrophyIcon,
     HeartIcon,
     ShieldCheckIcon,
     CurrencyDollarIcon,
     ChatBubbleLeftRightIcon,
     UserGroupIcon,
-    GlobeAltIcon,
     SparklesIcon,
     FireIcon,
-    BoltIcon,
-    CommandLineIcon,
-    PaintBrushIcon,
     CogIcon,
     ChartBarIcon,
-    DocumentTextIcon,
-    AcademicCapIcon,
-    BuildingOfficeIcon,
-    EyeIcon,
-    ClipboardDocumentCheckIcon,
     CalendarDaysIcon
 } from '@heroicons/react/24/outline';
 
@@ -156,11 +142,9 @@ const processSteps = [
 ];
 
 export default function LandingPage() {
-    const [isVisible, setIsVisible] = useState({});
-    const [activeService, setActiveService] = useState(0);
+    const [ setIsVisible] = useState({});
+    const [ setActiveService] = useState(0);
     const [openFaq, setOpenFaq] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const observerRef = useRef();
 
     // Intersection Observer for animations
     useEffect(() => {
