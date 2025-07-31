@@ -214,8 +214,7 @@ const achievements = [
 
 export default function AboutUsPage() {
     const [activeTab, setActiveTab] = useState('story');
-    const [visibleElements, setVisibleElements] = useState(new Set());
-    const observerRef = useRef();
+    const [setVisibleElements] = useState(new Set());
 
     // Intersection Observer for animations
     useEffect(() => {

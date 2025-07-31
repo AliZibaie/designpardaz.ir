@@ -736,17 +736,17 @@ export default function Footer({ className = '' }: FooterProps) {
                                 </div>
 
                                 {/* Legal Links */}
-                                <div className="flex items-center gap-6 text-sm">
-                                    <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
-                                        حریم خصوصی
-                                    </Link>
-                                    <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
-                                        شرایط خدمات
-                                    </Link>
-                                    <Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">
-                                        نقشه سایت
-                                    </Link>
-                                </div>
+                                {/*<div className="flex items-center gap-6 text-sm">*/}
+                                {/*    <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">*/}
+                                {/*        حریم خصوصی*/}
+                                {/*    </Link>*/}
+                                {/*    <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">*/}
+                                {/*        شرایط خدمات*/}
+                                {/*    </Link>*/}
+                                {/*    <Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">*/}
+                                {/*        نقشه سایت*/}
+                                {/*    </Link>*/}
+                                {/*</div>*/}
 
                                 {/* Back to Top */}
                                 {showScrollTop && (
