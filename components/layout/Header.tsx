@@ -42,15 +42,15 @@ import {
 // Service Categories
 const servicesMenuData = [
     {
-        category: 'طراحی و توسعه وب',
-        categorySlug: 'web-development',
-        categoryIcon: CodeBracketIcon,
-        categoryDescription: 'خدمات کامل طراحی و توسعه وب‌سایت حرفه‌ای',
+        category: 'طراحی وب‌سایت',
+        categorySlug: 'web-design',
+        categoryIcon: ComputerDesktopIcon,
+        categoryDescription: 'طراحی و توسعه وب‌سایت حرفه‌ای',
         services: [
             {
                 title: 'طراحی سایت شرکتی',
                 href: '/services/web-design/corporate',
-                description: 'طراحی وب‌سایت حرفه‌ای برای شرکت‌ها و کسب‌وکارها',
+                description: 'طراحی وب‌سایت حرفه‌ای برای شرکت‌ها',
                 icon: BuildingOfficeIcon,
                 featured: true,
                 price: 'از ۵ میلیون تومان'
@@ -58,7 +58,7 @@ const servicesMenuData = [
             {
                 title: 'طراحی فروشگاه اینترنتی',
                 href: '/services/web-design/ecommerce',
-                description: 'فروشگاه آنلاین با امکانات کامل درگاه پرداخت',
+                description: 'فروشگاه آنلاین با درگاه پرداخت',
                 icon: ShoppingCartIcon,
                 featured: true,
                 price: 'از ۸ میلیون تومان'
@@ -66,31 +66,23 @@ const servicesMenuData = [
             {
                 title: 'طراحی سایت شخصی',
                 href: '/services/web-design/personal',
-                description: 'وب‌سایت شخصی و پورتفولیو حرفه‌ای',
+                description: 'پورتفولیو و وب‌سایت شخصی',
                 icon: UserGroupIcon,
                 featured: false,
                 price: 'از ۲ میلیون تومان'
-            },
-            {
-                title: 'طراحی وب اپلیکیشن',
-                href: '/services/web-design/webapp',
-                description: 'توسعه اپلیکیشن وب پیشرفته و تعاملی',
-                icon: DevicePhoneMobileIcon,
-                featured: true,
-                price: 'از ۱۲ میلیون تومان'
             }
         ]
     },
     {
         category: 'سئو و بهینه‌سازی',
-        categorySlug: 'seo-optimization',
+        categorySlug: 'seo',
         categoryIcon: MagnifyingGlassIcon,
-        categoryDescription: 'خدمات تخصصی سئو و بهینه‌سازی موتورهای جستجو',
+        categoryDescription: 'بهینه‌سازی موتورهای جستجو',
         services: [
             {
                 title: 'سئو تکنیکال',
                 href: '/services/seo/technical',
-                description: 'بهینه‌سازی فنی وب‌سایت برای موتورهای جستجو',
+                description: 'بهینه‌سازی فنی وب‌سایت',
                 icon: CogIcon,
                 featured: true,
                 price: 'از ۳ میلیون تومان'
@@ -98,7 +90,7 @@ const servicesMenuData = [
             {
                 title: 'تولید محتوای سئو',
                 href: '/services/seo/content',
-                description: 'تولید محتوای بهینه‌شده برای کلمات کلیدی',
+                description: 'محتوای بهینه‌شده',
                 icon: DocumentTextIcon,
                 featured: true,
                 price: 'از ۱.۵ میلیون تومان'
@@ -106,55 +98,39 @@ const servicesMenuData = [
             {
                 title: 'سئو محلی',
                 href: '/services/seo/local',
-                description: 'بهینه‌سازی برای جستجوهای محلی و منطقه‌ای',
+                description: 'بهینه‌سازی جستجوهای محلی',
                 icon: MapPinIcon,
                 featured: false,
                 price: 'از ۲ میلیون تومان'
-            },
-            {
-                title: 'تحلیل و گزارش سئو',
-                href: '/services/seo/analytics',
-                description: 'تحلیل عملکرد و گزارش‌گیری تخصصی سئو',
-                icon: ChartBarIcon,
-                featured: true,
-                price: 'از ۱ میلیون تومان'
             }
         ]
     },
     {
-        category: 'طراحی گرافیک و برندینگ',
-        categorySlug: 'graphic-branding',
+        category: 'طراحی گرافیک',
+        categorySlug: 'graphic',
         categoryIcon: PhotoIcon,
-        categoryDescription: 'خدمات کامل طراحی گرافیک و هویت بصری',
+        categoryDescription: 'طراحی گرافیک و هویت بصری',
         services: [
             {
-                title: 'طراحی لوگو و هویت بصری',
-                href: '/services/graphic/logo-identity',
-                description: 'طراحی لوگو حرفه‌ای و پکیج هویت بصری کامل',
+                title: 'طراحی لوگو',
+                href: '/services/graphic/logo',
+                description: 'طراحی لوگو و هویت بصری',
                 icon: StarIcon,
                 featured: true,
                 price: 'از ۱.۵ میلیون تومان'
             },
             {
-                title: 'طراحی کاتالوگ و بروشور',
-                href: '/services/graphic/catalog-brochure',
-                description: 'طراحی مواد تبلیغاتی چاپی حرفه‌ای',
+                title: 'طراحی بروشور',
+                href: '/services/graphic/brochure',
+                description: 'کاتالوگ و بروشور حرفه‌ای',
                 icon: DocumentTextIcon,
                 featured: false,
                 price: 'از ۸۰۰ هزار تومان'
             },
             {
-                title: 'طراحی بنر و پوستر',
-                href: '/services/graphic/banner-poster',
-                description: 'طراحی بنرهای تبلیغاتی و پوسترهای حرفه‌ای',
-                icon: PhotoIcon,
-                featured: false,
-                price: 'از ۵۰۰ هزار تومان'
-            },
-            {
                 title: 'طراحی UI/UX',
                 href: '/services/graphic/ui-ux',
-                description: 'طراحی رابط کاربری و تجربه کاربری',
+                description: 'رابط و تجربه کاربری',
                 icon: PaintBrushIcon,
                 featured: true,
                 price: 'از ۴ میلیون تومان'
@@ -162,7 +138,10 @@ const servicesMenuData = [
         ]
     }
 ];
-
+const headerStyle = {
+    height: 'auto',
+    minHeight: '60px'
+};
 // Company Information
 const companyInfo = {
     name: 'دیزاین پرداز',
@@ -315,14 +294,15 @@ export default function Header({ className = '' }: HeaderProps) {
 
             <header
                 ref={headerRef}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${className}`}
+                style={headerStyle}
+                className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${className}`}
                 role="banner"
                 aria-label="سایت اصلی ناوبری"
             >
                 {/* Top Dark Bar */}
                 <div className="bg-gradient-to-r from-slate-800 via-gray-900 to-slate-800 text-white border-b border-gray-700">
                     <div className="container mx-auto px-4">
-                        <div className="flex justify-between items-center py-3 text-sm">
+                        <div className="flex justify-between items-center py-2 text-sm">
 
                             {/* Contact Information */}
                             <div className="hidden lg:flex items-center gap-8">
@@ -383,11 +363,11 @@ export default function Header({ className = '' }: HeaderProps) {
 
                 {/* Main Navigation with Animation */}
                 <nav className={`
-                    bg-gradient-to-r from-slate-700 via-gray-800 to-slate-700 
-                    transition-all duration-500 ease-in-out
-                    ${isScrolled ? 'shadow-2xl backdrop-blur-md bg-opacity-95' : ''}
-                    relative overflow-hidden
-                `}>
+    bg-gradient-to-r from-slate-700 via-gray-800 to-slate-700 
+    transition-all duration-500 ease-in-out
+    ${isScrolled ? 'shadow-2xl backdrop-blur-md bg-opacity-95' : ''}
+    relative overflow-visible
+`}>
 
                     {/* Animated Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
@@ -417,8 +397,8 @@ export default function Header({ className = '' }: HeaderProps) {
                         ))}
                     </div>
 
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="flex items-center justify-between py-4">
+                    <div className="container mx-auto px-4 relative z-10 overflow-visible">
+                        <div className="flex items-center justify-between py-2">
 
                             {/* Brand Logo */}
                             <Link
@@ -473,7 +453,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
                                 {/* Services Dropdown */}
                                 <div
-                                    className="relative"
+                                    className="relative static lg:relative"
                                     onMouseEnter={handleServicesMouseEnter}
                                     onMouseLeave={handleServicesMouseLeave}
                                 >
@@ -489,7 +469,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
                                     {/* Mega Menu */}
                                     {isServicesOpen && (
-                                        <div className="absolute top-full left-0 mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 animate-fadeInUp">
+                                        <div className="absolute top-full mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-[100] animate-fadeInUp" style={{left: '50%', transform: 'translateX(-50%)'}}>
                                             {/* Menu Header */}
                                             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
                                                 <div className="flex items-center gap-3 mb-3">
@@ -761,7 +741,12 @@ export default function Header({ className = '' }: HeaderProps) {
             </header>
 
             {/* Header Spacer */}
-            <div className="h-32"></div>
+                <style jsx>{`
+  body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+`}</style>
         </>
     );
 }
