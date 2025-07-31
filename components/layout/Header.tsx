@@ -469,7 +469,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
                                     {/* Mega Menu */}
                                     {isServicesOpen && (
-                                        <div className="absolute top-full mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-[100] animate-fadeInUp" style={{left: '50%', transform: 'translateX(-50%)'}}>
+                                        <div className="absolute top-full mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-[100]" style={{left: '50%', transform: 'translateX(-50%)'}}>
                                             {/* Menu Header */}
                                             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
                                                 <div className="flex items-center gap-3 mb-3">
