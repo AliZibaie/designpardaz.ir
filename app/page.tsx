@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import {
     ArrowRightIcon,
     ChevronDownIcon,
@@ -142,9 +142,9 @@ const processSteps = [
 ];
 
 export default function LandingPage() {
-    const [ setIsVisible] = useState({});
-    const [ setActiveService] = useState(0);
-    const [openFaq, setOpenFaq] = useState(null);
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+    const [visibleElements, setIsVisible] = useState<Set<string>>(new Set());
 
     // Intersection Observer for animations
     useEffect(() => {
@@ -168,6 +168,11 @@ export default function LandingPage() {
         return () => observer.disconnect();
     }, []);
 
+    const [visibleServices, setVisibleServices] = useState<Set<string>>(new Set());
+
+// برای شمارش خودکار و چرخش index خدمات
+    const [activeService, setActiveService] = useState<number>(0);
+    // const [ setActiveService] = useState<Set<string>>(new Set());
     // Auto-rotate services
     useEffect(() => {
         const interval = setInterval(() => {
@@ -178,46 +183,6 @@ export default function LandingPage() {
 
     return (
         <>
-            {/* SEO Meta Tags */}
-            <head>
-                <title>دیزاین پرداز - طراحی وب حرفه‌ای و سئو | بهترین شرکت طراحی سایت</title>
-                <meta name="description" content="دیزاین پرداز با ۸ سال تجربه، متخصص طراحی وب، سئو و طراحی گرافیک. ✅ قیمت مناسب ✅ کیفیت بالا ✅ پشتیبانی ۲۴/۷" />
-                <meta name="keywords" content="طراحی سایت, طراحی وب, سئو, بهینه سازی سایت, طراحی گرافیک, فروشگاه اینترنتی" />
-                <meta property="og:title" content="دیزاین پرداز - بهترین شرکت طراحی سایت و سئو" />
-                <meta property="og:description" content="۲۵۰+ پروژه موفق، ۱۸۰+ مشتری راضی. طراحی سایت حرفه‌ای از ۵ میلیون تومان" />
-                <meta property="og:image" content="/images/og-image.jpg" />
-                <link rel="canonical" href="https://designpardaz.ir" />
-
-                {/* Structured Data */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "دیزاین پرداز",
-                        "description": companyData.description,
-                        "url": "https://designpardaz.ir",
-                        "telephone": companyData.phone,
-                        "email": companyData.email,
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressCountry": "IR",
-                            "addressLocality": "Tehran"
-                        },
-                        "hasOfferCatalog": {
-                            "@type": "OfferCatalog",
-                            "name": "خدمات طراحی وب",
-                            "itemListElement": services.map(service => ({
-                                "@type": "Offer",
-                                "itemOffered": {
-                                    "@type": "Service",
-                                    "name": service.title,
-                                    "description": service.description
-                                }
-                            }))
-                        }
-                    })}
-                </script>
-            </head>
 
             <div className="min-h-screen bg-white">
 
@@ -282,7 +247,8 @@ export default function LandingPage() {
                                             experience: { label: 'سال تجربه', icon: CheckCircleIcon, color: 'text-green-400' },
                                             satisfaction: { label: 'رضایت', icon: StarIcon, color: 'text-purple-400' }
                                         };
-                                        const config = statConfig[key];
+                                        const config = statConfig[key as keyof typeof statConfig];
+
                                         const IconComponent = config.icon;
 
                                         return (

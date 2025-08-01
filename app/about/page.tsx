@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
     CheckCircleIcon,
@@ -214,7 +214,8 @@ const achievements = [
 
 export default function AboutUsPage() {
     const [activeTab, setActiveTab] = useState('story');
-    const [setVisibleElements] = useState(new Set());
+    const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set());
+
 
     // Intersection Observer for animations
     useEffect(() => {
@@ -544,7 +545,7 @@ export default function AboutUsPage() {
 
                             {/* Team Grid */}
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                                {teamMembers.map((member, index) => (
+                                {teamMembers.map((member) => (
                                     <div
                                         key={member.id}
                                         className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"

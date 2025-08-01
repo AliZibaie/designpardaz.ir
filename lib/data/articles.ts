@@ -1,4 +1,3 @@
-// data/articles.ts
 import {
     ComputerDesktopIcon,
     MagnifyingGlassIcon,
@@ -6,31 +5,8 @@ import {
     DevicePhoneMobileIcon,
     ShoppingCartIcon,
     CodeBracketIcon,
-    RocketLaunchIcon,
-    LightBulbIcon,
-    CogIcon,
-    ChartBarIcon,
-    ShieldCheckIcon,
-    GlobeAltIcon,
-    BoltIcon,
-    StarIcon,
-    FireIcon,
-    TrophyIcon,
-    AcademicCapIcon,
-    DocumentTextIcon,
-    PhotoIcon,
-    VideoCameraIcon,
     MegaphoneIcon,
-    WrenchScrewdriverIcon,
     BuildingOfficeIcon,
-    UserGroupIcon,
-    CurrencyDollarIcon,
-    CalendarDaysIcon,
-    ClockIcon,
-    EyeIcon,
-    HandRaisedIcon,
-    HeartIcon,
-    ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
 
 export interface Article {
@@ -44,7 +20,7 @@ export interface Article {
         name: string;
         slug: string;
         color: string;
-        icon: any;
+        icon: unknown;
     };
     tags: string[];
     author: {
@@ -71,7 +47,7 @@ export interface Article {
         keywords: string[];
         canonicalUrl: string;
         ogImage: string;
-        structuredData?: any;
+        structuredData?: unknown;
     };
     image: {
         main: string;

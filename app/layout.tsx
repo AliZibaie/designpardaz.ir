@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import type { Metadata } from "next/types";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import Head from 'next/head';
 import "./globals.css";
 
-const vazirmatn = Vazirmatn({
-    subsets: ["arabic"],
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-    display: "swap",
-    variable: "--font-vazirmatn",
-});
 
 export const metadata: Metadata = {
     title: {
@@ -218,8 +212,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="fa" dir="rtl" className={vazirmatn.variable} suppressHydrationWarning>
-        <head>
+        <html lang="fa" dir="rtl" suppressHydrationWarning>
+        <Head>
             {/* DNS Prefetch & Preconnect for Performance */}
             <link rel="dns-prefetch" href="//fonts.googleapis.com" />
             <link rel="dns-prefetch" href="//designpardaz.ir" />
@@ -451,8 +445,8 @@ export default function RootLayout({
                     })
                 }}
             />
-        </head>
-        <body className={`${vazirmatn.className} antialiased min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}>
+        </Head>
+        <body className={`antialiased Vazirmatn min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`} suppressHydrationWarning>
         <ThemeProvider
             attribute="class"
             defaultTheme="light"

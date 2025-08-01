@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
     PhoneIcon,
     EnvelopeIcon,
@@ -11,8 +10,6 @@ import {
     ChatBubbleLeftRightIcon,
     PaperAirplaneIcon,
     CheckCircleIcon,
-    ExclamationTriangleIcon,
-    GlobeAltIcon,
     BuildingOfficeIcon,
     UserIcon,
     DevicePhoneMobileIcon,
@@ -20,29 +17,12 @@ import {
     MagnifyingGlassIcon,
     PaintBrushIcon,
     ShoppingCartIcon,
-    CodeBracketIcon,
-    CurrencyDollarIcon,
-    CalendarDaysIcon,
-    DocumentTextIcon,
     StarIcon,
     HeartIcon,
-    SparklesIcon,
     BoltIcon,
     RocketLaunchIcon,
     LightBulbIcon,
-    TrophyIcon,
-    ShieldCheckIcon,
-    HandRaisedIcon,
     FireIcon,
-    BeakerIcon,
-    WrenchScrewdriverIcon,
-    CogIcon,
-    MegaphoneIcon,
-    ChartBarIcon,
-    AcademicCapIcon,
-    VideoCameraIcon,
-    SpeakerWaveIcon,
-    PlayCircleIcon
 } from '@heroicons/react/24/outline';
 
 // Contact Information
@@ -209,9 +189,9 @@ export default function ContactPage() {
     const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [selectedService, setSelectedService] = useState('');
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const [visibleElements, setVisibleElements] = useState(new Set());
+    // const [ setVisibleElements] = useState(new Set());
     const formRef = useRef<HTMLFormElement>(null);
-
+    const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set());
     // Intersection Observer for animations
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -273,39 +253,6 @@ export default function ContactPage() {
 
     return (
         <>
-            {/* SEO Meta Tags */}
-            <head>
-                <title>تماس با ما - دیزاین پرداز | مشاوره رایگان طراحی وب</title>
-                <meta name="description" content="با تیم دیزاین پرداز تماس بگیرید. مشاوره رایگان، پاسخ سریع، خدمات ۲۴/۷. تلفن: ۰۲۱-۳۳۳۳-۴۴۴۴" />
-                <meta name="keywords" content="تماس دیزاین پرداز, مشاوره رایگان طراحی وب, شماره تماس طراحی سایت, آدرس شرکت طراحی وب" />
-                <meta property="og:title" content="تماس با دیزاین پرداز - مشاوره رایگان ۲۴/۷" />
-                <meta property="og:description" content="همین الان با متخصصان دیزاین پرداز تماس بگیرید و مشاوره رایگان دریافت کنید" />
-                <link rel="canonical" href="https://designpardaz.ir/contact" />
-
-                {/* Structured Data */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "ContactPage",
-                        "mainEntity": {
-                            "@type": "Organization",
-                            "name": "دیزاین پرداز",
-                            "telephone": contactInfo.phone.number,
-                            "email": contactInfo.email.main,
-                            "address": {
-                                "@type": "PostalAddress",
-                                "streetAddress": contactInfo.address.full,
-                                "addressLocality": contactInfo.address.city,
-                                "addressCountry": "IR"
-                            },
-                            "openingHours": [
-                                "Sa-We 09:00-18:00",
-                                "Th 09:00-14:00"
-                            ]
-                        }
-                    })}
-                </script>
-            </head>
 
             <div className="min-h-screen bg-white">
 

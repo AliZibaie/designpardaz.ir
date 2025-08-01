@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
     Bars3Icon,
@@ -14,8 +13,6 @@ import {
     PaintBrushIcon,
     MagnifyingGlassIcon,
     PhotoIcon,
-    CodeBracketIcon,
-    DevicePhoneMobileIcon,
     ComputerDesktopIcon,
     ShoppingCartIcon,
     ChatBubbleLeftRightIcon,
@@ -25,12 +22,10 @@ import {
     CheckBadgeIcon,
     ArrowRightIcon,
     BuildingOfficeIcon,
-    AcademicCapIcon,
     DocumentTextIcon,
     HomeIcon,
     InformationCircleIcon,
     NewspaperIcon,
-    ChartBarIcon,
     CogIcon,
     ShieldCheckIcon,
     TrophyIcon,
@@ -194,11 +189,12 @@ export default function Header({ className = '' }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
-    const [activeServiceCategory, setActiveServiceCategory] = useState(0);
+    // const [activeServiceCategory, setActiveServiceCategory] = useState(0);
 
     // Refs
     const headerRef = useRef<HTMLElement>(null);
-    const servicesTimeoutRef = useRef<NodeJS.Timeout>();
+    const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
     const mobileMenuRef = useRef<HTMLDivElement>(null);
 
     // Hooks
