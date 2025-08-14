@@ -571,7 +571,7 @@ export default function HeroSection() {
                                                             <span className="text-green-200 font-bold text-xs px-2 py-1 bg-green-500/30 rounded-full border border-green-400/20"
                                                                   role="status" aria-label="خدمات طراحی سایت فعال">فعال</span>
                                                         </div>
-                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="پیشرفت پروژه های طراحی سایت">
+                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100} aria-label="پیشرفت پروژه های طراحی سایت">
                                                             <div className="bg-green-400 h-2 rounded-full w-full animate-pulse shadow-sm"></div>
                                                         </div>
                                                         <meta itemProp="serviceType" content="طراحی وب سایت واکنش‌گرا" />
@@ -591,7 +591,7 @@ export default function HeroSection() {
                                                             <span className="text-blue-200 font-bold text-xs px-2 py-1 bg-blue-500/30 rounded-full border border-blue-400/20"
                                                                   role="status" aria-label="خدمات برنامه نویسی فعال">فعال</span>
                                                         </div>
-                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="پیشرفت پروژه های برنامه نویسی">
+                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow={80} aria-valuemin={0} aria-valuemax={100} aria-label="پیشرفت پروژه های برنامه نویسی">
                                                             <div className="bg-blue-400 h-2 rounded-full w-4/5 animate-pulse shadow-sm"></div>
                                                         </div>
                                                         <meta itemProp="serviceType" content="برنامه نویسی وب و اپلیکیشن" />
@@ -611,7 +611,7 @@ export default function HeroSection() {
                                                             <span className="text-purple-200 font-bold text-xs px-2 py-1 bg-purple-500/30 rounded-full border border-purple-400/20"
                                                                   role="status" aria-label="خدمات طراحی گرافیک فعال">فعال</span>
                                                         </div>
-                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="پیشرفت پروژه های طراحی گرافیک">
+                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100} aria-label="پیشرفت پروژه های طراحی گرافیک">
                                                             <div className="bg-purple-400 h-2 rounded-full w-3/4 animate-pulse shadow-sm"></div>
                                                         </div>
                                                         <meta itemProp="serviceType" content="طراحی گرافیکی و هویت بصری" />
@@ -631,7 +631,7 @@ export default function HeroSection() {
                                                             <span className="text-sky-200 font-bold text-xs px-2 py-1 bg-sky-500/30 rounded-full border border-sky-400/20"
                                                                   role="status" aria-label="خدمات طراحی رابط کاربری فعال">فعال</span>
                                                         </div>
-                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="پیشرفت پروژه های طراحی UI/UX">
+                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow={90} aria-valuemin={0} aria-valuemax={100} aria-label="پیشرفت پروژه های طراحی UI/UX">
                                                             <div className="bg-sky-400 h-2 rounded-full w-[90%] animate-pulse shadow-sm"></div>
                                                         </div>
                                                         <meta itemProp="serviceType" content="طراحی رابط کاربری UI/UX" />
@@ -651,7 +651,7 @@ export default function HeroSection() {
                                                             <span className="text-emerald-200 font-bold text-xs px-2 py-1 bg-emerald-500/30 rounded-full border border-emerald-400/20"
                                                                   role="status" aria-label="خدمات سئو و بهینه سازی فعال">فعال</span>
                                                         </div>
-                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="پیشرفت پروژه های سئو و بهینه سازی">
+                                                        <div className="mt-2 bg-white/20 rounded-full h-2" role="progressbar" aria-valuenow={95} aria-valuemin={0} aria-valuemax={100} aria-label="پیشرفت پروژه های سئو و بهینه سازی">
                                                             <div className="bg-emerald-400 h-2 rounded-full w-[95%] animate-pulse shadow-sm"></div>
                                                         </div>
                                                         <meta itemProp="serviceType" content="سئو و بهینه‌سازی موتورهای جستجو" />
