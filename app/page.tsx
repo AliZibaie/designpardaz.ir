@@ -7,14 +7,8 @@ import {
     PhoneIcon,
     EnvelopeIcon,
     ClockIcon,
-    StarIcon,
     CheckCircleIcon,
-    PlayCircleIcon,
     CodeBracketIcon,
-    MagnifyingGlassIcon,
-    PhotoIcon,
-    ComputerDesktopIcon,
-    ShoppingCartIcon,
     RocketLaunchIcon,
     TrophyIcon,
     HeartIcon,
@@ -22,12 +16,13 @@ import {
     CurrencyDollarIcon,
     ChatBubbleLeftRightIcon,
     UserGroupIcon,
-    SparklesIcon,
-    FireIcon,
     CogIcon,
     ChartBarIcon,
     CalendarDaysIcon
 } from '@heroicons/react/24/outline';
+
+import HeroSection from '../components/home/HeroSection';
+import ServicesSection from '../components/home/ServicesSection';
 
 // Company Data for SEO
 const companyData = {
@@ -45,49 +40,6 @@ const companyData = {
     }
 };
 
-// Services Data
-const services = [
-    {
-        id: 1,
-        title: 'طراحی سایت',
-        description: 'طراحی وب‌سایت حرفه‌ای و ریسپانسیو با جدیدترین تکنولوژی‌ها',
-        icon: ComputerDesktopIcon,
-        price: 'از ۵ میلیون تومان',
-        features: ['طراحی ریسپانسیو', 'بهینه‌سازی سرعت', 'پنل مدیریت', 'پشتیبانی ۶ ماهه'],
-        gradient: 'from-blue-600 to-purple-600',
-        popular: false
-    },
-    {
-        id: 2,
-        title: 'سئو و بهینه‌سازی',
-        description: 'بهینه‌سازی کامل سایت برای موتورهای جستجو و افزایش ترافیک',
-        icon: MagnifyingGlassIcon,
-        price: 'از ۳ میلیون تومان',
-        features: ['سئو تکنیکال', 'تولید محتوا', 'گزارش‌گیری', 'پیگیری رتبه'],
-        gradient: 'from-green-600 to-blue-600',
-        popular: true
-    },
-    {
-        id: 3,
-        title: 'طراحی گرافیک',
-        description: 'طراحی لوگو، هویت بصری و تمام نیازهای گرافیکی شما',
-        icon: PhotoIcon,
-        price: 'از ۱.۵ میلیون تومان',
-        features: ['طراحی لوگو', 'هویت بصری', 'بنر و پوستر', 'کاتالوگ'],
-        gradient: 'from-pink-600 to-red-600',
-        popular: false
-    },
-    {
-        id: 4,
-        title: 'فروشگاه اینترنتی',
-        description: 'ساخت فروشگاه آنلاین پیشرفته با درگاه پرداخت معتبر',
-        icon: ShoppingCartIcon,
-        price: 'از ۸ میلیون تومان',
-        features: ['درگاه پرداخت', 'مدیریت انبار', 'پنل فروشنده', 'اپلیکیشن موبایل'],
-        gradient: 'from-orange-600 to-yellow-600',
-        popular: false
-    }
-];
 
 // FAQ Data
 const faqs = [
@@ -168,18 +120,10 @@ export default function LandingPage() {
         return () => observer.disconnect();
     }, []);
 
-    const [visibleServices, setVisibleServices] = useState<Set<string>>(new Set());
 
-// برای شمارش خودکار و چرخش index خدمات
-    const [activeService, setActiveService] = useState<number>(0);
-    // const [ setActiveService] = useState<Set<string>>(new Set());
-    // Auto-rotate services
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveService(prev => (prev + 1) % services.length);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, []);
+
+
+
 
     return (
         <>
@@ -187,280 +131,9 @@ export default function LandingPage() {
             <div className="min-h-screen bg-white">
 
                 {/* Hero Section */}
-                <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-
-                    {/* Background Animation */}
-                    <div className="absolute inset-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-gradient-x"></div>
-                        <div className="absolute inset-0">
-                            {[...Array(50)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="absolute animate-float"
-                                    style={{
-                                        left: `${Math.random() * 100}%`,
-                                        top: `${Math.random() * 100}%`,
-                                        animationDelay: `${Math.random() * 3}s`,
-                                        animationDuration: `${3 + Math.random() * 4}s`
-                                    }}
-                                >
-                                    <div className="w-2 h-2 bg-white/20 rounded-full blur-sm"></div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-                            {/* Content */}
-                            <div className="text-center lg:text-right space-y-8">
-                                <div className="space-y-4">
-                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium">
-                                        <FireIcon className="w-4 h-4" />
-                                        <span>۱ نمره در ایران</span>
-                                        <StarIcon className="w-4 h-4 fill-current" />
-                                    </div>
-
-                                    <h1 className="text-4xl lg:text-6xl font-black text-white leading-tight">
-                                        طراحی وب
-                                        <span className="block text-transparent bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text">
-                                            حرفه‌ای
-                                        </span>
-                                        که فروش می‌کند
-                                    </h1>
-
-                                    <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                                        با <strong className="text-orange-400">۸ سال تجربه</strong> و
-                                        <strong className="text-pink-400"> ۲۵۰+ پروژه موفق</strong>،
-                                        سایتی بسازید که مشتریان را جذب کرده و فروش شما را
-                                        <strong className="text-purple-400"> ۳ برابر</strong> افزایش دهد.
-                                    </p>
-                                </div>
-
-                                {/* Stats */}
-                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                                    {Object.entries(companyData.stats).map(([key, value], index) => {
-                                        const statConfig = {
-                                            projects: { label: 'پروژه موفق', icon: TrophyIcon, color: 'text-yellow-400' },
-                                            clients: { label: 'مشتری راضی', icon: HeartIcon, color: 'text-red-400' },
-                                            experience: { label: 'سال تجربه', icon: CheckCircleIcon, color: 'text-green-400' },
-                                            satisfaction: { label: 'رضایت', icon: StarIcon, color: 'text-purple-400' }
-                                        };
-                                        const config = statConfig[key as keyof typeof statConfig];
-
-                                        const IconComponent = config.icon;
-
-                                        return (
-                                            <div key={index} className="text-center">
-                                                <div className={`${config.color} mb-2`}>
-                                                    <IconComponent className="w-8 h-8 mx-auto mb-1" />
-                                                </div>
-                                                <div className="text-2xl lg:text-3xl font-bold text-white mb-1">{value}</div>
-                                                <div className="text-sm text-gray-400">{config.label}</div>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-
-                                {/* CTA Buttons */}
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                    <button className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                                        <span className="flex items-center gap-2">
-                                            <RocketLaunchIcon className="w-5 h-5 group-hover:animate-bounce" />
-                                            شروع پروژه رایگان
-                                            <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </span>
-                                        <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-pink-600 rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity -z-10"></div>
-                                    </button>
-
-                                    <button className="group px-8 py-4 border-2 border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                                        <span className="flex items-center gap-2">
-                                            <PlayCircleIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                            نمونه کارها
-                                        </span>
-                                    </button>
-                                </div>
-
-                                {/* Trust Indicators */}
-                                <div className="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-400">
-                                    <div className="flex items-center gap-1">
-                                        <ShieldCheckIcon className="w-4 h-4 text-green-400" />
-                                        <span>گارانتی کیفیت</span>
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <ClockIcon className="w-4 h-4 text-blue-400" />
-                                        <span>پشتیبانی ۲۴/۷</span>
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                        <CurrencyDollarIcon className="w-4 h-4 text-yellow-400" />
-                                        <span>قیمت مناسب</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Hero Visual */}
-                            <div className="relative">
-                                <div className="relative mx-auto max-w-lg">
-                                    {/* Main Device */}
-                                    <div className="relative transform rotate-3 hover:rotate-0 transition-transform duration-700">
-                                        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 shadow-2xl border border-gray-700">
-                                            <div className="bg-gradient-to-br from-orange-400 via-pink-400 to-purple-400 rounded-2xl p-6 text-white">
-                                                <div className="space-y-4">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                                            <RocketLaunchIcon className="w-6 h-6" />
-                                                        </div>
-                                                        <div>
-                                                            <h3 className="font-bold">دیزاین پرداز</h3>
-                                                            <p className="text-sm opacity-90">طراحی وب حرفه‌ای</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="space-y-3">
-                                                        <div className="bg-white/10 rounded-lg p-3">
-                                                            <div className="flex items-center justify-between">
-                                                                <span className="text-sm">میزان فروش</span>
-                                                                <span className="text-green-300">+۲۴۵%</span>
-                                                            </div>
-                                                            <div className="mt-2 bg-white/20 rounded-full h-2">
-                                                                <div className="bg-green-400 h-2 rounded-full w-3/4 animate-pulse"></div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="bg-white/10 rounded-lg p-3">
-                                                            <div className="flex items-center justify-between">
-                                                                <span className="text-sm">بازدیدکنندگان</span>
-                                                                <span className="text-blue-300">+۱۸۹%</span>
-                                                            </div>
-                                                            <div className="mt-2 bg-white/20 rounded-full h-2">
-                                                                <div className="bg-blue-400 h-2 rounded-full w-4/5 animate-pulse"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Floating Elements */}
-                                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
-                                        <StarIcon className="w-8 h-8 text-white fill-current" />
-                                    </div>
-
-                                    <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce" style={{animationDelay: '1s'}}>
-                                        <CheckCircleIcon className="w-8 h-8 text-white" />
-                                    </div>
-
-                                    <div className="absolute top-1/2 -left-8 w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-xl flex items-center justify-center shadow-lg animate-pulse">
-                                        <HeartIcon className="w-6 h-6 text-white fill-current" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Scroll Indicator */}
-                    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                        <ChevronDownIcon className="w-6 h-6 text-white/60" />
-                    </div>
-                </section>
-
+                <HeroSection />
                 {/* Services Section */}
-                <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-white" data-animate>
-                    <div className="container mx-auto px-4">
-
-                        {/* Section Header */}
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-medium mb-4">
-                                <SparklesIcon className="w-4 h-4" />
-                                <span>خدمات ما</span>
-                            </div>
-                            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
-                                خدماتی که
-                                <span className="text-transparent bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text"> کسب‌وکار </span>
-                                شما را متحول می‌کند
-                            </h2>
-                            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                از طراحی وب گرفته تا سئو و بازاریابی دیجیتال، تمام نیازهای آنلاین کسب‌وکار شما را پوشش می‌دهیم
-                            </p>
-                        </div>
-
-                        {/* Services Grid */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {services.map((service, index) => (
-                                <div
-                                    key={service.id}
-                                    className={`group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 hover:border-transparent ${
-                                        service.popular ? 'border-orange-200 ring-4 ring-orange-100' : 'border-gray-100'
-                                    }`}
-                                    onMouseEnter={() => setActiveService(index)}
-                                >
-                                    {/* Popular Badge */}
-                                    {service.popular && (
-                                        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                            <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                                                محبوب‌ترین
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Service Icon */}
-                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                        <service.icon className="w-8 h-8 text-white" />
-                                    </div>
-
-                                    {/* Service Content */}
-                                    <div className="space-y-4">
-                                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-pink-500 group-hover:bg-clip-text transition-all duration-300">
-                                            {service.title}
-                                        </h3>
-
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {service.description}
-                                        </p>
-
-                                        <div className="text-2xl font-black text-orange-500">
-                                            {service.price}
-                                        </div>
-
-                                        {/* Features List */}
-                                        <ul className="space-y-2">
-                                            {service.features.map((feature, idx) => (
-                                                <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                                                    <CheckCircleIcon className="w-4 h-4 text-green-500" />
-                                                    <span>{feature}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        {/* CTA Button */}
-                                        <button className={`w-full py-3 rounded-xl font-bold transition-all duration-300 ${
-                                            service.popular
-                                                ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:from-orange-600 hover:to-pink-600 shadow-lg hover:shadow-xl'
-                                                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                                        }`}>
-                                            شروع پروژه
-                                        </button>
-                                    </div>
-
-                                    {/* Hover Effect Background */}
-                                    <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`}></div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Bottom CTA */}
-                        <div className="text-center mt-12">
-                            <p className="text-gray-600 mb-6">نمی‌دانید کدام سرویس برای شما مناسب است؟</p>
-                            <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                                مشاوره رایگان دریافت کنید
-                            </button>
-                        </div>
-                    </div>
-                </section>
-
+                <ServicesSection />
                 {/* Process Section */}
                 <section className="py-20 bg-gradient-to-br from-slate-900 to-gray-900 text-white" data-animate>
                     <div className="container mx-auto px-4">
