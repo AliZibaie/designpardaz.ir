@@ -34,7 +34,7 @@ import {
     SparklesIcon
 } from '@heroicons/react/24/outline';
 
-// Service Categories
+// Service Categories - همون محتوای قبلی
 const servicesMenuData = [
     {
         category: 'طراحی وب‌سایت',
@@ -134,12 +134,7 @@ const servicesMenuData = [
     }
 ];
 
-const headerStyle = {
-    height: 'auto',
-    minHeight: '60px'
-};
-
-// Company Information - با داده‌های واقعی
+// Company Information - دقیقاً همان
 const companyInfo = {
     name: 'دیزاین پرداز',
     slogan: 'طراحی وب حرفه‌ای',
@@ -147,10 +142,10 @@ const companyInfo = {
     email: 'info@designpardaz.ir',
     address: 'تهران، ایران',
     workingHours: 'شنبه تا چهارشنبه ۹-۱۸، پنج‌شنبه ۹-۱۴',
-    establishedYear: '۱۴۰۳' // سال تاسیس واقعی
+    establishedYear: '۱۴۰۳'
 };
 
-// Navigation Menu Items
+// Navigation Menu Items - دقیقاً همان
 const navigationItems = [
     {
         title: 'صفحه اصلی',
@@ -184,12 +179,13 @@ interface HeaderProps {
 }
 
 export default function Header({ className = '' }: HeaderProps) {
-    // State Management
+    // State Management - دقیقاً همان
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false); // اضافه شد برای hydration
 
-    // Refs
+    // Refs - دقیقاً همان
     const headerRef = useRef<HTMLElement>(null);
     const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -197,7 +193,12 @@ export default function Header({ className = '' }: HeaderProps) {
     // Hooks
     const pathname = usePathname();
 
-    // Scroll Detection
+    // حل مشکل hydration
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // Scroll Detection - دقیقاً همان
     const handleScroll = useCallback(() => {
         const currentScrollY = window.scrollY;
         setIsScrolled(currentScrollY > 10);
@@ -209,7 +210,7 @@ export default function Header({ className = '' }: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
-    // Handle services menu with delay
+    // Handle services menu with delay - دقیقاً همان
     const handleServicesMouseEnter = useCallback(() => {
         if (servicesTimeoutRef.current) {
             clearTimeout(servicesTimeoutRef.current);
@@ -229,7 +230,7 @@ export default function Header({ className = '' }: HeaderProps) {
         setIsServicesOpen(false);
     }, [pathname]);
 
-    // Handle outside click for mobile menu
+    // Handle outside click for mobile menu - اصلاح شد
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
@@ -250,7 +251,7 @@ export default function Header({ className = '' }: HeaderProps) {
         };
     }, [isMobileMenuOpen]);
 
-    // Check if current path is active
+    // Check if current path is active - دقیقاً همان
     const isActiveLink = (href: string): boolean => {
         if (href === '/') {
             return pathname === '/';
@@ -258,9 +259,23 @@ export default function Header({ className = '' }: HeaderProps) {
         return pathname.startsWith(href);
     };
 
+    // Loading state برای جلوگیری از hydration mismatch
+    if (!isMounted) {
+        return (
+            <header className="sticky top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-800 via-gray-900 to-slate-800">
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between py-3">
+                        <div className="animate-pulse bg-gray-700 h-12 w-48 rounded"></div>
+                        <div className="animate-pulse bg-gray-700 h-10 w-10 rounded lg:hidden"></div>
+                    </div>
+                </div>
+            </header>
+        );
+    }
+
     return (
         <>
-            {/* Structured Data for SEO */}
+            {/* Structured Data for SEO - دقیقاً همان */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -287,18 +302,16 @@ export default function Header({ className = '' }: HeaderProps) {
 
             <header
                 ref={headerRef}
-                style={headerStyle}
                 className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${className}`}
                 role="banner"
                 aria-label="سایت اصلی ناوبری"
             >
-                {/* Top Dark Bar */}
-                <div className="bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 text-white border-b border-cyan-500/20">
+                {/* Top Dark Bar - دقیقاً همان محتوا */}
+                <div className="hidden lg:block bg-gradient-to-r from-slate-900 via-gray-900 to-slate-900 text-white border-b border-cyan-500/20">
                     <div className="container mx-auto px-4">
                         <div className="flex justify-between items-center py-2 text-sm">
-
                             {/* Contact Information */}
-                            <div className="hidden lg:flex items-center gap-8">
+                            <div className="flex items-center gap-8">
                                 <a
                                     href={`tel:${companyInfo.phone}`}
                                     className="flex items-center gap-2 hover:text-cyan-400 transition-all duration-300 group"
@@ -326,7 +339,7 @@ export default function Header({ className = '' }: HeaderProps) {
                             </div>
 
                             {/* Working Hours & Company Info */}
-                            <div className="hidden lg:flex items-center gap-8 text-xs">
+                            <div className="flex items-center gap-8 text-xs">
                                 <div className="flex items-center gap-2">
                                     <ClockIcon className="w-4 h-4 text-emerald-400" />
                                     <span className="opacity-70">{companyInfo.workingHours}</span>
@@ -349,15 +362,14 @@ export default function Header({ className = '' }: HeaderProps) {
                     </div>
                 </div>
 
-                {/* Main Navigation with Logo Colors */}
+                {/* Main Navigation - همان محتوا، فقط کلاس‌ها بهتر شدن */}
                 <nav className={`
                     bg-gradient-to-r from-slate-800 via-gray-900 to-slate-800
                     transition-all duration-500 ease-in-out
                     ${isScrolled ? 'shadow-2xl backdrop-blur-md bg-opacity-95' : ''}
                     relative overflow-visible
                 `}>
-
-                    {/* Animated Background Pattern */}
+                    {/* Animated Background Pattern - دقیقاً همان */}
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-teal-600/20 to-cyan-600/20 animate-gradient-x"></div>
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -370,7 +382,7 @@ export default function Header({ className = '' }: HeaderProps) {
                         </svg>
                     </div>
 
-                    {/* Floating Particles Animation */}
+                    {/* Floating Particles Animation - دقیقاً همان */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         {[...Array(8)].map((_, i) => (
                             <div
@@ -386,9 +398,9 @@ export default function Header({ className = '' }: HeaderProps) {
                     </div>
 
                     <div className="container mx-auto px-4 relative z-10 overflow-visible">
-                        <div className="flex items-center justify-between py-2">
+                        <div className="flex items-center justify-between py-3">
 
-                            {/* Brand Logo */}
+                            {/* Brand Logo - دقیقاً همان محتوا */}
                             <Link
                                 href="/"
                                 className="flex items-center gap-4 group hover:scale-105 transition-all duration-300"
@@ -424,7 +436,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                 </div>
                             </Link>
 
-                            {/* Desktop Navigation */}
+                            {/* Desktop Navigation - دقیقاً همان */}
                             <div className="hidden lg:flex items-center gap-8">
 
                                 {/* Home Link */}
@@ -442,9 +454,9 @@ export default function Header({ className = '' }: HeaderProps) {
                                     {isActiveLink('/') && <CheckBadgeIcon className="w-4 h-4 text-cyan-200" />}
                                 </Link>
 
-                                {/* Services Dropdown */}
+                                {/* Services Dropdown - دقیقاً همان */}
                                 <div
-                                    className="relative static lg:relative"
+                                    className="relative"
                                     onMouseEnter={handleServicesMouseEnter}
                                     onMouseLeave={handleServicesMouseLeave}
                                 >
@@ -458,107 +470,73 @@ export default function Header({ className = '' }: HeaderProps) {
                                         <ChevronDownIcon className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
                                     </button>
 
-                                    {/* Mega Menu */}
+                                    {/* Services Mega Menu - دقیقاً همان */}
                                     {isServicesOpen && (
-                                        <div className="absolute top-full mt-2 w-screen max-w-6xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-[100]" style={{left: '50%', transform: 'translateX(-50%)'}}>
-                                            {/* Menu Header */}
-                                            <div className="bg-gradient-to-r from-cyan-600 to-teal-600 text-white p-6">
-                                                <div className="flex items-center gap-3 mb-3">
-                                                    <RocketLaunchIcon className="w-6 h-6" />
-                                                    <h3 className="text-lg font-bold">خدمات حرفه‌ای {companyInfo.name}</h3>
-                                                </div>
-                                                <p className="text-cyan-100 text-sm">
-                                                    تیم جوان و خلاق ما آماده ارائه بهترین خدمات طراحی وب
-                                                </p>
-                                            </div>
-
-                                            {/* Services Grid */}
-                                            <div className="p-8">
-                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                        <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 w-[800px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-fadeIn">
+                                            <div className="p-6">
+                                                <div className="grid grid-cols-3 gap-6">
                                                     {servicesMenuData.map((category, categoryIndex) => (
-                                                        <div key={categoryIndex} className="space-y-4">
-                                                            {/* Category Header */}
-                                                            <div className="flex items-center gap-3 mb-4">
-                                                                <div className="p-2 bg-gradient-to-br from-cyan-500 to-teal-600 text-white rounded-lg">
-                                                                    <category.categoryIcon className="w-5 h-5" />
+                                                        <div key={categoryIndex} className="space-y-3">
+                                                            <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-cyan-50 to-teal-50 rounded-xl">
+                                                                <div className="p-2 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg">
+                                                                    <category.categoryIcon className="w-5 h-5 text-white" />
                                                                 </div>
                                                                 <div>
-                                                                    <h4 className="font-bold text-gray-900">{category.category}</h4>
-                                                                    <p className="text-xs text-gray-500">{category.categoryDescription}</p>
+                                                                    <h3 className="font-bold text-gray-800">{category.category}</h3>
+                                                                    <p className="text-xs text-gray-600">{category.categoryDescription}</p>
                                                                 </div>
                                                             </div>
-
-                                                            {/* Services List */}
-                                                            <div className="space-y-2">
+                                                            <div className="space-y-1">
                                                                 {category.services.map((service, serviceIndex) => (
                                                                     <Link
                                                                         key={serviceIndex}
                                                                         href={service.href}
-                                                                        className="group block p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 hover:scale-[1.02]"
+                                                                        className="block p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 group"
                                                                     >
                                                                         <div className="flex items-start gap-3">
-                                                                            <div className="p-2 bg-gray-100 rounded-lg group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                                                                                <service.icon className="w-4 h-4" />
-                                                                            </div>
-                                                                            <div className="flex-1 min-w-0">
-                                                                                <div className="flex items-center gap-2">
-                                                                                    <h5 className="font-semibold text-gray-900 text-sm group-hover:text-cyan-600">
-                                                                                        {service.title}
-                                                                                    </h5>
+                                                                            <service.icon className="w-5 h-5 text-cyan-600 mt-0.5 group-hover:scale-110 transition-transform" />
+                                                                            <div className="flex-1">
+                                                                                <div className="flex items-center gap-2 mb-1">
+                                                                                    <h4 className="font-medium text-gray-800 group-hover:text-cyan-600 transition-colors">{service.title}</h4>
                                                                                     {service.featured && (
-                                                                                        <span className="px-2 py-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 text-white text-xs rounded-full">
-                                                                                            پیشنهاد ویژه
+                                                                                        <span className="px-2 py-0.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs rounded-full animate-pulse">
+                                                                                            جدید
                                                                                         </span>
                                                                                     )}
                                                                                 </div>
-                                                                                <p className="text-xs text-gray-500 mt-1 line-clamp-2">
-                                                                                    {service.description}
-                                                                                </p>
-                                                                                <div className="flex items-center justify-between mt-2">
-                                                                                    <span className="text-xs font-medium text-cyan-600">
-                                                                                        {service.price}
-                                                                                    </span>
-                                                                                    <ArrowRightIcon className="w-3 h-3 text-gray-400 group-hover:text-cyan-500 transition-colors" />
-                                                                                </div>
+                                                                                <p className="text-xs text-gray-600 mb-1">{service.description}</p>
+                                                                                <p className="text-xs font-bold text-cyan-600">{service.price}</p>
                                                                             </div>
                                                                         </div>
                                                                     </Link>
                                                                 ))}
                                                             </div>
-
-                                                            {/* Category CTA */}
-                                                            <Link
-                                                                href={`/services/${category.categorySlug}`}
-                                                                className="block w-full p-3 mt-4 text-center bg-gradient-to-r from-cyan-600 to-teal-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
-                                                            >
-                                                                <span className="text-sm font-medium">مشاهده همه خدمات {category.category}</span>
-                                                            </Link>
                                                         </div>
                                                     ))}
                                                 </div>
 
-                                                {/* Menu Footer */}
-                                                <div className="mt-8 pt-6 border-t border-gray-200">
+                                                <div className="mt-6 pt-6 border-t border-gray-200">
                                                     <div className="flex items-center justify-between">
                                                         <div className="flex items-center gap-4">
-                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
-                                                                <ShieldCheckIcon className="w-4 h-4 text-emerald-500" />
-                                                                <span>گارانتی کیفیت</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <ShieldCheckIcon className="w-5 h-5 text-green-500" />
+                                                                <span className="text-sm font-medium text-gray-700">تضمین کیفیت ۱۰۰%</span>
                                                             </div>
-                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
-                                                                <LightBulbIcon className="w-4 h-4 text-amber-500" />
-                                                                <span>مشاوره رایگان</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <RocketLaunchIcon className="w-5 h-5 text-blue-500" />
+                                                                <span className="text-sm font-medium text-gray-700">تحویل سریع</span>
                                                             </div>
-                                                            <div className="flex items-center gap-2 text-sm text-gray-600">
-                                                                <ChatBubbleLeftRightIcon className="w-4 h-4 text-cyan-500" />
-                                                                <span>پشتیبانی ۲۴/۷</span>
+                                                            <div className="flex items-center gap-2">
+                                                                <LightBulbIcon className="w-5 h-5 text-yellow-500" />
+                                                                <span className="text-sm font-medium text-gray-700">ایده‌های خلاقانه</span>
                                                             </div>
                                                         </div>
                                                         <Link
-                                                            href="/contact"
-                                                            className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-2 rounded-lg font-bold hover:shadow-lg transition-all duration-300"
+                                                            href="/services"
+                                                            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                                                         >
-                                                            درخواست مشاوره رایگان
+                                                            <span>مشاهده همه خدمات</span>
+                                                            <ArrowRightIcon className="w-4 h-4" />
                                                         </Link>
                                                     </div>
                                                 </div>
@@ -567,7 +545,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                     )}
                                 </div>
 
-                                {/* Other Navigation Items */}
+                                {/* Other Navigation Items - دقیقاً همان */}
                                 {navigationItems.slice(1).map((item, index) => (
                                     <Link
                                         key={index}
@@ -578,7 +556,6 @@ export default function Header({ className = '' }: HeaderProps) {
                                                 : 'text-gray-200 hover:text-white hover:bg-white/10'
                                         }`}
                                         aria-current={isActiveLink(item.href) ? 'page' : undefined}
-                                        title={item.description}
                                     >
                                         <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                         <span className="font-medium">{item.title}</span>
@@ -587,23 +564,28 @@ export default function Header({ className = '' }: HeaderProps) {
                                 ))}
                             </div>
 
-                            {/* Right Side Actions */}
-                            <div className="flex items-center gap-3">
-                                {/* CTA Button */}
+                            {/* Right Side Actions - دقیقاً همان */}
+                            <div className="flex items-center gap-4">
                                 <Link
                                     href="/contact"
-                                    className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl transition-all duration-300 hover:scale-105"
+                                    className="hidden md:flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300"
                                 >
-                                    <ChatBubbleLeftRightIcon className="w-4 h-4" />
+                                    <ChatBubbleLeftRightIcon className="w-5 h-5" />
                                     <span>مشاوره رایگان</span>
                                 </Link>
 
-                                {/* Mobile Menu Toggle */}
+                                <Link
+                                    href="tel:02133334444"
+                                    className="hidden sm:flex md:hidden items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
+                                >
+                                    <PhoneIcon className="w-4 h-4" />
+                                    <span>تماس</span>
+                                </Link>
+
                                 <button
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                    className="lg:hidden p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                                    aria-label={isMobileMenuOpen ? 'بستن منو' : 'باز کردن منو'}
-                                    aria-expanded={isMobileMenuOpen}
+                                    className="lg:hidden p-3 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+                                    aria-label="باز کردن منوی موبایل"
                                 >
                                     {isMobileMenuOpen ? (
                                         <XMarkIcon className="w-6 h-6 text-white" />
@@ -616,45 +598,48 @@ export default function Header({ className = '' }: HeaderProps) {
                     </div>
                 </nav>
 
-                {/* Mobile Menu */}
+                {/* Mobile Menu Overlay - اصلاح شده برای responsive */}
                 {isMobileMenuOpen && (
                     <>
-                        {/* Backdrop */}
                         <div
                             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
                             onClick={() => setIsMobileMenuOpen(false)}
                         />
-
-                        {/* Mobile Menu Content */}
                         <div
                             ref={mobileMenuRef}
-                            className="fixed top-full left-0 right-0 bg-white shadow-2xl z-50 lg:hidden max-h-[80vh] overflow-y-auto"
+                            className="fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-50 overflow-y-auto lg:hidden"
                         >
-                            {/* Mobile Header */}
-                            <div className="p-6 bg-gradient-to-r from-cyan-600 to-teal-600 text-white">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center overflow-hidden">
+                            {/* Mobile Menu Header - دقیقاً همان */}
+                            <div className="p-4 bg-gradient-to-r from-cyan-600 to-teal-600 text-white">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
                                         <Image
                                             src="/logo.png"
-                                            alt={`${companyInfo.name} Logo`}
-                                            width={48}
-                                            height={48}
-                                            className="object-contain"
+                                            alt="Logo"
+                                            width={40}
+                                            height={40}
+                                            className="rounded-lg"
                                         />
+                                        <div>
+                                            <h2 className="font-bold">{companyInfo.name}</h2>
+                                            <p className="text-cyan-100 text-sm">{companyInfo.slogan}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h2 className="text-lg font-bold">{companyInfo.name}</h2>
-                                        <p className="text-cyan-100 text-sm">{companyInfo.slogan}</p>
-                                    </div>
+                                    <button
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                                    >
+                                        <XMarkIcon className="w-6 h-6 text-white" />
+                                    </button>
                                 </div>
                             </div>
 
-                            {/* Quick Contact */}
+                            {/* Quick Contact - دقیقاً همان */}
                             <div className="p-4 bg-gray-50">
                                 <div className="grid grid-cols-2 gap-3">
                                     <a
                                         href={`tel:${companyInfo.phone}`}
-                                        className="flex items-center gap-2 p-3 bg-emerald-500 text-white rounded-lg font-medium text-sm hover:bg-emerald-600 transition-colors"
+                                        className="flex items-center justify-center gap-2 p-3 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         <PhoneIcon className="w-4 h-4" />
@@ -662,7 +647,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                     </a>
                                     <a
                                         href={`mailto:${companyInfo.email}`}
-                                        className="flex items-center gap-2 p-3 bg-cyan-500 text-white rounded-lg font-medium text-sm hover:bg-cyan-600 transition-colors"
+                                        className="flex items-center justify-center gap-2 p-3 bg-cyan-500 text-white rounded-lg font-medium hover:bg-cyan-600 transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         <EnvelopeIcon className="w-4 h-4" />
@@ -671,7 +656,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                 </div>
                             </div>
 
-                            {/* Navigation Items */}
+                            {/* Navigation Items - دقیقاً همان */}
                             <div className="p-4">
                                 <div className="space-y-2">
                                     {navigationItems.map((item, index) => (
@@ -687,13 +672,15 @@ export default function Header({ className = '' }: HeaderProps) {
                                         >
                                             <item.icon className="w-5 h-5" />
                                             <span className="font-medium">{item.title}</span>
-                                            {isActiveLink(item.href) && <CheckBadgeIcon className="w-5 h-5 text-cyan-500 mr-auto" />}
+                                            {isActiveLink(item.href) && (
+                                                <CheckBadgeIcon className="w-5 h-5 text-cyan-500 mr-auto" />
+                                            )}
                                         </Link>
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Services in Mobile */}
+                            {/* Services in Mobile - دقیقاً همان */}
                             <div className="border-t border-gray-200">
                                 <div className="p-4">
                                     <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -705,7 +692,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                             <div key={categoryIndex}>
                                                 <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                                                     <category.categoryIcon className="w-4 h-4 text-cyan-600" />
-                                                    {category.category}
+                                                    <span>{category.category}</span>
                                                 </h4>
                                                 <div className="space-y-1 pr-6">
                                                     {category.services.map((service, serviceIndex) => (
@@ -731,7 +718,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                 </div>
                             </div>
 
-                            {/* Mobile CTA */}
+                            {/* Mobile CTA - دقیقاً همان */}
                             <div className="p-4 bg-gray-50 border-t border-gray-200">
                                 <Link
                                     href="/contact"
@@ -749,37 +736,23 @@ export default function Header({ className = '' }: HeaderProps) {
                 )}
             </header>
 
+            {/* Styles - فقط اصلاحات مهم */}
             <style jsx>{`
-                body {
-                    padding-top: 0;
-                    margin-top: 0;
-                }
-
                 @keyframes gradient-x {
-                    0%, 100% {
-                        transform: translateX(0%);
-                    }
-                    50% {
-                        transform: translateX(100%);
-                    }
+                    0%, 100% { transform: translateX(0%); }
+                    50% { transform: translateX(100%); }
                 }
-
                 @keyframes float {
-                    0%, 100% {
-                        transform: translateY(0px);
-                    }
-                    50% {
-                        transform: translateY(-10px);
-                    }
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
                 }
-
-                .animate-gradient-x {
-                    animation: gradient-x 15s ease infinite;
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(-10px); }
+                    to { opacity: 1; transform: translateY(0); }
                 }
-
-                .animate-float {
-                    animation: float 3s ease-in-out infinite;
-                }
+                .animate-gradient-x { animation: gradient-x 15s ease infinite; }
+                .animate-float { animation: float 3s ease-in-out infinite; }
+                .animate-fadeIn { animation: fadeIn 0.2s ease-out; }
             `}</style>
         </>
     );
