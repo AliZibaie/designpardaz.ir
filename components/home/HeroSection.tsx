@@ -150,7 +150,7 @@ export default function HeroSection() {
                                 <strong className="text-sky-300"> طراحی گرافیک</strong>،
                                 <strong className="text-blue-300"> طراحی سایت</strong>،
                                 <strong className="text-indigo-300"> برنامه‌نویسی</strong> و
-                                <strong className="text-emerald-300"> سئو حرفه‌ای</strong>
+                                <strong className="text-emerald-300"> سئو حرفه‌ای </strong>
                                 خدمات نوآورانه ارائه می‌دهیم.
                             </p>
                         </div>
