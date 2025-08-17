@@ -328,4 +328,3 @@ export function getRelatedArticles(currentArticle: Article, limit: number = 4): 
     return related;
 }
 
-export type { Article };
