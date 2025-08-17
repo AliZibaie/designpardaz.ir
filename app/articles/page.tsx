@@ -145,7 +145,6 @@ function ArticlesContent() {
         }
     };
 
-    // محاسبه آمار واقعی از داده‌های موجود
     const totalViews = articles.reduce((sum, article) => sum + article.views, 0);
     const totalLikes = articles.reduce((sum, article) => sum + article.likes, 0);
 
@@ -708,35 +707,7 @@ function ArticlesContent() {
                     </div>
                 </section>
 
-                {/* Custom Styles */}
-                <style jsx>{`
-                    @keyframes gradient-x {
-                        0%, 100% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
-                        50% { transform: translateX(-50%) translateY(-50%) rotate(180deg); }
-                    }
-                    
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-10px); }
-                    }
-                    
-                    .animate-gradient-x { animation: gradient-x 15s ease infinite; }
-                    .animate-float { animation: float 6s ease-in-out infinite; }
-                    
-                    .line-clamp-2 {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                    }
-                    
-                    .line-clamp-3 {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
-                    }
-                `}</style>
+
             </div>
         </>
     );
