@@ -20,7 +20,9 @@ import {
     SparklesIcon,
     HomeIcon,
     ChevronLeftIcon,
-    DocumentTextIcon
+    DocumentTextIcon,
+    UserGroupIcon,
+    CheckBadgeIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarSolidIcon } from '@heroicons/react/24/solid';
 
@@ -52,6 +54,7 @@ function ArticlesContent() {
             category: selectedCategory === 'all' ? undefined : selectedCategory,
             search: searchTerm
         });
+
         switch (sortBy) {
             case 'newest':
                 filtered.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
@@ -135,12 +138,16 @@ function ArticlesContent() {
 
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty) {
-            case 'مبتدی': return 'text-green-600 bg-green-50 border-green-200';
-            case 'متوسط': return 'text-yellow-600 bg-yellow-50 border-yellow-200';
-            case 'پیشرفته': return 'text-red-600 bg-red-50 border-red-200';
-            default: return 'text-gray-600 bg-gray-50 border-gray-200';
+            case 'مبتدی': return 'text-emerald-600 bg-emerald-50 border-emerald-200';
+            case 'متوسط': return 'text-amber-600 bg-amber-50 border-amber-200';
+            case 'پیشرفته': return 'text-rose-600 bg-rose-50 border-rose-200';
+            default: return 'text-slate-600 bg-slate-50 border-slate-200';
         }
     };
+
+    // محاسبه آمار واقعی از داده‌های موجود
+    const totalViews = articles.reduce((sum, article) => sum + article.views, 0);
+    const totalLikes = articles.reduce((sum, article) => sum + article.likes, 0);
 
     return (
         <>
@@ -253,11 +260,11 @@ function ArticlesContent() {
             </Head>
 
             <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
-
+                {/* Breadcrumb Navigation */}
                 <nav className="bg-white border-b border-gray-200 py-4">
                     <div className="container mx-auto px-4">
                         <div className="flex items-center gap-2 text-sm">
-                            <Link href="/" className="flex items-center gap-1 text-gray-500 hover:text-blue-600 transition-colors">
+                            <Link href="/" className="flex items-center gap-1 text-gray-500 hover:text-cyan-600 transition-colors">
                                 <HomeIcon className="w-4 h-4" />
                                 <span>خانه</span>
                             </Link>
@@ -266,20 +273,21 @@ function ArticlesContent() {
                             {selectedCategory !== 'all' && (
                                 <>
                                     <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
-                                    <span className="text-blue-600">
-                    {categories.find(c => c.slug === selectedCategory)?.name}
-                  </span>
+                                    <span className="text-cyan-600">
+                                        {categories.find(c => c.slug === selectedCategory)?.name}
+                                    </span>
                                 </>
                             )}
                         </div>
                     </div>
                 </nav>
 
-                <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
-
+                {/* Hero Section */}
+                <section className="py-20 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 text-white relative overflow-hidden">
+                    {/* Animated Background */}
                     <div className="absolute inset-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-gradient-x"></div>
-                        {[...Array(15)].map((_, i) => (
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-slate-500/20 animate-gradient-x"></div>
+                        {[...Array(20)].map((_, i) => (
                             <div
                                 key={i}
                                 className="absolute animate-float"
@@ -290,45 +298,48 @@ function ArticlesContent() {
                                     animationDuration: `${3 + Math.random() * 4}s`
                                 }}
                             >
-                                <div className="w-2 h-2 bg-white/20 rounded-full blur-sm"></div>
+                                <div className="w-2 h-2 bg-cyan-400/30 rounded-full blur-sm"></div>
                             </div>
                         ))}
                     </div>
 
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="max-w-4xl mx-auto text-center">
-
+                            {/* Badge */}
                             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8">
-                                <BookOpenIcon className="w-5 h-5 text-yellow-400" />
+                                <BookOpenIcon className="w-5 h-5 text-cyan-400" />
                                 <span className="text-sm font-medium">مرجع آموزش طراحی وب</span>
                                 <div className="flex items-center gap-1">
                                     {[1,2,3,4,5].map((star) => (
-                                        <StarSolidIcon key={star} className="w-4 h-4 text-yellow-400" />
+                                        <StarSolidIcon key={star} className="w-4 h-4 text-cyan-400" />
                                     ))}
                                 </div>
                             </div>
 
+                            {/* Main Title */}
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8">
                                 مقالات آموزشی
-                                <span className="block text-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text">
-                  دیزاین پرداز
-                </span>
+                                <span className="block text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-slate-400 bg-clip-text">
+                                    دیزاین پرداز
+                                </span>
                             </h1>
 
+                            {/* Subtitle */}
                             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
                                 آموزش‌های جامع و رایگان طراحی وب‌سایت، سئو، طراحی گرافیک و برندینگ
                                 توسط تیم متخصص دیزاین پرداز
                             </p>
 
+                            {/* Stats */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                                 {[
-                                    { icon: DocumentTextIcon, number: `${articles.length}+`, label: 'مقاله آموزشی' },
-                                    { icon: EyeIcon, number: '15K+', label: 'بازدید ماهانه' },
-                                    { icon: HeartIcon, number: '500+', label: 'کاربر راضی' }
+                                    { icon: DocumentTextIcon, number: `${articles.length}`, label: 'مقاله آموزشی' },
+                                    { icon: EyeIcon, number: `${Math.floor(totalViews / 1000)}K+`, label: 'بازدید کل' },
+                                    { icon: UserGroupIcon, number: `${Math.floor(totalLikes / 10)}+`, label: 'کاربر فعال' }
                                 ].map((stat, index) => (
                                     <div key={index} className="text-center">
                                         <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mb-4">
-                                            <stat.icon className="w-8 h-8 text-yellow-400" />
+                                            <stat.icon className="w-8 h-8 text-cyan-400" />
                                         </div>
                                         <div className="text-3xl font-black text-white mb-2">{stat.number}</div>
                                         <div className="text-gray-300">{stat.label}</div>
@@ -339,9 +350,10 @@ function ArticlesContent() {
                     </div>
                 </section>
 
+                {/* Filters Section */}
                 <section className="py-12 bg-white border-b border-gray-200 sticky top-0 z-40 backdrop-blur-sm bg-white/95">
                     <div className="container mx-auto px-4">
-
+                        {/* Search Form */}
                         <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8">
                             <div className="relative">
                                 <MagnifyingGlassIcon className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -350,11 +362,11 @@ function ArticlesContent() {
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                     placeholder="جستجو در مقالات..."
-                                    className="w-full pr-12 pl-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                                    className="w-full pr-12 pl-6 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                                 />
                                 <button
                                     type="submit"
-                                    className="absolute left-2 top-1/2 transform -translate-y-1/2 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors"
+                                    className="absolute left-2 top-1/2 transform -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-lg"
                                 >
                                     جستجو
                                 </button>
@@ -362,7 +374,7 @@ function ArticlesContent() {
                         </form>
 
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-
+                            {/* Category Filters */}
                             <div className="flex flex-wrap items-center gap-3">
                                 {categories.map((category) => (
                                     <button
@@ -374,20 +386,22 @@ function ArticlesContent() {
                                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                         }`}
                                     >
-                                        {React.createElement(category.icon as React.ComponentType<{className?: string}>, { className: "w-5 h-5" })}                                        <span className="text-xs bg-white/20 px-2 py-1 rounded-full">
-                      {category.count}
-                    </span>
+                                        {React.createElement(category.icon as React.ComponentType<{className?: string}>, { className: "w-5 h-5" })}
+                                        <span>{category.name}</span>
+                                        <span className="text-xs bg-white/20 px-2 py-1 rounded-full">
+                                            {category.count}
+                                        </span>
                                     </button>
                                 ))}
                             </div>
 
                             <div className="flex items-center gap-4">
-
+                                {/* Sort Dropdown */}
                                 <div className="relative">
                                     <select
                                         value={sortBy}
                                         onChange={(e) => handleSortChange(e.target.value)}
-                                        className="appearance-none bg-white border border-gray-300 rounded-xl px-4 py-3 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="appearance-none bg-white border border-gray-300 rounded-xl px-4 py-3 pr-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     >
                                         <option value="newest">جدیدترین</option>
                                         <option value="oldest">قدیمی‌ترین</option>
@@ -398,6 +412,7 @@ function ArticlesContent() {
                                     <ChevronDownIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                                 </div>
 
+                                {/* Clear Filters */}
                                 {(selectedCategory !== 'all' || searchTerm || sortBy !== 'newest') && (
                                     <button
                                         onClick={clearFilters}
@@ -410,23 +425,24 @@ function ArticlesContent() {
                             </div>
                         </div>
 
+                        {/* Results Counter */}
                         <div className="mt-6 text-center text-gray-600">
                             {filteredAndSortedArticles.length === 0 ? (
                                 <span>مقاله‌ای یافت نشد</span>
                             ) : (
                                 <span>
-                  {filteredAndSortedArticles.length} مقاله یافت شد
+                                    {filteredAndSortedArticles.length} مقاله یافت شد
                                     {searchTerm && ` برای "${searchTerm}"`}
                                     {selectedCategory !== 'all' && ` در دسته "${categories.find(c => c.slug === selectedCategory)?.name}"`}
-                </span>
+                                </span>
                             )}
                         </div>
                     </div>
                 </section>
 
+                {/* Articles Grid */}
                 <main className="py-16">
                     <div className="container mx-auto px-4">
-
                         {filteredAndSortedArticles.length === 0 ? (
                             <div className="text-center py-20">
                                 <div className="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center mb-8">
@@ -436,7 +452,7 @@ function ArticlesContent() {
                                 <p className="text-gray-600 mb-8">متأسفانه مقاله‌ای با این مشخصات پیدا نکردیم.</p>
                                 <button
                                     onClick={clearFilters}
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-lg"
                                 >
                                     <XMarkIcon className="w-5 h-5" />
                                     <span>پاک کردن فیلترها</span>
@@ -449,7 +465,7 @@ function ArticlesContent() {
                                         key={article.id}
                                         className="group bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
                                     >
-
+                                        {/* Article Image */}
                                         <div className="relative h-64 overflow-hidden">
                                             <Image
                                                 src={article.image.main}
@@ -458,30 +474,34 @@ function ArticlesContent() {
                                                 className="object-cover group-hover:scale-110 transition-transform duration-500"
                                             />
 
+                                            {/* Badges */}
                                             <div className="absolute top-4 right-4 flex flex-col gap-2">
                                                 {article.featured && (
-                                                    <div className="px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold rounded-full flex items-center gap-1">
+                                                    <div className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold rounded-full flex items-center gap-1">
                                                         <StarIcon className="w-3 h-3" />
                                                         <span>ویژه</span>
                                                     </div>
                                                 )}
                                                 {article.trending && (
-                                                    <div className="px-3 py-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full flex items-center gap-1">
+                                                    <div className="px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full flex items-center gap-1">
                                                         <FireIcon className="w-3 h-3" />
                                                         <span>ترند</span>
                                                     </div>
                                                 )}
                                             </div>
 
+                                            {/* Category Badge */}
                                             <div className="absolute bottom-4 right-4">
                                                 <div className={`px-4 py-2 bg-gradient-to-r ${article.category.color} text-white font-medium rounded-full flex items-center gap-2`}>
-                                                    {React.createElement(article.category.icon as React.ComponentType<{className?: string}>, { className: "w-4 h-4" })}                                                    <span className="text-sm">{article.category.name}</span>
+                                                    {React.createElement(article.category.icon as React.ComponentType<{className?: string}>, { className: "w-4 h-4" })}
+                                                    <span className="text-sm">{article.category.name}</span>
                                                 </div>
                                             </div>
                                         </div>
 
+                                        {/* Article Content */}
                                         <div className="p-6">
-
+                                            {/* Meta Info */}
                                             <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
                                                 <div className="flex items-center gap-4">
                                                     <div className="flex items-center gap-1">
@@ -498,32 +518,35 @@ function ArticlesContent() {
                                                 </div>
                                             </div>
 
-                                            <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                                            {/* Title */}
+                                            <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-cyan-600 transition-colors">
                                                 <Link href={`/articles/${article.slug}`}>
                                                     {article.title}
                                                 </Link>
                                             </h2>
 
+                                            {/* Excerpt */}
                                             <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
                                                 {article.excerpt}
                                             </p>
 
+                                            {/* Tags */}
                                             <div className="flex flex-wrap gap-2 mb-6">
                                                 {article.tags.slice(0, 3).map((tag, tagIndex) => (
                                                     <span
                                                         key={tagIndex}
-                                                        className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                                                        className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full hover:bg-cyan-50 hover:text-cyan-600 transition-colors cursor-pointer"
                                                     >
-                            #{tag}
-                          </span>
+                                                        #{tag}
+                                                    </span>
                                                 ))}
                                                 {article.tags.length > 3 && (
                                                     <span className="text-gray-400 text-xs">+{article.tags.length - 3}</span>
                                                 )}
                                             </div>
 
+                                            {/* Author & Stats */}
                                             <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-
                                                 <div className="flex items-center gap-3">
                                                     <Image
                                                         src={article.author.avatar}
@@ -547,10 +570,11 @@ function ArticlesContent() {
                                                 </div>
                                             </div>
 
+                                            {/* Read More Link */}
                                             <div className="mt-6">
                                                 <Link
                                                     href={`/articles/${article.slug}`}
-                                                    className="group/btn inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                                                    className="group/btn inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 font-medium transition-colors"
                                                 >
                                                     <span>ادامه مطالعه</span>
                                                     <ArrowRightIcon className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -562,6 +586,7 @@ function ArticlesContent() {
                             </div>
                         )}
 
+                        {/* Pagination */}
                         {totalPages > 1 && (
                             <div className="flex items-center justify-center gap-2">
                                 <button
@@ -586,7 +611,7 @@ function ArticlesContent() {
                                         }}
                                         className={`px-4 py-2 rounded-xl transition-colors ${
                                             currentPage === page
-                                                ? 'bg-blue-600 text-white'
+                                                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
                                                 : 'text-gray-700 border border-gray-300 hover:bg-gray-50'
                                         }`}
                                     >
@@ -611,29 +636,107 @@ function ArticlesContent() {
                     </div>
                 </main>
 
-                <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 text-white">
-                    <div className="container mx-auto px-4 text-center">
-                        <div className="max-w-2xl mx-auto">
-                            <SparklesIcon className="w-16 h-16 mx-auto mb-6 text-yellow-400" />
-                            <h2 className="text-3xl font-bold mb-4">از آخرین مقالات باخبر شوید</h2>
-                            <p className="text-gray-300 mb-8">هر هفته مقالات جدید و آموزش‌های کاربردی برای شما ارسال می‌کنیم</p>
+                {/* Newsletter Section */}
+                <section className="py-20 bg-gradient-to-br from-slate-900 via-cyan-900 to-blue-900 text-white relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0">
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-slate-500/10"></div>
+                        {[...Array(12)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute animate-pulse"
+                                style={{
+                                    left: `${Math.random() * 100}%`,
+                                    top: `${Math.random() * 100}%`,
+                                    animationDelay: `${Math.random() * 2}s`,
+                                    animationDuration: `${2 + Math.random() * 3}s`
+                                }}
+                            >
+                                <div className="w-1 h-1 bg-cyan-400/30 rounded-full"></div>
+                            </div>
+                        ))}
+                    </div>
 
-                            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <div className="container mx-auto px-4 text-center relative z-10">
+                        <div className="max-w-2xl mx-auto">
+                            {/* Icon */}
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-2xl mb-6">
+                                <SparklesIcon className="w-8 h-8 text-cyan-400" />
+                            </div>
+
+                            {/* Title */}
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                از آخرین مقالات باخبر شوید
+                            </h2>
+
+                            {/* Description */}
+                            <p className="text-gray-300 mb-8 text-lg">
+                                هر هفته مقالات جدید و آموزش‌های کاربردی برای شما ارسال می‌کنیم
+                            </p>
+
+                            {/* Newsletter Form */}
+                            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
                                 <input
                                     type="email"
                                     placeholder="ایمیل شما..."
-                                    className="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                    className="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent backdrop-blur-sm"
                                 />
                                 <button
                                     type="submit"
-                                    className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 font-bold rounded-xl hover:from-yellow-300 hover:to-orange-400 transition-all"
+                                    className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-600 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl"
                                 >
                                     عضویت
                                 </button>
                             </form>
+
+                            {/* Trust Indicators */}
+                            <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
+                                <div className="flex items-center gap-2">
+                                    <CheckBadgeIcon className="w-5 h-5 text-cyan-400" />
+                                    <span>رایگان</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <CheckBadgeIcon className="w-5 h-5 text-cyan-400" />
+                                    <span>بدون اسپم</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <CheckBadgeIcon className="w-5 h-5 text-cyan-400" />
+                                    <span>لغو آسان</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
+
+                {/* Custom Styles */}
+                <style jsx>{`
+                    @keyframes gradient-x {
+                        0%, 100% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+                        50% { transform: translateX(-50%) translateY(-50%) rotate(180deg); }
+                    }
+                    
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-10px); }
+                    }
+                    
+                    .animate-gradient-x { animation: gradient-x 15s ease infinite; }
+                    .animate-float { animation: float 6s ease-in-out infinite; }
+                    
+                    .line-clamp-2 {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+                    
+                    .line-clamp-3 {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+                `}</style>
             </div>
         </>
     );
@@ -642,8 +745,11 @@ function ArticlesContent() {
 export default function ArticlesPage() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-gray-100">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-16 w-16 border-4 border-cyan-500 border-t-transparent mx-auto mb-4"></div>
+                    <p className="text-gray-600">در حال بارگذاری مقالات...</p>
+                </div>
             </div>
         }>
             <ArticlesContent />
