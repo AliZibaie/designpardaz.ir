@@ -43,14 +43,14 @@ const companyInfo = {
     name: 'دیزاین پرداز',
     englishName: 'Design Pardaz',
     slogan: 'طراحی وب حرفه‌ای',
-    description: 'دیزاین پرداز با بیش از ۸ سال تجربه در زمینه طراحی وب، سئو و طراحی گرافیک، همراه شما در مسیر موفقیت دیجیتال است. ما با ارائه خدمات حرفه‌ای و باکیفیت، کسب‌وکارها را در فضای دیجیتال پیروز می‌کنیم.',
+    description: 'دیزاین پرداز یک تیم جوان و خلاق در زمینه طراحی وب، سئو و طراحی گرافیک است. ما با استفاده از جدیدترین تکنولوژی‌ها و بهترین شیوه‌های طراحی، کسب‌وکارها را در فضای دیجیتال موفق می‌کنیم. هدف ما ارائه خدمات باکیفیت و ایجاد تجربه‌های بصری فوق‌العاده است.',
     phone: '+98-21-3333-4444',
     phoneDisplay: '021-3333-4444',
     email: 'info@designpardaz.ir',
     address: 'تهران، ایران',
     postalCode: '1234567890',
     website: 'https://designpardaz.ir',
-    establishedYear: '۱۳۹۶',
+    establishedYear: '۱۴۰۳',
     workingHours: {
         weekdays: 'شنبه تا چهارشنبه: ۹:۰۰ - ۱۸:۰۰',
         thursday: 'پنج‌شنبه: ۹:۰۰ - ۱۴:۰۰',
@@ -63,10 +63,10 @@ const companyInfo = {
         linkedin: 'https://linkedin.com/company/designpardaz'
     },
     stats: {
-        projects: '+۲۵۰',
-        clients: '+۱۸۰',
-        experience: '+۸',
-        satisfaction: '۹۸٪'
+        projects: 'جدید',
+        clients: 'آماده همکاری',
+        experience: 'تیم متخصص',
+        satisfaction: 'کیفیت بالا'
     }
 };
 
@@ -148,10 +148,10 @@ const industries = [
 
 // Trust Badges
 const trustBadges = [
-    { name: 'عضو اتحادیه', image: '/images/badges/union.png' },
-    { name: 'گواهی کیفیت ISO', image: '/images/badges/iso.png' },
-    { name: 'گواهی امنیت', image: '/images/badges/security.png' },
-    { name: 'پارتنر گوگل', image: '/images/badges/google-partner.png' }
+    { name: 'تیم متخصص', image: '/images/badges/team.png' },
+    { name: 'کیفیت بالا', image: '/images/badges/quality.png' },
+    { name: 'خدمات مطمئن', image: '/images/badges/security.png' },
+    { name: 'پشتیبانی ۲۴/۷', image: '/images/badges/support.png' }
 ];
 
 // Payment Methods
@@ -182,7 +182,7 @@ const socialLinks = [
                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
             </svg>
         ),
-        color: 'hover:text-blue-500'
+        color: 'hover:text-cyan-400'
     },
     {
         name: 'واتساپ',
@@ -202,7 +202,7 @@ const socialLinks = [
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
         ),
-        color: 'hover:text-blue-600'
+        color: 'hover:text-cyan-500'
     }
 ];
 
@@ -247,7 +247,7 @@ export default function Footer({ className = '' }: FooterProps) {
                         "description": companyInfo.description,
                         "url": companyInfo.website,
                         "logo": `${companyInfo.website}/logo.png`,
-                        "foundingDate": "2017",
+                        "foundingDate": "2024",
                         "address": {
                             "@type": "PostalAddress",
                             "addressCountry": "IR",
@@ -294,7 +294,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
             <footer
                 className={`
-                    relative overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900
+                    relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900
                     text-white ${className}
                 `}
                 role="contentinfo"
@@ -305,8 +305,8 @@ export default function Footer({ className = '' }: FooterProps) {
                 {/* Background Elements */}
                 <div className="absolute inset-0">
                     {/* Gradient Overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-sky-500/5 to-blue-700/10" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.1),transparent)]" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 via-teal-500/5 to-cyan-700/10" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(34,211,238,0.1),transparent)]" />
 
                     {/* Grid Pattern */}
                     <div className="absolute inset-0 opacity-5">
@@ -314,21 +314,21 @@ export default function Footer({ className = '' }: FooterProps) {
                     </div>
 
                     {/* Floating Elements */}
-                    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-                    <div className="absolute bottom-40 right-20 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+                    <div className="absolute bottom-40 right-20 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
                 </div>
 
                 <div className="relative z-10">
                     {/* Newsletter Section */}
                     <div className="border-b border-gray-800">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                            <div className="bg-gradient-to-r from-blue-600 to-sky-600 rounded-2xl p-8 lg:p-12">
+                            <div className="bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl p-8 lg:p-12">
                                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                                     <div className="text-center lg:text-right">
                                         <h3 className="text-2xl lg:text-3xl font-bold mb-3">
                                             از آخرین اخبار و آموزش‌ها باخبر شوید
                                         </h3>
-                                        <p className="text-blue-100 text-lg">
+                                        <p className="text-cyan-100 text-lg">
                                             عضویت در خبرنامه دیزاین پرداز و دریافت مطالب ارزشمند طراحی وب و سئو
                                         </p>
                                     </div>
@@ -336,15 +336,15 @@ export default function Footer({ className = '' }: FooterProps) {
                                         <input
                                             type="email"
                                             placeholder="آدرس ایمیل شما..."
-                                            className="flex-1 px-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
+                                            className="flex-1 px-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-cyan-200 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
                                             dir="ltr"
                                         />
-                                        <button className="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                                        <button className="px-8 py-4 bg-white text-cyan-600 rounded-xl font-bold hover:bg-cyan-50 transition-all duration-300 hover:scale-105 whitespace-nowrap">
                                             عضویت در خبرنامه
                                         </button>
                                     </div>
                                 </div>
-                                <div className="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm text-blue-100">
+                                <div className="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm text-cyan-100">
                                     <div className="flex items-center gap-2">
                                         <CheckBadgeIcon className="w-4 h-4 text-green-300" />
                                         <span>بدون اسپم</span>
@@ -383,11 +383,11 @@ export default function Footer({ className = '' }: FooterProps) {
                                             className="brightness-110 group-hover:scale-110 transition-transform duration-300"
                                             itemProp="logo"
                                         />
-                                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
+                                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
                                     </div>
                                     <div>
                                         <h2
-                                            className="text-2xl lg:text-3xl font-black bg-gradient-to-r from-white via-gray-100 to-yellow-400 bg-clip-text text-transparent"
+                                            className="text-2xl lg:text-3xl font-black bg-gradient-to-r from-white via-gray-100 to-cyan-400 bg-clip-text text-transparent"
                                             itemProp="name"
                                         >
                                             {companyInfo.name}
@@ -400,9 +400,9 @@ export default function Footer({ className = '' }: FooterProps) {
                                         </p>
                                         <div className="flex items-center gap-1 mt-1">
                                             {[1,2,3,4,5].map((star) => (
-                                                <StarIcon key={star} className="w-4 h-4 text-yellow-400 fill-current" />
+                                                <StarIcon key={star} className="w-4 h-4 text-cyan-400 fill-current" />
                                             ))}
-                                            <span className="text-xs text-gray-400 mr-2">۴.۹ از ۵ (۱۸۰+ نظر)</span>
+                                            <span className="text-xs text-gray-400 mr-2">تیم جدید و خلاق</span>
                                         </div>
                                     </div>
                                 </Link>
@@ -419,10 +419,10 @@ export default function Footer({ className = '' }: FooterProps) {
                                 <div className="grid grid-cols-2 gap-4">
                                     {Object.entries(companyInfo.stats).map(([key, value], index) => {
                                         const statConfig = {
-                                            projects: { label: 'پروژه موفق', icon: TrophyIcon, color: 'text-yellow-400' },
-                                            clients: { label: 'مشتری راضی', icon: HeartIcon, color: 'text-red-400' },
-                                            experience: { label: 'سال تجربه', icon: CheckBadgeIcon, color: 'text-green-400' },
-                                            satisfaction: { label: 'رضایت مندی', icon: StarIcon, color: 'text-blue-400' }
+                                            projects: { label: 'پروژه‌های نو', icon: TrophyIcon, color: 'text-cyan-400' },
+                                            clients: { label: 'آماده همکاری', icon: HeartIcon, color: 'text-teal-400' },
+                                            experience: { label: 'تیم متخصص', icon: CheckBadgeIcon, color: 'text-green-400' },
+                                            satisfaction: { label: 'کیفیت بالا', icon: StarIcon, color: 'text-yellow-400' }
                                         };
 
                                         const config = statConfig[key as keyof typeof statConfig];
@@ -436,7 +436,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                                 <div className="flex items-center justify-center mb-2">
                                                     <IconComponent className={`w-5 h-5 ${config.color} group-hover:scale-110 transition-transform`} />
                                                 </div>
-                                                <div className={`text-xl font-bold ${config.color}`}>{value}</div>
+                                                <div className={`text-lg font-bold ${config.color}`}>{value}</div>
                                                 <div className="text-xs text-gray-400 font-medium">{config.label}</div>
                                             </div>
                                         );
@@ -447,7 +447,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                 <div>
                                     <h3 className="text-sm font-semibold text-gray-300 mb-4 flex items-center gap-2">
                                         <ShieldCheckIcon className="w-4 h-4 text-green-400" />
-                                        گواهینامه‌ها و اعتبارات
+                                        مزایای همکاری با ما
                                     </h3>
                                     <div className="grid grid-cols-4 gap-3">
                                         {trustBadges.map((badge, index) => (
@@ -456,7 +456,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                                 className="bg-white/90 p-3 rounded-xl hover:bg-white transition-all duration-300 cursor-help group aspect-square flex items-center justify-center"
                                                 title={badge.name}
                                             >
-                                                <div className="w-8 h-8 bg-gray-400 rounded group-hover:scale-110 transition-transform"></div>
+                                                <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-teal-500 rounded group-hover:scale-110 transition-transform"></div>
                                             </div>
                                         ))}
                                     </div>
@@ -475,7 +475,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                                 className="bg-white/90 p-3 rounded-xl hover:bg-white transition-all duration-300 cursor-help group aspect-square flex items-center justify-center"
                                                 title={method.name}
                                             >
-                                                <div className="w-8 h-8 bg-gray-400 rounded group-hover:scale-110 transition-transform"></div>
+                                                <div className="w-8 h-8 bg-gradient-to-br from-slate-400 to-gray-500 rounded group-hover:scale-110 transition-transform"></div>
                                             </div>
                                         ))}
                                     </div>
@@ -484,7 +484,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
                             {/* Services Menu */}
                             <div className="space-y-6">
-                                <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2">
+                                <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2">
                                     <RocketLaunchIcon className="w-5 h-5" />
                                     خدمات ما
                                 </h3>
@@ -493,7 +493,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                     <div key={categoryIndex} className="space-y-3">
                                         {/* Category Header */}
                                         <div className="flex items-center gap-2 text-sm font-semibold text-gray-300 border-b border-gray-700 pb-2">
-                                            <category.icon className="w-4 h-4 text-sky-400" />
+                                            <category.icon className="w-4 h-4 text-teal-400" />
                                             <span>{category.category}</span>
                                         </div>
 
@@ -503,12 +503,12 @@ export default function Footer({ className = '' }: FooterProps) {
                                                 <li key={serviceIndex}>
                                                     <Link
                                                         href={service.href}
-                                                        className="group flex items-center gap-2 text-gray-300 hover:text-sky-400 transition-all duration-300 text-sm py-1 hover:pr-2"
+                                                        className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-all duration-300 text-sm py-1 hover:pr-2"
                                                     >
-                                                        <span className="w-1 h-1 bg-sky-400 rounded-full group-hover:w-2 group-hover:h-2 transition-all"></span>
+                                                        <span className="w-1 h-1 bg-teal-400 rounded-full group-hover:w-2 group-hover:h-2 transition-all"></span>
                                                         <span>{service.name}</span>
                                                         {service.popular && (
-                                                            <span className="px-2 py-0.5 bg-yellow-400 text-gray-900 text-xs rounded-full font-medium">
+                                                            <span className="px-2 py-0.5 bg-cyan-400 text-slate-900 text-xs rounded-full font-medium">
                                                                 محبوب
                                                             </span>
                                                         )}
@@ -524,7 +524,7 @@ export default function Footer({ className = '' }: FooterProps) {
                             <div className="space-y-6">
                                 {/* Quick Links */}
                                 <div>
-                                    <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-4">
+                                    <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2 mb-4">
                                         <BoltIcon className="w-5 h-5" />
                                         دسترسی سریع
                                     </h3>
@@ -533,7 +533,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                             <li key={index}>
                                                 <Link
                                                     href={link.href}
-                                                    className="group flex items-center gap-2 text-gray-300 hover:text-sky-400 transition-all duration-300 text-sm py-1 hover:pr-2"
+                                                    className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-all duration-300 text-sm py-1 hover:pr-2"
                                                 >
                                                     <link.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                                     <span>{link.name}</span>
@@ -545,7 +545,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
                                 {/* Resources */}
                                 <div>
-                                    <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-4">
+                                    <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2 mb-4">
                                         <AcademicCapIcon className="w-5 h-5" />
                                         منابع آموزشی
                                     </h3>
@@ -554,7 +554,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                             <li key={index}>
                                                 <Link
                                                     href={resource.href}
-                                                    className="group flex items-center gap-2 text-gray-300 hover:text-sky-400 transition-all duration-300 text-sm py-1 hover:pr-2"
+                                                    className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-all duration-300 text-sm py-1 hover:pr-2"
                                                 >
                                                     <resource.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                                     <span>{resource.name}</span>
@@ -566,7 +566,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
                                 {/* Industries */}
                                 <div>
-                                    <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-4">
+                                    <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2 mb-4">
                                         <BuildingOfficeIcon className="w-5 h-5" />
                                         صنایع تحت پوشش
                                     </h3>
@@ -575,7 +575,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                             <li key={index}>
                                                 <Link
                                                     href={industry.href}
-                                                    className="group flex items-center gap-2 text-gray-300 hover:text-sky-400 transition-all duration-300 text-sm py-1 hover:pr-2"
+                                                    className="group flex items-center gap-2 text-gray-300 hover:text-cyan-400 transition-all duration-300 text-sm py-1 hover:pr-2"
                                                 >
                                                     <industry.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                                     <span>{industry.name}</span>
@@ -590,7 +590,7 @@ export default function Footer({ className = '' }: FooterProps) {
                             <div className="space-y-6">
                                 {/* Contact Details */}
                                 <div>
-                                    <h3 className="text-lg font-bold text-yellow-400 flex items-center gap-2 mb-4">
+                                    <h3 className="text-lg font-bold text-cyan-400 flex items-center gap-2 mb-4">
                                         <ChatBubbleLeftRightIcon className="w-5 h-5" />
                                         تماس با ما
                                     </h3>
@@ -618,7 +618,7 @@ export default function Footer({ className = '' }: FooterProps) {
                                             className="group flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]"
                                             itemProp="email"
                                         >
-                                            <div className="p-2 bg-blue-500/20 text-blue-400 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                            <div className="p-2 bg-cyan-500/20 text-cyan-400 rounded-lg group-hover:bg-cyan-500 group-hover:text-white transition-colors">
                                                 <EnvelopeIcon className="w-4 h-4" />
                                             </div>
                                             <div className="flex-1 min-w-0">
@@ -694,14 +694,14 @@ export default function Footer({ className = '' }: FooterProps) {
                                 </div>
 
                                 {/* CTA */}
-                                <div className="p-6 bg-gradient-to-br from-blue-600/20 to-sky-600/20 rounded-xl border border-blue-500/20">
+                                <div className="p-6 bg-gradient-to-br from-cyan-600/20 to-teal-600/20 rounded-xl border border-cyan-500/20">
                                     <h4 className="text-lg font-bold text-white mb-2">پروژه جدید دارید؟</h4>
                                     <p className="text-sm text-gray-300 mb-4">
                                         همین الان با ما تماس بگیرید و مشاوره رایگان دریافت کنید
                                     </p>
                                     <Link
                                         href="/contact"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm font-medium w-full justify-center"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-teal-600 text-white rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm font-medium w-full justify-center"
                                     >
                                         <ChatBubbleLeftRightIcon className="w-4 h-4" />
                                         <span>شروع پروژه</span>
@@ -725,24 +725,11 @@ export default function Footer({ className = '' }: FooterProps) {
                                     </p>
                                 </div>
 
-                                {/* Legal Links */}
-                                {/*<div className="flex items-center gap-6 text-sm">*/}
-                                {/*    <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">*/}
-                                {/*        حریم خصوصی*/}
-                                {/*    </Link>*/}
-                                {/*    <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">*/}
-                                {/*        شرایط خدمات*/}
-                                {/*    </Link>*/}
-                                {/*    <Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">*/}
-                                {/*        نقشه سایت*/}
-                                {/*    </Link>*/}
-                                {/*</div>*/}
-
                                 {/* Back to Top */}
                                 {showScrollTop && (
                                     <button
                                         onClick={scrollToTop}
-                                        className="fixed bottom-8 left-8 z-50 p-3 bg-gradient-to-r from-blue-600 to-sky-600 text-white rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                                        className="fixed bottom-8 left-8 z-50 p-3 bg-gradient-to-r from-cyan-600 to-teal-600 text-white rounded-full shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-900"
                                         aria-label="بازگشت به بالای صفحه"
                                         title="بازگشت به بالا"
                                     >
