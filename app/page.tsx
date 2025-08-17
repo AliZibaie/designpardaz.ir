@@ -8,22 +8,15 @@ import {
     EnvelopeIcon,
     ClockIcon,
     CheckCircleIcon,
-    CodeBracketIcon,
-    RocketLaunchIcon,
-    TrophyIcon,
     HeartIcon,
     ShieldCheckIcon,
-    CurrencyDollarIcon,
     ChatBubbleLeftRightIcon,
-    UserGroupIcon,
-    CogIcon,
-    ChartBarIcon,
-    CalendarDaysIcon
 } from '@heroicons/react/24/outline';
 
 import HeroSection from '../components/home/HeroSection';
 import ServicesSection from '../components/home/ServicesSection';
 import ProcessSection from '../components/home/ProcessSection';
+import WhyChooseUsSection from '../components/home/WhyChooseUsSection';
 
 // Company Data for SEO
 const companyData = {
@@ -107,115 +100,8 @@ export default function LandingPage() {
                 <ServicesSection />
                 {/* Process Section */}
                 <ProcessSection />
-
                 {/* Why Choose Us Section */}
-                <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-pink-50" data-animate>
-                    <div className="container mx-auto px-4">
-
-                        {/* Section Header */}
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-pink-100 text-orange-600 rounded-full text-sm font-medium mb-4">
-                                <TrophyIcon className="w-4 h-4" />
-                                <span>مزیت‌های ما</span>
-                            </div>
-                            <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
-                                چرا
-                                <span className="text-transparent bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text"> دیزاین پرداز </span>
-                                انتخاب کنید؟
-                            </h2>
-                            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                با ۸ سال تجربه و صدها پروژه موفق، ما بهترین کیفیت را با مناسب‌ترین قیمت ارائه می‌دهیم
-                            </p>
-                        </div>
-
-                        {/* Features Grid */}
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    icon: RocketLaunchIcon,
-                                    title: 'سرعت بالا',
-                                    description: 'تحویل پروژه در کمترین زمان ممکن با بالاترین کیفیت',
-                                    gradient: 'from-blue-500 to-purple-500'
-                                },
-                                {
-                                    icon: ShieldCheckIcon,
-                                    title: 'گارانتی کیفیت',
-                                    description: '۶ ماه گارانتی و پشتیبانی رایگان برای تمام پروژه‌ها',
-                                    gradient: 'from-green-500 to-blue-500'
-                                },
-                                {
-                                    icon: CurrencyDollarIcon,
-                                    title: 'قیمت منصفانه',
-                                    description: 'بهترین قیمت در بازار با امکان پرداخت اقساطی',
-                                    gradient: 'from-yellow-500 to-orange-500'
-                                },
-                                {
-                                    icon: UserGroupIcon,
-                                    title: 'تیم متخصص',
-                                    description: 'تیمی از بهترین متخصصان طراحی وب و سئو',
-                                    gradient: 'from-pink-500 to-red-500'
-                                },
-                                {
-                                    icon: ChatBubbleLeftRightIcon,
-                                    title: 'پشتیبانی ۲۴/۷',
-                                    description: 'پشتیبانی شبانه‌روزی حتی در تعطیلات',
-                                    gradient: 'from-purple-500 to-pink-500'
-                                },
-                                {
-                                    icon: ChartBarIcon,
-                                    title: 'نتایج اثبات شده',
-                                    description: 'افزایش ۳ برابری فروش و ترافیک مشتریان ما',
-                                    gradient: 'from-indigo-500 to-purple-500'
-                                }
-                            ].map((feature, index) => (
-                                <div
-                                    key={index}
-                                    className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 border-gray-100 hover:border-transparent"
-                                >
-                                    {/* Feature Icon */}
-                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                        <feature.icon className="w-8 h-8 text-white" />
-                                    </div>
-
-                                    {/* Feature Content */}
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-pink-500 group-hover:bg-clip-text transition-all duration-300">
-                                        {feature.title}
-                                    </h3>
-
-                                    <p className="text-gray-600 leading-relaxed">
-                                        {feature.description}
-                                    </p>
-
-                                    {/* Hover Effect Background */}
-                                    <div className={`absolute inset-0 bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-300`}></div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Stats Section */}
-                        <div className="mt-20 bg-gradient-to-r from-orange-500 to-pink-500 rounded-3xl p-8 lg:p-12 text-white">
-                            <div className="grid md:grid-cols-4 gap-8 text-center">
-                                <div>
-                                    <div className="text-4xl lg:text-5xl font-black mb-2">۲۵۰+</div>
-                                    <div className="text-orange-100">پروژه موفق</div>
-                                </div>
-                                <div>
-                                    <div className="text-4xl lg:text-5xl font-black mb-2">۱۸۰+</div>
-                                    <div className="text-orange-100">مشتری راضی</div>
-                                </div>
-                                <div>
-                                    <div className="text-4xl lg:text-5xl font-black mb-2">۹۸%</div>
-                                    <div className="text-orange-100">میزان رضایت</div>
-                                </div>
-                                <div>
-                                    <div className="text-4xl lg:text-5xl font-black mb-2">۸+</div>
-                                    <div className="text-orange-100">سال تجربه</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+                <WhyChooseUsSection />
                 {/* FAQ Section */}
                 <section className="py-20 bg-gradient-to-br from-gray-900 to-slate-900 text-white" data-animate>
                     <div className="container mx-auto px-4">
