@@ -2,21 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import {
-    ArrowRightIcon,
-    ChevronDownIcon,
     PhoneIcon,
     EnvelopeIcon,
     ClockIcon,
     CheckCircleIcon,
     HeartIcon,
     ShieldCheckIcon,
-    ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline';
 
 import HeroSection from '../components/home/HeroSection';
 import ServicesSection from '../components/home/ServicesSection';
 import ProcessSection from '../components/home/ProcessSection';
 import WhyChooseUsSection from '../components/home/WhyChooseUsSection';
+import FAQSection from '../components/home/FAQSection';
 
 // Company Data for SEO
 const companyData = {
@@ -35,30 +33,10 @@ const companyData = {
 };
 
 
-// FAQ Data
-const faqs = [
-    {
-        question: 'چقدر طول می‌کشد تا سایتم آماده شود؟',
-        answer: 'زمان تحویل بسته به پیچیدگی پروژه بین ۷ تا ۳۰ روز کاری متغیر است. پس از بررسی نیازهای شما، زمان دقیق اعلام می‌شود.'
-    },
-    {
-        question: 'آیا پس از تحویل سایت پشتیبانی ارائه می‌دهید؟',
-        answer: 'بله، ۶ ماه پشتیبانی رایگان و آموزش کامل کار با سایت ارائه می‌دهیم. پس از آن نیز پشتیبانی با تعرفه مناسب ادامه دارد.'
-    },
-    {
-        question: 'هزینه طراحی سایت چقدر است؟',
-        answer: 'هزینه بسته به نوع سایت، تعداد صفحات و امکانات مورد نیاز متفاوت است. برای دریافت قیمت دقیق با ما تماس بگیرید.'
-    },
-    {
-        question: 'آیا سایت‌هایتان برای موبایل بهینه هستند؟',
-        answer: 'کاملاً! تمام سایت‌هایی که طراحی می‌کنیم کاملاً ریسپانسیو بوده و روی تمام دستگاه‌ها عالی کار می‌کنند.'
-    }
-];
 
 
 
 export default function LandingPage() {
-    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     const [visibleElements, setIsVisible] = useState<Set<string>>(new Set());
 
@@ -84,11 +62,6 @@ export default function LandingPage() {
         return () => observer.disconnect();
     }, []);
 
-
-
-
-
-
     return (
         <>
 
@@ -103,66 +76,7 @@ export default function LandingPage() {
                 {/* Why Choose Us Section */}
                 <WhyChooseUsSection />
                 {/* FAQ Section */}
-                <section className="py-20 bg-gradient-to-br from-gray-900 to-slate-900 text-white" data-animate>
-                    <div className="container mx-auto px-4">
-
-                        {/* Section Header */}
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium mb-4">
-                                <ChatBubbleLeftRightIcon className="w-4 h-4" />
-                                <span>سوالات متداول</span>
-                            </div>
-                            <h2 className="text-4xl lg:text-5xl font-black mb-6">
-                                سوالاتی که
-                                <span className="text-transparent bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text"> شما دارید</span>
-                            </h2>
-                            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                                پاسخ سوالات رایج درباره خدمات طراحی وب و سئو
-                            </p>
-                        </div>
-
-                        {/* FAQ Items */}
-                        <div className="max-w-4xl mx-auto space-y-4">
-                            {faqs.map((faq, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/20 transition-all duration-300"
-                                >
-                                    <button
-                                        className="w-full p-6 text-right flex items-center justify-between hover:bg-white/5 transition-colors"
-                                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                                    >
-                                        <span className="text-lg font-bold">{faq.question}</span>
-                                        <ChevronDownIcon
-                                            className={`w-6 h-6 text-orange-400 transition-transform duration-300 ${
-                                                openFaq === index ? 'rotate-180' : ''
-                                            }`}
-                                        />
-                                    </button>
-
-                                    {openFaq === index && (
-                                        <div className="px-6 pb-6">
-                                            <div className="border-t border-white/10 pt-4">
-                                                <p className="text-gray-300 leading-relaxed">
-                                                    {faq.answer}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Contact CTA */}
-                        <div className="text-center mt-12">
-                            <p className="text-gray-300 mb-6">سوال دیگری دارید؟</p>
-                            <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-xl hover:from-orange-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-2xl">
-                                <PhoneIcon className="w-5 h-5" />
-                                تماس مستقیم با ما
-                            </button>
-                        </div>
-                    </div>
-                </section>
+                <FAQSection />
 
                 {/* Final CTA Section */}
                 <section className="py-20 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 text-white overflow-hidden relative">
