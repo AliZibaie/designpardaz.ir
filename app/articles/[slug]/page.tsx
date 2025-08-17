@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo, use } from 'react';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -39,7 +38,6 @@ interface ArticlePageProps {
     }>;
 }
 
-// Static animation data to prevent hydration mismatch
 const FLOATING_PARTICLES = Array.from({ length: 15 }, (_, i) => ({
     id: i,
     left: `${(i * 7 + 10) % 90}%`,
@@ -51,14 +49,11 @@ const FLOATING_PARTICLES = Array.from({ length: 15 }, (_, i) => ({
 export default function ArticlePage({ params }: ArticlePageProps) {
     const { slug } = use(params);
 
-    // Find article by slug
     const article = useMemo(() =>
             articles.find(a => a.slug === slug),
         [slug]
     );
 
-
-    // Related articles
     const relatedArticles = useMemo(() => {
         if (!article) return [];
 
@@ -69,12 +64,11 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             return [];
         }
     }, [article]);
-    // State management
+
     const [isLiked, setIsLiked] = useState(false);
     const [isBookmarked, setIsBookmarked] = useState(false);
     const [likes, setLikes] = useState(0);
     const [views, setViews] = useState(0);
-    const [showShareMenu, setShowShareMenu] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [readingProgress, setReadingProgress] = useState(0);
     const [activeSection, setActiveSection] = useState('');
@@ -86,51 +80,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
     const contentRef = useRef<HTMLDivElement>(null);
 
-    // Mock table of contents
-    const tableOfContents = [
-        { id: 'introduction', title: 'مقدمه', level: 1 },
-        { id: 'basics', title: 'مبانی اصلی', level: 1 },
-        { id: 'implementation', title: 'پیاده‌سازی', level: 2 },
-        { id: 'examples', title: 'مثال‌های کاربردی', level: 2 },
-        { id: 'best-practices', title: 'بهترین روش‌ها', level: 1 },
-        { id: 'performance', title: 'بهینه‌سازی', level: 2 },
-        { id: 'security', title: 'امنیت', level: 2 },
-        { id: 'conclusion', title: 'نتیجه‌گیری', level: 1 }
-    ];
-
-    // Mock comments
-    const [comments] = useState([
-        {
-            id: '1',
-            author: 'محمد احمدی',
-            avatar: '/avatars/user1.jpg',
-            content: 'مقاله بسیار مفیدی بود. خیلی کمک کرد.',
-            publishedAt: '۱۴۰۳/۰۸/۲۰',
-            likes: 12,
-            replies: []
-        },
-        {
-            id: '2',
-            author: 'سارا کریمی',
-            avatar: '/avatars/user2.jpg',
-            content: 'آیا می‌تونید راجع به بخش پیاده‌سازی بیشتر توضیح بدید؟',
-            publishedAt: '۱۴۰۳/۰۸/۲۱',
-            likes: 8,
-            replies: [
-                {
-                    id: '2-1',
-                    author: article?.author.name || 'نویسنده',
-                    avatar: article?.author.avatar || '/avatars/author.jpg',
-                    content: 'حتماً. در مقاله بعدی به طور کامل پوشش می‌دم',
-                    publishedAt: '۱۴۰۳/۰۸/۲۲',
-                    likes: 3,
-                    isAuthor: true
-                }
-            ]
-        }
-    ]);
-
-    // Initialize data when component mounts
     useEffect(() => {
         setMounted(true);
         if (article) {
@@ -139,7 +88,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
         }
     }, [article]);
 
-    // Handle scroll effects
     useEffect(() => {
         if (!mounted) return;
 
@@ -151,38 +99,37 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             setReadingProgress(Math.min(progress, 100));
             setShowScrollTop(scrolled > 500);
 
-            // Update active section
-            const sections = tableOfContents.map(item => item.id);
-            const currentSection = sections.find(sectionId => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    return rect.top <= 100 && rect.bottom >= 100;
-                }
-                return false;
-            });
+            if (article?.tableOfContents) {
+                const sections = article.tableOfContents.map(item => item.id);
+                const currentSection = sections.find(sectionId => {
+                    const element = document.getElementById(sectionId);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        return rect.top <= 100 && rect.bottom >= 100;
+                    }
+                    return false;
+                });
 
-            if (currentSection) {
-                setActiveSection(currentSection);
+                if (currentSection) {
+                    setActiveSection(currentSection);
+                }
             }
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [mounted]);
+    }, [mounted, article]);
 
-    // Return 404 if article not found
     if (!article) {
         notFound();
     }
 
-    // Utility functions
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty) {
-            case 'مبتدی': return 'text-green-600 bg-green-50 border-green-200';
-            case 'متوسط': return 'text-yellow-600 bg-yellow-50 border-yellow-200';
-            case 'پیشرفته': return 'text-red-600 bg-red-50 border-red-200';
-            default: return 'text-gray-600 bg-gray-50 border-gray-200';
+            case 'مبتدی': return 'text-emerald-700 bg-emerald-50 border-emerald-200';
+            case 'متوسط': return 'text-amber-700 bg-amber-50 border-amber-200';
+            case 'پیشرفته': return 'text-rose-700 bg-rose-50 border-rose-200';
+            default: return 'text-slate-700 bg-slate-50 border-slate-200';
         }
     };
 
@@ -195,7 +142,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
         }).format(date);
     };
 
-    // Event handlers
     const toggleLike = () => {
         setIsLiked(!isLiked);
         setLikes(prev => isLiked ? prev - 1 : prev + 1);
@@ -218,7 +164,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             }
         } else if (mounted) {
             await navigator.clipboard.writeText(window.location.href);
-            // Show toast notification
         }
     };
 
@@ -230,29 +175,26 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
     const submitComment = () => {
         if (!newComment.trim()) return;
-        // Comment submission logic here
         setNewComment('');
         setShowCommentForm(false);
     };
 
     if (!mounted) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+            <div className="min-h-screen flex items-center justify-center bg-slate-50">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
             </div>
         );
     }
 
     return (
         <>
-            {/* SEO Meta Tags */}
             <head>
                 <title>{article.seo?.metaTitle || article.title}</title>
                 <meta name="description" content={article.seo?.metaDescription || article.excerpt} />
                 <meta name="keywords" content={article.seo?.keywords?.join(', ') || article.tags.join(', ')} />
                 <link rel="canonical" href={article.seo?.canonicalUrl || `https://designpardaz.ir/articles/${article.slug}`} />
 
-                {/* Open Graph */}
                 <meta property="og:title" content={article.title} />
                 <meta property="og:description" content={article.excerpt} />
                 <meta property="og:type" content="article" />
@@ -261,47 +203,43 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 <meta property="article:author" content={article.author.name} />
             </head>
 
-            <div className="min-h-screen bg-white">
-                {/* Reading Progress Bar */}
-                <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+            <div className="min-h-screen bg-slate-50">
+                <div className="fixed top-0 left-0 w-full h-1 bg-slate-200 z-50">
                     <div
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+                        className="h-full bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300"
                         style={{ width: `${readingProgress}%` }}
                     />
                 </div>
 
-                {/* Breadcrumb Navigation */}
-                <nav className="bg-white border-b border-gray-200 py-4 sticky top-0 z-40 backdrop-blur-sm bg-white/95">
+                <nav className="bg-white/95 backdrop-blur-sm border-b border-slate-200 py-4 sticky top-0 z-40 shadow-sm">
                     <div className="container mx-auto px-4">
                         <div className="flex items-center gap-2 text-sm">
-                            <Link href="/" className="flex items-center gap-1 text-gray-500 hover:text-blue-600 transition-colors">
+                            <Link href="/" className="flex items-center gap-1 text-slate-600 hover:text-blue-600 transition-colors">
                                 <HomeIcon className="w-4 h-4" />
                                 <span>خانه</span>
                             </Link>
-                            <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
-                            <Link href="/articles" className="text-gray-500 hover:text-blue-600 transition-colors">
+                            <ChevronLeftIcon className="w-4 h-4 text-slate-400" />
+                            <Link href="/articles" className="text-slate-600 hover:text-blue-600 transition-colors">
                                 مقالات
                             </Link>
-                            <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
+                            <ChevronLeftIcon className="w-4 h-4 text-slate-400" />
                             <Link
                                 href={`/articles?category=${article.category.slug}`}
-                                className="text-gray-500 hover:text-blue-600 transition-colors"
+                                className="text-slate-600 hover:text-blue-600 transition-colors"
                             >
                                 {article.category.name}
                             </Link>
-                            <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
-                            <span className="text-gray-900 font-medium truncate max-w-md">
+                            <ChevronLeftIcon className="w-4 h-4 text-slate-400" />
+                            <span className="text-slate-900 font-medium truncate max-w-md">
                                 {article.title}
                             </span>
                         </div>
                     </div>
                 </nav>
 
-                {/* Article Header */}
-                <header className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
-                    {/* Static Background Animation */}
+                <header className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
                     <div className="absolute inset-0">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-blue-500/10 to-blue-600/10"></div>
                         {FLOATING_PARTICLES.map((particle) => (
                             <div
                                 key={particle.id}
@@ -313,18 +251,17 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                     animationDuration: particle.animationDuration
                                 }}
                             >
-                                <div className="w-2 h-2 bg-white/20 rounded-full blur-sm"></div>
+                                <div className="w-2 h-2 bg-blue-400/30 rounded-full blur-sm"></div>
                             </div>
                         ))}
                     </div>
 
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="max-w-4xl mx-auto text-center">
-                            {/* Article Badges */}
                             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
                                 {(() => {
                                     const IconComponent = article.category.icon as React.ComponentType<{ className?: string }>;
-                                    return <IconComponent className="w-5 h-5" />;
+                                    return <IconComponent className="w-5 h-5 text-blue-400" />;
                                 })()}
 
                                 <div className={`px-4 py-2 rounded-full text-sm font-medium border ${getDifficultyColor(article.difficulty)}`}>
@@ -332,43 +269,40 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                 </div>
 
                                 {article.featured && (
-                                    <div className="px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full flex items-center gap-2">
+                                    <div className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full flex items-center gap-2">
                                         <StarIcon className="w-4 h-4" />
                                         <span className="text-sm font-medium">ویژه</span>
                                     </div>
                                 )}
 
                                 {article.trending && (
-                                    <div className="px-4 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full flex items-center gap-2">
+                                    <div className="px-4 py-2 bg-gradient-to-r from-slate-600 to-slate-700 text-white rounded-full flex items-center gap-2">
                                         <FireIcon className="w-4 h-4" />
                                         <span className="text-sm font-medium">ترند</span>
                                     </div>
                                 )}
                             </div>
 
-                            {/* Article Title */}
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-8">
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-8 text-white">
                                 {article.title}
                             </h1>
 
-                            {/* Article Excerpt */}
-                            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8 max-w-3xl mx-auto">
+                            <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-8 max-w-3xl mx-auto">
                                 {article.excerpt}
                             </p>
 
-                            {/* Article Meta */}
-                            <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-gray-300">
+                            <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-slate-300">
                                 <div className="flex items-center gap-3">
                                     <Image
                                         src={article.author.avatar}
                                         alt={article.author.name}
                                         width={48}
                                         height={48}
-                                        className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
+                                        className="w-12 h-12 rounded-full object-cover border-2 border-blue-400/30"
                                     />
                                     <div>
                                         <div className="font-medium text-white">{article.author.name}</div>
-                                        <div className="text-sm text-gray-400">{article.author.role || 'نویسنده'}</div>
+                                        <div className="text-sm text-slate-400">{article.author.role}</div>
                                     </div>
                                 </div>
 
@@ -388,14 +322,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                 </div>
                             </div>
 
-                            {/* Action Buttons */}
                             <div className="flex flex-wrap items-center justify-center gap-4">
                                 <button
                                     onClick={toggleLike}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                                         isLiked
-                                            ? 'bg-red-500 text-white'
-                                            : 'bg-white/10 text-white hover:bg-white/20'
+                                            ? 'bg-red-500 text-white shadow-lg'
+                                            : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                                     }`}
                                 >
                                     {isLiked ? <HeartSolidIcon className="w-5 h-5" /> : <HeartIcon className="w-5 h-5" />}
@@ -406,8 +339,8 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                     onClick={toggleBookmark}
                                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                                         isBookmarked
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-white/10 text-white hover:bg-white/20'
+                                            ? 'bg-blue-500 text-white shadow-lg'
+                                            : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                                     }`}
                                 >
                                     {isBookmarked ? <BookmarkSolidIcon className="w-5 h-5" /> : <BookmarkIcon className="w-5 h-5" />}
@@ -416,7 +349,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
                                 <button
                                     onClick={handleShare}
-                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 text-white hover:bg-white/20 rounded-xl font-medium transition-all duration-300"
+                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 text-white hover:bg-white/20 rounded-xl font-medium transition-all duration-300 backdrop-blur-sm"
                                 >
                                     <ShareIcon className="w-5 h-5" />
                                     <span>اشتراک</span>
@@ -424,7 +357,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
                                 <button
                                     onClick={() => mounted && window.print()}
-                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 text-white hover:bg-white/20 rounded-xl font-medium transition-all duration-300"
+                                    className="flex items-center gap-2 px-6 py-3 bg-white/10 text-white hover:bg-white/20 rounded-xl font-medium transition-all duration-300 backdrop-blur-sm"
                                 >
                                     <PrinterIcon className="w-5 h-5" />
                                     <span>چاپ</span>
@@ -434,91 +367,95 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                     </div>
                 </header>
 
-                {/* Main Content */}
                 <div className="container mx-auto px-4 py-12">
                     <div className="max-w-6xl mx-auto">
                         <div className="grid lg:grid-cols-4 gap-12">
-                            {/* Table of Contents - Sidebar */}
                             <aside className="lg:col-span-1 order-2 lg:order-1">
                                 <div className="sticky top-24 space-y-8">
-                                    {/* Author Card */}
-                                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                                    <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
                                         <div className="flex items-center gap-4 mb-4">
                                             <Image
                                                 src={article.author.avatar}
                                                 alt={article.author.name}
                                                 width={60}
                                                 height={60}
-                                                className="w-15 h-15 rounded-full object-cover"
+                                                className="w-15 h-15 rounded-full object-cover border-2 border-blue-200"
                                             />
                                             <div>
-                                                <h3 className="font-bold text-gray-900">{article.author.name}</h3>
-                                                <p className="text-gray-600 text-sm">{article.author.role || 'نویسنده'}</p>
+                                                <h3 className="font-bold text-slate-900">{article.author.name}</h3>
+                                                <p className="text-slate-600 text-sm">{article.author.role}</p>
                                             </div>
                                         </div>
-                                        {article.author.bio && (
-                                            <p className="text-gray-600 text-sm">{article.author.bio}</p>
-                                        )}
+                                        <p className="text-slate-600 text-sm">{article.author.bio}</p>
                                     </div>
 
-                                    {/* Table of Contents */}
-                                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <DocumentTextIcon className="w-5 h-5 text-blue-600" />
-                                            <h3 className="font-bold text-gray-900">فهرست مطالب</h3>
+                                    {article.tableOfContents && (
+                                        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+                                            <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                                <DocumentTextIcon className="w-5 h-5 text-blue-600" />
+                                                فهرست مطالب
+                                            </h3>
+                                            <nav>
+                                                <ul className="space-y-2">
+                                                    {article.tableOfContents.map((item) => (
+                                                        <li key={item.id}>
+                                                            <a
+                                                                href={`#${item.id}`}
+                                                                className={`block py-2 px-3 rounded-lg transition-all duration-200 ${
+                                                                    activeSection === item.id
+                                                                        ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-500 font-medium'
+                                                                        : item.level === 1
+                                                                            ? 'text-slate-900 hover:bg-slate-50 font-medium'
+                                                                            : 'text-slate-600 hover:bg-slate-50 mr-4'
+                                                                }`}
+                                                            >
+                                                                {item.title}
+                                                            </a>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </nav>
                                         </div>
-                                        <nav className="space-y-2">
-                                            {tableOfContents.map((item) => (
-                                                <a
-                                                    key={item.id}
-                                                    href={`#${item.id}`}
-                                                    className={`block py-2 px-3 text-sm rounded-lg transition-colors ${
-                                                        item.level === 1
-                                                            ? 'font-medium text-gray-900 hover:bg-blue-50 hover:text-blue-600'
-                                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 mr-4'
-                                                    } ${
-                                                        activeSection === item.id
-                                                            ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600'
-                                                            : ''
-                                                    }`}
-                                                >
-                                                    {item.title}
-                                                </a>
-                                            ))}
-                                        </nav>
-                                    </div>
+                                    )}
 
-                                    {/* Article Stats */}
-                                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-                                        <h3 className="font-bold text-gray-900 mb-4">آمار مقاله</h3>
-                                        <div className="space-y-3">
+                                    <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+                                        <h3 className="font-bold text-slate-900 mb-4">آمار مقاله</h3>
+                                        <div className="space-y-4">
                                             <div className="flex items-center justify-between">
-                                                <span className="text-gray-600">بازدید</span>
-                                                <span className="font-medium">{views.toLocaleString()}</span>
+                                                <span className="text-slate-600">بازدید</span>
+                                                <span className="font-semibold text-slate-900">{views.toLocaleString()}</span>
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <span className="text-gray-600">پسندیدن</span>
-                                                <span className="font-medium">{likes.toLocaleString()}</span>
+                                                <span className="text-slate-600">پسندیدن</span>
+                                                <span className="font-semibold text-slate-900">{likes.toLocaleString()}</span>
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <span className="text-gray-600">زمان مطالعه</span>
-                                                <span className="font-medium">{article.readTime} دقیقه</span>
+                                                <span className="text-slate-600">زمان مطالعه</span>
+                                                <span className="font-semibold text-slate-900">{article.readTime} دقیقه</span>
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <span className="text-gray-600">سطح</span>
+                                                <span className="text-slate-600">سطح</span>
                                                 <span className={`px-2 py-1 rounded text-xs font-medium ${getDifficultyColor(article.difficulty)}`}>
                                                     {article.difficulty}
                                                 </span>
                                             </div>
+                                            {article.rating && (
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-slate-600">امتیاز</span>
+                                                    <div className="flex items-center gap-1">
+                                                        <span className="font-semibold text-slate-900">{article.rating.average}</span>
+                                                        <StarIcon className="w-4 h-4 text-yellow-400 fill-current" />
+                                                        <span className="text-slate-500 text-xs">({article.rating.count})</span>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                             </aside>
 
-                            {/* Main Article Content */}
                             <article className="lg:col-span-3 order-1 lg:order-2">
-                                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                                    {/* Article Image */}
+                                <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                                     <div className="aspect-video relative">
                                         <Image
                                             src={article.image.main}
@@ -529,15 +466,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                                     </div>
 
-                                    {/* Article Content */}
                                     <div className="p-8">
-                                        {/* Article Tags */}
-                                        <div className="flex flex-wrap gap-2 mb-8">
+                                        <div className="flex flex-wrap gap-2 mb-6">
                                             {article.tags.map((tag) => (
                                                 <Link
                                                     key={tag}
-                                                    href={`/articles?tag=${encodeURIComponent(tag)}`}
-                                                    className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                                                    href={`/articles?tag=${tag}`}
+                                                    className="inline-flex items-center gap-1 px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm hover:bg-blue-50 hover:text-blue-700 transition-colors"
                                                 >
                                                     <TagIcon className="w-3 h-3" />
                                                     <span>{tag}</span>
@@ -545,70 +480,84 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                             ))}
                                         </div>
 
-                                        {/* Main Content */}
-                                        <div
-                                            ref={contentRef}
-                                            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100"
-                                            dangerouslySetInnerHTML={{ __html: article.content }}
-                                        />
+                                        <div ref={contentRef} className="prose prose-lg max-w-none">
+                                            <div
+                                                className="text-slate-700 leading-relaxed"
+                                                dangerouslySetInnerHTML={{ __html: article.content }}
+                                            />
+                                        </div>
 
-                                        {/* Article Footer */}
-                                        <div className="mt-12 pt-8 border-t border-gray-200">
-                                            {/* Rating */}
-                                            <div className="mb-8">
-                                                <h3 className="font-bold text-gray-900 mb-4">این مقاله را چگونه ارزیابی می‌کنید؟</h3>
-                                                <div className="flex items-center gap-2">
-                                                    {[1, 2, 3, 4, 5].map((star) => (
-                                                        <button
-                                                            key={star}
-                                                            onClick={() => setUserRating(star)}
-                                                            className={`p-1 rounded ${
-                                                                star <= userRating
-                                                                    ? 'text-yellow-400'
-                                                                    : 'text-gray-300 hover:text-yellow-400'
-                                                            } transition-colors`}
-                                                        >
-                                                            <StarIcon className="w-6 h-6 fill-current" />
-                                                        </button>
+                                        {article.faq && article.faq.length > 0 && (
+                                            <div className="mt-12 pt-8 border-t border-slate-200">
+                                                <h2 className="text-2xl font-bold text-slate-900 mb-6">سوالات متداول</h2>
+                                                <div className="space-y-4">
+                                                    {article.faq.map((faqItem, index) => (
+                                                        <div key={index} className="bg-slate-50 rounded-lg p-6">
+                                                            <h3 className="font-bold text-slate-900 mb-2">{faqItem.question}</h3>
+                                                            <p className="text-slate-700">{faqItem.answer}</p>
+                                                        </div>
                                                     ))}
-                                                    <span className="mr-3 text-gray-600">
-                                                        {userRating > 0 ? `${userRating} از 5` : 'امتیاز دهید'}
-                                                    </span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <div className="mt-12 pt-8 border-t border-slate-200">
+                                            <div className="mb-8">
+                                                <h3 className="font-bold text-slate-900 mb-4">این مقاله چقدر مفید بود؟</h3>
+                                                <div className="flex items-center gap-4">
+                                                    <div className="flex gap-1">
+                                                        {[1, 2, 3, 4, 5].map((star) => (
+                                                            <button
+                                                                key={star}
+                                                                onClick={() => setUserRating(star)}
+                                                                className={`w-8 h-8 rounded transition-colors ${
+                                                                    star <= userRating
+                                                                        ? 'text-yellow-400 hover:text-yellow-500'
+                                                                        : 'text-slate-300 hover:text-yellow-400'
+                                                                }`}
+                                                            >
+                                                                <StarIcon className={star <= userRating ? 'fill-current' : ''} />
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                    {userRating > 0 && (
+                                                        <span className="text-sm text-slate-600">
+                                                            {userRating} از ۵ ستاره
+                                                        </span>
+                                                    )}
                                                 </div>
                                             </div>
 
-                                            {/* Feedback */}
                                             <div className="mb-8">
-                                                <h3 className="font-bold text-gray-900 mb-4">آیا این مقاله مفید بود؟</h3>
-                                                <div className="flex gap-4">
+                                                <h3 className="font-bold text-slate-900 mb-4">بازخورد شما</h3>
+                                                <div className="flex gap-3">
                                                     <button
                                                         onClick={() => setFeedback('helpful')}
-                                                        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all ${
+                                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                                                             feedback === 'helpful'
-                                                                ? 'bg-green-500 text-white'
-                                                                : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-600'
+                                                                ? 'bg-emerald-100 text-emerald-700 border border-emerald-300'
+                                                                : 'bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700'
                                                         }`}
                                                     >
-                                                        <HandThumbUpIcon className="w-5 h-5" />
+                                                        <HandThumbUpIcon className="w-4 h-4" />
                                                         <span>مفید بود</span>
                                                     </button>
                                                     <button
                                                         onClick={() => setFeedback('not-helpful')}
-                                                        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all ${
+                                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                                                             feedback === 'not-helpful'
-                                                                ? 'bg-red-500 text-white'
-                                                                : 'bg-gray-100 text-gray-700 hover:bg-red-50 hover:text-red-600'
+                                                                ? 'bg-red-100 text-red-700 border border-red-300'
+                                                                : 'bg-slate-100 text-slate-700 hover:bg-red-50 hover:text-red-700'
                                                         }`}
                                                     >
-                                                        <HandThumbDownIcon className="w-5 h-5" />
+                                                        <HandThumbDownIcon className="w-4 h-4" />
                                                         <span>مفید نبود</span>
                                                     </button>
                                                 </div>
                                             </div>
 
-                                            {/* Share Section */}
                                             <div className="mb-8">
-                                                <h3 className="font-bold text-gray-900 mb-4">اشتراک‌گذاری</h3>
+                                                <h3 className="font-bold text-slate-900 mb-4">اشتراک‌گذاری</h3>
                                                 <div className="flex items-center gap-4">
                                                     <button
                                                         onClick={handleShare}
@@ -619,7 +568,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                                     </button>
                                                     <button
                                                         onClick={() => mounted && navigator.clipboard.writeText(window.location.href)}
-                                                        className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                                                        className="flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors"
                                                     >
                                                         <LinkIcon className="w-4 h-4" />
                                                         <span>کپی لینک</span>
@@ -630,12 +579,11 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                     </div>
                                 </div>
 
-                                {/* Comments Section */}
-                                <div className="mt-12 bg-white rounded-2xl shadow-lg border border-gray-100">
+                                <div className="mt-12 bg-white rounded-2xl shadow-lg border border-slate-200">
                                     <div className="p-8">
                                         <div className="flex items-center justify-between mb-8">
-                                            <h2 className="text-2xl font-bold text-gray-900">
-                                                نظرات ({comments.length})
+                                            <h2 className="text-2xl font-bold text-slate-900">
+                                                نظرات (0)
                                             </h2>
                                             <button
                                                 onClick={() => setShowCommentForm(!showCommentForm)}
@@ -646,21 +594,20 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                             </button>
                                         </div>
 
-                                        {/* Comment Form */}
                                         {showCommentForm && (
-                                            <div className="mb-8 p-6 bg-gray-50 rounded-xl">
-                                                <h3 className="font-bold text-gray-900 mb-4">نظر خود را بنویسید</h3>
+                                            <div className="mb-8 p-6 bg-slate-50 rounded-xl">
+                                                <h3 className="font-bold text-slate-900 mb-4">نظر خود را بنویسید</h3>
                                                 <textarea
                                                     value={newComment}
                                                     onChange={(e) => setNewComment(e.target.value)}
                                                     placeholder="نظر شما..."
                                                     rows={4}
-                                                    className="w-full p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                                    className="w-full p-4 border border-slate-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                                 />
                                                 <div className="flex justify-end gap-3 mt-4">
                                                     <button
                                                         onClick={() => setShowCommentForm(false)}
-                                                        className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                                                        className="px-4 py-2 text-slate-600 hover:text-slate-800 transition-colors"
                                                     >
                                                         انصراف
                                                     </button>
@@ -675,64 +622,10 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                             </div>
                                         )}
 
-                                        {/* Comments List */}
-                                        <div className="space-y-6">
-                                            {comments.map((comment) => (
-                                                <div key={comment.id} className="border-b border-gray-100 pb-6 last:border-b-0">
-                                                    <div className="flex items-start gap-4">
-                                                        <Image
-                                                            src={comment.avatar}
-                                                            alt={comment.author}
-                                                            width={40}
-                                                            height={40}
-                                                            className="w-10 h-10 rounded-full object-cover"
-                                                        />
-                                                        <div className="flex-1">
-                                                            <div className="flex items-center gap-2 mb-2">
-                                                                <h4 className="font-medium text-gray-900">{comment.author}</h4>
-                                                                <span className="text-sm text-gray-500">{comment.publishedAt}</span>
-                                                            </div>
-                                                            <p className="text-gray-700 leading-relaxed mb-3">{comment.content}</p>
-                                                            <div className="flex items-center gap-4">
-                                                                <button className="flex items-center gap-1 text-gray-500 hover:text-blue-600 transition-colors">
-                                                                    <HandThumbUpIcon className="w-4 h-4" />
-                                                                    <span>{comment.likes}</span>
-                                                                </button>
-                                                                <button className="text-gray-500 hover:text-blue-600 transition-colors">
-                                                                    پاسخ
-                                                                </button>
-                                                            </div>
-
-                                                            {/* Replies */}
-                                                            {comment.replies && comment.replies.length > 0 && (
-                                                                <div className="mt-4 mr-6 space-y-4">
-                                                                    {comment.replies.map((reply) => (
-                                                                        <div key={reply.id} className="flex items-start gap-3">
-                                                                            <Image
-                                                                                src={reply.avatar}
-                                                                                alt={reply.author}
-                                                                                width={32}
-                                                                                height={32}
-                                                                                className="w-8 h-8 rounded-full object-cover"
-                                                                            />
-                                                                            <div className="flex-1">
-                                                                                <div className="flex items-center gap-2 mb-1">
-                                                                                    <h5 className="font-medium text-gray-900">{reply.author}</h5>
-                                                                                    {reply.isAuthor && (
-                                                                                        <span className="px-2 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">نویسنده</span>
-                                                                                    )}
-                                                                                    <span className="text-xs text-gray-500">{reply.publishedAt}</span>
-                                                                                </div>
-                                                                                <p className="text-gray-700 text-sm">{reply.content}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
+                                        <div className="text-center py-12 text-slate-500">
+                                            <ChatBubbleLeftIcon className="w-16 h-16 mx-auto mb-4 opacity-30" />
+                                            <p>هنوز نظری ثبت نشده است.</p>
+                                            <p className="text-sm">اولین نفری باشید که نظر می‌دهد!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -741,12 +634,11 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                     </div>
                 </div>
 
-                {/* Related Articles */}
                 {relatedArticles.length > 0 && (
-                    <section className="py-16 bg-gray-50">
+                    <section className="py-16 bg-white">
                         <div className="container mx-auto px-4">
                             <div className="max-w-6xl mx-auto">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+                                <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
                                     مقالات مرتبط
                                 </h2>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -754,7 +646,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                         <Link
                                             key={relatedArticle.id}
                                             href={`/articles/${relatedArticle.slug}`}
-                                            className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow group"
+                                            className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
                                         >
                                             <div className="aspect-video relative">
                                                 <Image
@@ -773,13 +665,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                                                         {relatedArticle.difficulty}
                                                     </div>
                                                 </div>
-                                                <h3 className="font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                                                <h3 className="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
                                                     {relatedArticle.title}
                                                 </h3>
-                                                <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+                                                <p className="text-slate-600 text-sm line-clamp-2 mb-4">
                                                     {relatedArticle.excerpt}
                                                 </p>
-                                                <div className="flex items-center justify-between text-xs text-gray-500">
+                                                <div className="flex items-center justify-between text-xs text-slate-500">
                                                     <div className="flex items-center gap-4">
                                                         <span className="flex items-center gap-1">
                                                             <ClockIcon className="w-3 h-3" />
@@ -801,7 +693,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                     </section>
                 )}
 
-                {/* Scroll to Top Button */}
                 {showScrollTop && (
                     <button
                         onClick={scrollToTop}
