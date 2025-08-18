@@ -88,12 +88,12 @@ const servicesData = [
         category: 'سئو و بهینه‌سازی',
         icon: MagnifyingGlassIcon,
         services: [
-            { name: 'سئو تکنیکال', href: '/services/seo/technical', popular: true },
-            { name: 'تولید محتوای سئو', href: '/services/seo/content', popular: true },
-            { name: 'سئو محلی', href: '/services/seo/local' },
-            { name: 'تحلیل و گزارش سئو', href: '/services/seo/analytics' },
-            { name: 'بهینه‌سازی سرعت', href: '/services/seo/speed' },
-            { name: 'Link Building', href: '/services/seo/linkbuilding' }
+            { name: 'سئو تکنیکال', href: '/services/seo#technical', popular: true },
+            { name: 'تولید محتوای سئو', href: '/services/seo#content', popular: true },
+            { name: 'سئو محلی', href: '/services/seo#local' },
+            { name: 'تحلیل و گزارش سئو', href: '/services/seo#analytics' },
+            { name: 'بهینه‌سازی سرعت', href: '/services/seo#speed' },
+            { name: 'Link Building', href: '/services/seo#linkbuilding' }
         ]
     },
     {

@@ -68,14 +68,14 @@ const servicesMenuData = [
         ]
     },
     {
-        category: 'سئو و بهینهسازی',
+        category: 'سئو و بهینه سازی',
         categorySlug: 'seo',
         categoryIcon: MagnifyingGlassIcon,
         categoryDescription: 'بهینهسازی موتورهای جستجو',
         services: [
             {
                 title: 'سئو تکنیکال',
-                href: '/services/seo/technical',
+                href: '/services/seo#technical',
                 description: 'بهینهسازی فنی وبسایت',
                 icon: CogIcon,
                 featured: true,
@@ -83,7 +83,7 @@ const servicesMenuData = [
             },
             {
                 title: 'تولید محتوای سئو',
-                href: '/services/seo/content',
+                href: '/services/seo#content',
                 description: 'محتوای بهینهشده',
                 icon: DocumentTextIcon,
                 featured: true,
@@ -91,7 +91,7 @@ const servicesMenuData = [
             },
             {
                 title: 'سئو محلی',
-                href: '/services/seo/local',
+                href: '/services/seo#local',
                 description: 'بهینهسازی جستجوهای محلی',
                 icon: MapPinIcon,
                 featured: false,
