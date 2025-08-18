@@ -13,7 +13,7 @@ const services = [
         title: 'طراحی سایت',
         description: 'طراحی وب‌سایت حرفه‌ای و ریسپانسیو با جدیدترین تکنولوژی‌ها',
         icon: ComputerDesktopIcon,
-        price: 'از ۸ میلیون تومان',
+        price: 'از ۱۲ میلیون تومان',
         features: ['طراحی ریسپانسیو', 'بهینه‌سازی سرعت', 'پنل مدیریت', 'پشتیبانی ۶ ماهه'],
         gradient: 'from-slate-800 to-cyan-500',
         popular: false
@@ -23,7 +23,7 @@ const services = [
         title: 'سئو و بهینه‌سازی',
         description: 'بهینه‌سازی کامل سایت برای موتورهای جستجو و افزایش ترافیک',
         icon: MagnifyingGlassIcon,
-        price: 'از ۱۹ میلیون تومان',
+        price: 'از ۲۵ میلیون تومان',
         features: ['سئو تکنیکال', 'تولید محتوا', 'گزارش‌گیری', 'پیگیری رتبه'],
         gradient: 'from-cyan-500 to-blue-600',
         popular: true
@@ -33,7 +33,7 @@ const services = [
         title: 'طراحی گرافیک',
         description: 'طراحی لوگو، هویت بصری و تمام نیازهای گرافیکی شما',
         icon: PhotoIcon,
-        price: 'از ۲.۵ میلیون تومان',
+        price: 'از ۵ میلیون تومان',
         features: ['طراحی لوگو', 'هویت بصری', 'بنر و پوستر', 'کاتالوگ'],
         gradient: 'from-slate-700 to-cyan-400',
         popular: false
@@ -43,7 +43,7 @@ const services = [
         title: 'فروشگاه اینترنتی',
         description: 'ساخت فروشگاه آنلاین پیشرفته با درگاه پرداخت معتبر',
         icon: ShoppingCartIcon,
-        price: 'از ۴۵ میلیون تومان',
+        price: 'از ۶۰ میلیون تومان',
         features: ['درگاه پرداخت', 'مدیریت انبار', 'پنل فروشنده', 'اپلیکیشن موبایل'],
         gradient: 'from-slate-900 to-cyan-600',
         popular: false
