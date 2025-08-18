@@ -34,21 +34,20 @@ import {
     SparklesIcon
 } from '@heroicons/react/24/outline';
 
-// Service Categories - همون محتوای قبلی
 const servicesMenuData = [
     {
-        category: 'طراحی وب‌سایت',
+        category: 'طراحی وبسایت',
         categorySlug: 'web-design',
         categoryIcon: ComputerDesktopIcon,
-        categoryDescription: 'طراحی و توسعه وب‌سایت حرفه‌ای',
+        categoryDescription: 'طراحی و توسعه وبسایت حرفهای',
         services: [
             {
                 title: 'طراحی سایت شرکتی',
                 href: '/services/web-design/corporate',
-                description: 'طراحی وب‌سایت حرفه‌ای برای شرکت‌ها',
+                description: 'طراحی وبسایت حرفهای برای شرکتها',
                 icon: BuildingOfficeIcon,
                 featured: true,
-                price: 'از ۵ میلیون تومان'
+                price: 'از ۸ میلیون تومان'
             },
             {
                 title: 'طراحی فروشگاه اینترنتی',
@@ -56,47 +55,47 @@ const servicesMenuData = [
                 description: 'فروشگاه آنلاین با درگاه پرداخت',
                 icon: ShoppingCartIcon,
                 featured: true,
-                price: 'از ۸ میلیون تومان'
+                price: 'از ۱۵ میلیون تومان'
             },
             {
                 title: 'طراحی سایت شخصی',
                 href: '/services/web-design/personal',
-                description: 'پورتفولیو و وب‌سایت شخصی',
+                description: 'پورتفولیو و وبسایت شخصی',
                 icon: UserGroupIcon,
                 featured: false,
-                price: 'از ۲ میلیون تومان'
+                price: 'از ۳ میلیون تومان'
             }
         ]
     },
     {
-        category: 'سئو و بهینه‌سازی',
+        category: 'سئو و بهینهسازی',
         categorySlug: 'seo',
         categoryIcon: MagnifyingGlassIcon,
-        categoryDescription: 'بهینه‌سازی موتورهای جستجو',
+        categoryDescription: 'بهینهسازی موتورهای جستجو',
         services: [
             {
                 title: 'سئو تکنیکال',
                 href: '/services/seo/technical',
-                description: 'بهینه‌سازی فنی وب‌سایت',
+                description: 'بهینهسازی فنی وبسایت',
                 icon: CogIcon,
                 featured: true,
-                price: 'از ۳ میلیون تومان'
+                price: 'از ۴ میلیون تومان'
             },
             {
                 title: 'تولید محتوای سئو',
                 href: '/services/seo/content',
-                description: 'محتوای بهینه‌شده',
+                description: 'محتوای بهینهشده',
                 icon: DocumentTextIcon,
                 featured: true,
-                price: 'از ۱.۵ میلیون تومان'
+                price: 'از ۲ میلیون تومان'
             },
             {
                 title: 'سئو محلی',
                 href: '/services/seo/local',
-                description: 'بهینه‌سازی جستجوهای محلی',
+                description: 'بهینهسازی جستجوهای محلی',
                 icon: MapPinIcon,
                 featured: false,
-                price: 'از ۲ میلیون تومان'
+                price: 'از ۲.۵ میلیون تومان'
             }
         ]
     },
@@ -112,15 +111,15 @@ const servicesMenuData = [
                 description: 'طراحی لوگو و هویت بصری',
                 icon: SparklesIcon,
                 featured: true,
-                price: 'از ۱.۵ میلیون تومان'
+                price: 'از ۲ میلیون تومان'
             },
             {
                 title: 'طراحی بروشور',
                 href: '/services/graphic/brochure',
-                description: 'کاتالوگ و بروشور حرفه‌ای',
+                description: 'کاتالوگ و بروشور حرفهای',
                 icon: DocumentTextIcon,
                 featured: false,
-                price: 'از ۸۰۰ هزار تومان'
+                price: 'از ۱.۲ میلیون تومان'
             },
             {
                 title: 'طراحی UI/UX',
@@ -128,13 +127,12 @@ const servicesMenuData = [
                 description: 'رابط و تجربه کاربری',
                 icon: PaintBrushIcon,
                 featured: true,
-                price: 'از ۴ میلیون تومان'
+                price: 'از ۶ میلیون تومان'
             }
         ]
     }
 ];
 
-// Company Information - دقیقاً همان
 const companyInfo = {
     name: 'دیزاین پرداز',
     slogan: 'طراحی وب حرفه‌ای',
