@@ -98,7 +98,7 @@ export const categories: Category[] = articlesData.categories.map(cat => ({
 }));
 
 // Process articles from JSON with author and category relations
-export const articles = articlesData.articles.map(article => {
+export const articles: Article[] = (articlesData.articles).map((article) => {
     const author = authors.find(a => a.id === article.authorId);
     const category = categories.find(c => c.id === article.categoryId);
 
@@ -109,8 +109,10 @@ export const articles = articlesData.articles.map(article => {
     return {
         ...article,
         author,
-        category
-    };
+        category,
+        difficulty: article.difficulty as 'مبتدی' | 'متوسط' | 'پیشرفته',
+        status: article.status as 'published' | 'draft'
+    } as Article;
 });
 
 export function getFilteredArticles(filters: {
