@@ -98,7 +98,7 @@ export const categories: Category[] = articlesData.categories.map(cat => ({
 }));
 
 // Process articles from JSON with author and category relations
-export const articles: Article[] = articlesData.articles.map(article => {
+export const articles = articlesData.articles.map(article => {
     const author = authors.find(a => a.id === article.authorId);
     const category = categories.find(c => c.id === article.categoryId);
 
