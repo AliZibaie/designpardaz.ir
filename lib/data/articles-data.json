@@ -1,0 +1,132 @@
+{
+  "authors": [
+    {
+      "id": "1",
+      "name": "تست تستی",
+      "slug": "test-testi",
+      "avatar": "/authors/test-testi.jpg",
+      "role": "توسعه‌دهنده تست",
+      "bio": "نویسنده تستی برای آزمایش سیستم مقالات",
+      "expertise": ["React.js", "JavaScript", "Testing"],
+      "experience": "5+ سال",
+      "social": {
+        "instagram": "https://instagram.com/test.testi",
+        "website": "https://testtesti.dev"
+      },
+      "stats": {
+        "articles": 3,
+        "followers": 1000,
+        "likes": 500
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "برنامه‌نویسی وب",
+      "slug": "web-development",
+      "description": "آموزش‌های کامل توسعه وب با جدیدترین تکنولوژی‌ها",
+      "icon": "CodeBracketIcon",
+      "color": "from-blue-500 to-purple-600",
+      "count": 2
+    },
+    {
+      "id": "2",
+      "name": "طراحی UI/UX",
+      "slug": "ui-ux-design",
+      "description": "اصول و تکنیک‌های طراحی رابط و تجربه کاربری",
+      "icon": "PaintBrushIcon",
+      "color": "from-pink-500 to-rose-600",
+      "count": 1
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "title": "آموزش React.js برای مبتدیان",
+      "slug": "react-tutorial-for-beginners",
+      "excerpt": "یادگیری React.js از صفر تا ساخت اولین پروژه",
+      "content": "\n            <h2>مقدمه</h2>\n            <p>React.js یکی از محبوب‌ترین کتابخانه‌های JavaScript است.</p>\n            \n            <h2>شروع کار</h2>\n            <p>برای شروع کار با React باید ابتدا Node.js را نصب کنید.</p>\n            \n            <pre><code>npx create-react-app my-app</code></pre>\n            \n            <h2>نتیجه‌گیری</h2>\n            <p>React ابزاری قدرتمند برای ساخت رابط‌های کاربری است.</p>\n        ",
+      "publishedAt": "2024-01-15T10:00:00Z",
+      "readTime": 8,
+      "views": 2500,
+      "likes": 120,
+      "featured": true,
+      "trending": true,
+      "difficulty": "مبتدی",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "1",
+      "tags": ["React.js", "JavaScript", "Frontend"],
+      "image": {
+        "main": "/articles/react-tutorial.jpg",
+        "alt": "آموزش React.js"
+      },
+      "seo": {
+        "metaTitle": "آموزش React.js برای مبتدیان | راهنمای شروع",
+        "metaDescription": "یادگیری React.js از صفر تا ساخت اولین پروژه برای مبتدیان",
+        "keywords": ["React.js", "آموزش React", "JavaScript"],
+        "canonicalUrl": "https://designpardaz.ir/articles/react-tutorial-for-beginners",
+        "ogImage": "/articles/react-tutorial-og.jpg"
+      }
+    },
+    {
+      "id": "2",
+      "title": "معرفی Next.js و مزایای آن",
+      "slug": "nextjs-introduction-benefits",
+      "excerpt": "آشنایی با فریمورک Next.js و دلایل استفاده از آن",
+      "content": "\n            <h2>Next.js چیست؟</h2>\n            <p>Next.js فریمورکی بر پایه React است که امکانات بیشتری ارائه می‌دهد.</p>\n            \n            <h2>مزایای Next.js</h2>\n            <ul>\n                <li>Server Side Rendering</li>\n                <li>Static Site Generation</li>\n                <li>API Routes</li>\n                <li>Image Optimization</li>\n            </ul>\n            \n            <h2>نصب Next.js</h2>\n            <pre><code>npx create-next-app@latest my-next-app</code></pre>\n        ",
+      "publishedAt": "2024-01-10T14:00:00Z",
+      "readTime": 6,
+      "views": 1800,
+      "likes": 95,
+      "featured": false,
+      "trending": false,
+      "difficulty": "متوسط",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "1",
+      "tags": ["Next.js", "React", "SSR"],
+      "image": {
+        "main": "/articles/nextjs-intro.jpg",
+        "alt": "معرفی Next.js"
+      },
+      "seo": {
+        "metaTitle": "معرفی Next.js و مزایای آن | راهنمای کاربردی",
+        "metaDescription": "آشنایی با فریمورک Next.js و دلایل استفاده از آن در پروژه‌های React",
+        "keywords": ["Next.js", "React Framework", "SSR"],
+        "canonicalUrl": "https://designpardaz.ir/articles/nextjs-introduction-benefits",
+        "ogImage": "/articles/nextjs-intro-og.jpg"
+      }
+    },
+    {
+      "id": "3",
+      "title": "اصول طراحی UI/UX مدرن",
+      "slug": "modern-ui-ux-design-principles",
+      "excerpt": "یادگیری اصول و قوانین طراحی رابط کاربری مدرن",
+      "content": "\n            <h2>اصول طراحی UI</h2>\n            <p>طراحی رابط کاربری مؤثر نیازمند رعایت اصول خاصی است.</p>\n            \n            <h2>قوانین مهم</h2>\n            <ul>\n                <li>سادگی و وضوح</li>\n                <li>سازگاری و یکنواختی</li>\n                <li>قابلیت استفاده</li>\n                <li>زیبایی بصری</li>\n            </ul>\n            \n            <h2>ابزارهای طراحی</h2>\n            <p>Figma، Adobe XD و Sketch از محبوب‌ترین ابزارهای طراحی UI هستند.</p>\n        ",
+      "publishedAt": "2024-01-05T09:30:00Z",
+      "readTime": 10,
+      "views": 3200,
+      "likes": 180,
+      "featured": true,
+      "trending": false,
+      "difficulty": "مبتدی",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "2",
+      "tags": ["UI Design", "UX Design", "طراحی رابط"],
+      "image": {
+        "main": "/articles/ui-ux-principles.jpg",
+        "alt": "اصول طراحی UI/UX"
+      },
+      "seo": {
+        "metaTitle": "اصول طراحی UI/UX مدرن | راهنمای طراحی رابط",
+        "metaDescription": "یادگیری اصول و قوانین طراحی رابط کاربری مدرن و تجربه کاربری بهتر",
+        "keywords": ["UI Design", "UX Design", "طراحی رابط کاربری"],
+        "canonicalUrl": "https://designpardaz.ir/articles/modern-ui-ux-design-principles",
+        "ogImage": "/articles/ui-ux-principles-og.jpg"
+      }
+    }
+  ]
+}
