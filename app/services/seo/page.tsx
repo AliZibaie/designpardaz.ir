@@ -1,12 +1,12 @@
 // app/services/seo/page.tsx
 import { Metadata } from 'next';
-import TechnicalSeoSection from '@/components/seo/TechnicalSeoSection';
-import ContentSeoSection from '@/components/seo/ContentSeoSection';
-import LocalSeoSection from '@/components/seo/LocalSeoSection';
-import AnalyticsSection from '@/components/seo/AnalyticsSection';
-import SpeedOptimizationSection from '@/components/seo/SpeedOptimizationSection';
-import LinkBuildingSection from '@/components/seo/LinkBuildingSection';
-import SeoHero from '@/components/seo/SeoHero';
+import TechnicalSeoSection from '@/components/services/seo/TechnicalSeoSection';
+import ContentSeoSection from '@/components/services/seo/ContentSeoSection';
+import LocalSeoSection from '@/components/services/seo/LocalSeoSection';
+import AnalyticsSection from '@/components/services/seo/AnalyticsSection';
+import SpeedOptimizationSection from '@/components/services/seo/SpeedOptimizationSection';
+import LinkBuildingSection from '@/components/services/seo/LinkBuildingSection';
+import SeoHero from '@/components/services/seo/SeoHero';
 
 export const metadata: Metadata = {
     title: 'خدمات سئو حرفه‌ای | دیزاین پرداز - بهینه‌سازی موتور جستجو',

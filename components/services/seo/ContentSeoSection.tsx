@@ -1,4 +1,4 @@
-// components/seo/ContentSeoSection.tsx
+// components/seo/CorporateDesign.tsx
 import {
     PencilSquareIcon,
     MagnifyingGlassIcon,

@@ -260,26 +260,26 @@ function ArticlesContent() {
 
             <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
                 {/* Breadcrumb Navigation */}
-                <nav className="bg-white border-b border-gray-200 py-4">
-                    <div className="container mx-auto px-4">
-                        <div className="flex items-center gap-2 text-sm">
-                            <Link href="/" className="flex items-center gap-1 text-gray-500 hover:text-cyan-600 transition-colors">
-                                <HomeIcon className="w-4 h-4" />
-                                <span>خانه</span>
-                            </Link>
-                            <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
-                            <span className="text-gray-900 font-medium">مقالات</span>
-                            {selectedCategory !== 'all' && (
-                                <>
-                                    <ChevronLeftIcon className="w-4 h-4 text-gray-400" />
-                                    <span className="text-cyan-600">
-                                        {categories.find(c => c.slug === selectedCategory)?.name}
-                                    </span>
-                                </>
-                            )}
-                        </div>
-                    </div>
-                </nav>
+                {/*<nav className="bg-white border-b border-gray-200 py-4">*/}
+                {/*    <div className="container mx-auto px-4">*/}
+                {/*        <div className="flex items-center gap-2 text-sm">*/}
+                {/*            <Link href="/" className="flex items-center gap-1 text-gray-500 hover:text-cyan-600 transition-colors">*/}
+                {/*                <HomeIcon className="w-4 h-4" />*/}
+                {/*                <span>خانه</span>*/}
+                {/*            </Link>*/}
+                {/*            <ChevronLeftIcon className="w-4 h-4 text-gray-400" />*/}
+                {/*            <span className="text-gray-900 font-medium">مقالات</span>*/}
+                {/*            {selectedCategory !== 'all' && (*/}
+                {/*                <>*/}
+                {/*                    <ChevronLeftIcon className="w-4 h-4 text-gray-400" />*/}
+                {/*                    <span className="text-cyan-600">*/}
+                {/*                        {categories.find(c => c.slug === selectedCategory)?.name}*/}
+                {/*                    </span>*/}
+                {/*                </>*/}
+                {/*            )}*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</nav>*/}
 
                 {/* Hero Section */}
                 <section className="py-20 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 text-white relative overflow-hidden">

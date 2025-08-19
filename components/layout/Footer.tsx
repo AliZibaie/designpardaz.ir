@@ -76,12 +76,12 @@ const servicesData = [
         category: 'طراحی و توسعه وب',
         icon: CodeBracketIcon,
         services: [
-            { name: 'طراحی سایت شرکتی', href: '/services/web-design/corporate', popular: true },
-            { name: 'فروشگاه اینترنتی', href: '/services/web-design/ecommerce', popular: true },
-            { name: 'طراحی سایت شخصی', href: '/services/web-design/personal' },
-            { name: 'وب اپلیکیشن', href: '/services/web-design/webapp', popular: true },
-            { name: 'طراحی لندینگ پیج', href: '/services/web-design/landing' },
-            { name: 'ریدیزاین سایت', href: '/services/web-design/redesign' }
+            { name: 'طراحی سایت شرکتی', href: '/services/web-design#corporate', popular: true },
+            { name: 'فروشگاه اینترنتی', href: '/services/web-design#ecommerce', popular: true },
+            { name: 'طراحی سایت شخصی', href: '/services/web-design#personal' },
+            { name: 'وب اپلیکیشن', href: '/services/web-design#webapp', popular: true },
+            { name: 'طراحی لندینگ پیج', href: '/services/web-design#landing' },
+            { name: 'ریدیزاین سایت', href: '/services/web-design#redesign' }
         ]
     },
     {

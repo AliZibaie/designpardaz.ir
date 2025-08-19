@@ -1,4 +1,4 @@
-// components/seo/AnalyticsSection.tsx
+// components/seo/WebDesignHero.tsx
 import {
     ChartBarIcon,
     PresentationChartLineIcon,

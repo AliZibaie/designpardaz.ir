@@ -43,7 +43,7 @@ const servicesMenuData = [
         services: [
             {
                 title: 'طراحی سایت شرکتی',
-                href: '/services/web-design/corporate',
+                href: '/services/web-design#corporate',
                 description: 'طراحی وبسایت حرفهای برای شرکتها',
                 icon: BuildingOfficeIcon,
                 featured: true,
@@ -51,7 +51,7 @@ const servicesMenuData = [
             },
             {
                 title: 'طراحی فروشگاه اینترنتی',
-                href: '/services/web-design/ecommerce',
+                href: '/services/web-design#ecommerce',
                 description: 'فروشگاه آنلاین با درگاه پرداخت',
                 icon: ShoppingCartIcon,
                 featured: true,
@@ -59,7 +59,7 @@ const servicesMenuData = [
             },
             {
                 title: 'طراحی سایت شخصی',
-                href: '/services/web-design/personal',
+                href: '/services/web-design#personal',
                 description: 'پورتفولیو و وبسایت شخصی',
                 icon: UserGroupIcon,
                 featured: false,
