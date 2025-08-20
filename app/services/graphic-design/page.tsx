@@ -16,7 +16,7 @@ export default function GraphicDesignPage() {
         "provider": {
             "@type": "Organization",
             "name": "دیزاین پرداز",
-            "url": "https://designpardaz.com"
+            "url": "https://designpardaz.ir"
         },
         "serviceType": "Graphic Design",
         "areaServed": "ایران",
@@ -60,7 +60,7 @@ export default function GraphicDesignPage() {
                 <meta property="og:image" content="/images/graphic-design-og.jpg" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://designpardaz.com/services/graphic-design" />
+                <link rel="canonical" href="https://designpardaz.ir/services/graphic-design" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

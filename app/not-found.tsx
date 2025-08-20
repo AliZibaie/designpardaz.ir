@@ -124,7 +124,7 @@ export default function NotFound() {
                         </Link>
 
                         <Link
-                            href="mailto:info@designpardaz.com"
+                            href="mailto:info@designpardaz.ir"
                             className="group flex items-center text-blue-200 hover:text-cyan-300 transition-all duration-300 hover:transform hover:scale-105"
                         >
                             <div className="w-10 h-10 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full flex items-center justify-center ml-3 group-hover:from-cyan-400/30 group-hover:to-blue-400/30 transition-all duration-300">

@@ -57,7 +57,7 @@ const jsonLd = {
     provider: {
         '@type': 'Organization',
         name: 'دیزاین پرداز',
-        url: 'https://designpardaz.com',
+        url: 'https://designpardaz.ir',
     },
     serviceType: 'Web Design Services',
     areaServed: 'IR',

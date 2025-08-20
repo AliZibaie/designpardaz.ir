@@ -1,0 +1,43 @@
+{
+  "name": "دیزاین پرداز - طراحی وب حرفه‌ای",
+  "short_name": "دیزاین پرداز",
+  "description": "تیم جوان و خلاق ارائه‌دهنده خدمات طراحی وب‌سایت، گرافیک، سئو و برندینگ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "categories": ["design", "business", "productivity"],
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "خدمات طراحی",
+      "short_name": "خدمات",
+      "description": "مشاهده خدمات طراحی ما",
+      "url": "/services",
+      "icons": [{ "src": "/icons/services-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "تماس با ما",
+      "short_name": "تماس",
+      "description": "ارتباط با تیم دیزاین پرداز",
+      "url": "/contact",
+      "icons": [{ "src": "/icons/contact-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}
