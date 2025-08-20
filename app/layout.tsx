@@ -102,7 +102,7 @@ export const metadata: Metadata = {
         },
     },
     verification: {
-        google: "google-site-verification-code",
+        google: "google-site-verification=gh2SqMVJ5_-TLEXGXZCxjG71SvyIIsvrdeBwAl5meuc",
         yandex: "yandex-verification-code",
         other: {
             "msvalidate.01": "bing-verification-code",
