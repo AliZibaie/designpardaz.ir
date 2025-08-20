@@ -107,7 +107,7 @@ const servicesMenuData = [
         services: [
             {
                 title: 'طراحی لوگو',
-                href: '/services/graphic/logo',
+                href: '/services/graphic-design#logo',
                 description: 'طراحی لوگو و هویت بصری',
                 icon: SparklesIcon,
                 featured: true,
@@ -115,7 +115,7 @@ const servicesMenuData = [
             },
             {
                 title: 'طراحی بروشور',
-                href: '/services/graphic/brochure',
+                href: '/services/graphic-design#brochure',
                 description: 'کاتالوگ و بروشور حرفهای',
                 icon: DocumentTextIcon,
                 featured: false,
@@ -123,7 +123,7 @@ const servicesMenuData = [
             },
             {
                 title: 'طراحی UI/UX',
-                href: '/services/graphic/ui-ux',
+                href: '/services/graphic-design#ui-ux',
                 description: 'رابط و تجربه کاربری',
                 icon: PaintBrushIcon,
                 featured: true,

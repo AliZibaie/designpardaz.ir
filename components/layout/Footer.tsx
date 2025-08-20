@@ -100,12 +100,13 @@ const servicesData = [
         category: 'طراحی گرافیک',
         icon: PhotoIcon,
         services: [
-            { name: 'طراحی لوگو', href: '/services/graphic-design/logo', popular: true },
-            { name: 'هویت بصری', href: '/services/graphic-design/branding', popular: true },
-            { name: 'طراحی کاتالوگ', href: '/services/graphic-design/catalog' },
-            { name: 'بنر و پوستر', href: '/services/graphic-design/banner' },
-            { name: 'طراحی UI/UX', href: '/services/graphic-design/ui-ux', popular: true },
-            { name: 'موشن گرافیک', href: '/services/graphic-design/motion' }
+            { name: 'طراحی لوگو', href: '/services/graphic-design#logo', popular: true },
+            { name: 'هویت بصری', href: '/services/graphic-design#branding', popular: true },
+            { name: 'طراحی کاتالوگ', href: '/services/graphic-design#catalog' },
+            { name: 'بنر و پوستر', href: '/services/graphic-design#banner' },
+            { name: 'طراحی بروشور', href: '/services/graphic-design#brochure' },
+            { name: 'طراحی UI/UX', href: '/services/graphic-design#ui-ux', popular: true },
+            { name: 'موشن گرافیک', href: '/services/graphic-design#motion' }
         ]
     }
 ];
