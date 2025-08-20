@@ -121,7 +121,7 @@ export const metadata: Metadata = {
         },
     },
     verification: {
-        google: "google-site-verification=gh2SqMVJ5_-TLEXGXZCxjG71SvyIIsvrdeBwAl5meuc",
+        // google: "google-site-verification=gh2SqMVJ5_-TLEXGXZCxjG71SvyIIsvrdeBwAl5meuc",
         yandex: "yandex-verification-code",
         other: {
             "msvalidate.01": "bing-verification-code",
@@ -295,7 +295,7 @@ export default function RootLayout({
             <meta name="DC.language" content="fa" />
             <meta name="DC.coverage" content="Iran" />
             <meta name="DC.rights" content="© 2024 دیزاین پرداز" />
-
+            <meta name="google-site-verification" content="aJqYRZPbpwz0XqqFt16TWLFVx0HpLd9P5H7_ni0dueA" />
             {/* JSON-LD Structured Data */}
             <script
                 type="application/ld+json"
