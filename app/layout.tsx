@@ -9,51 +9,104 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | دیزاین پرداز - طراحی وب حرفه‌ای و خدمات گرافیکی نوین",
-        default: "دیزاین پرداز - طراحی وب‌سایت مدرن، طراحی گرافیک خلاقانه و برندینگ حرفه‌ای | تیم جوان و خلاق",
+        template: "%s | طراح سایت حرفه‌ای - دیزاین پرداز | سئو و گرافیک",
+        default: "طراح سایت حرفه‌ای | خدمات سئو و طراحی گرافیک - دیزاین پرداز | بهترین طراح وب‌سایت ایران",
     },
-    description:
-        "دیزاین پرداز تیم جوان و خلاق ارائه‌دهنده خدمات طراحی وب‌سایت مدرن و واکنش‌گرا، طراحی گرافیک حرفه‌ای، سئو پیشرفته، برندینگ خلاقانه و توسعه اپلیکیشن‌های نوین. ما با استفاده از جدیدترین تکنولوژی‌ها و روش‌های بروز طراحی، برند شما را در دنیای دیجیتال متمایز می‌کنیم. خدمات ما شامل طراحی UI/UX کاربرپسند، بهینه‌سازی موتورهای جستجو، ایجاد هویت بصری منحصربه‌فرد و پشتیبانی مداوم است.",
+    description: "طراح سایت حرفه‌ای دیزاین پرداز - خدمات کامل طراحی وب‌سایت، سئو حرفه‌ای و طراحی گرافیک. بهترین طراح وب ایران با ۸ سال تجربه. طراحی سایت + سئو + گرافیک در یک پکیج. مشاوره رایگان ☎️ 09123334444",
     keywords: [
-        "طراحی وب سایت مدرن",
-        "طراحی گرافیک حرفه‌ای",
-        "برندینگ خلاقانه",
-        "سئو پیشرفته",
-        "طراحی لوگو منحصربفرد",
-        "فروشگاه اینترنتی واکنش‌گرا",
-        "طراحی UI/UX کاربرپسند",
-        "توسعه وب مدرن",
-        "دیجیتال مارکتینگ نوین",
-        "طراحی کاتالوگ دیجیتال",
-        "طراحی بنر تبلیغاتی",
-        "هویت بصری یکپارچه",
-        "طراحی موبایل فرست",
-        "وب اپلیکیشن پیشرفته",
-        "لندینگ پیج بهینه",
-        "طراحی واکنش‌گرا",
-        "بهینه‌سازی سرعت سایت",
-        "طراحی تجربه کاربری",
-        "خدمات طراحی نوآورانه",
-        "استودیو طراحی دیجیتال",
-        "تیم طراحی جوان",
-        "طراحی خلاقانه",
-        "وب‌سایت سئو شده",
-        "طراحی مینیمال",
-        "رابط کاربری مدرن",
-        "توسعه فرانت‌اند",
+        // Primary Keywords - High Volume
+        "طراح سایت",
+        "طراح وب سایت",
+        "طراح وب",
+        "سئو",
+        "سئو سایت",
+        "بهینه سازی سایت",
+        "طراحی گرافیک",
+        "گرافیست",
+        "طراح گرافیک",
+
+        // Long-tail Keywords - طراح سایت
+        "بهترین طراح سایت تهران",
+        "طراح سایت حرفه ای",
+        "طراح سایت ارزان",
+        "طراح سایت شرکتی",
+        "طراح سایت فروشگاهی",
+        "طراح سایت در تهران",
+        "طراح سایت با تجربه",
+        "طراح سایت واکنش گرا",
+        "طراح وب سایت مدرن",
+        "طراح سایت wordpress",
+
+        // Long-tail Keywords - سئو
+        "خدمات سئو",
+        "سئو تضمینی",
+        "سئو سایت تهران",
+        "سئو حرفه ای",
+        "بهینه سازی موتور جستجو",
+        "سئو گوگل",
+        "سئو وب سایت",
+        "کنسولت سئو",
+        "متخصص سئو",
+        "سئو لوکال",
+        "آموزش سئو",
+        "تحلیل سئو",
+        "بک لینک",
+        "کلید واژه سئو",
+
+        // Long-tail Keywords - گرافیک
+        "طراحی لوگو",
+        "طراحی هویت بصری",
+        "طراح گرافیک تهران",
+        "طراحی بنر",
+        "طراحی کاتالوگ",
+        "طراحی بروشور",
+        "طراحی کارت ویزیت",
+        "طراحی پوستر",
+        "طراحی فلایر",
+        "موشن گرافیک",
+        "طراحی UI UX",
+        "طراحی رابط کاربری",
+
+        // Commercial Intent Keywords
+        "قیمت طراحی سایت",
+        "هزینه طراح سایت",
+        "سفارش طراحی سایت",
+        "استخدام طراح سایت",
+        "شرکت طراحی سایت",
+        "نمونه کار طراح سایت",
+
+        // Semantic & Related Keywords
+        "توسعه دهنده وب",
+        "برنامه نویس سایت",
+        "فرانت اند دولوپر",
+        "بک اند دولوپر",
         "طراحی ریسپانسیو",
-        "بهینه‌سازی تبدیل",
-        "طراحی وب استاندارد",
-        "خدمات دیجیتال جامع",
-        "طراحی گرافیک خلاق",
-        "برند سازی دیجیتال",
-        "طراحی قالب سایت",
-        "اپلیکیشن موبایل",
-        "طراحی اینترفیس",
-        "تجربه کاربری بهینه",
-        "وب طراحی نوین",
-        "گرافیک موشن",
-        "طراحی ویژوال"
+        "UX دیزاینر",
+        "UI دیزاینر",
+        "وب دیزاینر",
+
+        // Location-based Keywords
+        "طراح سایت تهران",
+        "طراح سایت اصفهان",
+        "طراح سایت مشهد",
+        "طراح سایت شیراز",
+        "طراح سایت کرج",
+        "طراح سایت ایران",
+
+        // Industry-specific Keywords
+        "طراح سایت پزشکی",
+        "طراح سایت املاک",
+        "طراح سایت رستوران",
+        "طراح سایت آموزشی",
+        "طراح سایت خبری",
+        "طراح سایت فروشگاهی",
+
+        // Questions & Voice Search
+        "چطور سایت طراحی کنم",
+        "بهترین طراح سایت کیه",
+        "چقدر طول میکشه سایت طراحی شه",
+        "چجوری سئو کنم",
+        "چطور گوگل رتبه بگیرم"
     ],
     authors: [{
         name: "دیزاین پرداز - تیم طراحی جوان",
@@ -296,128 +349,235 @@ export default function RootLayout({
             <meta name="DC.coverage" content="Iran" />
             <meta name="DC.rights" content="© 2024 دیزاین پرداز" />
             <meta name="google-site-verification" content="aJqYRZPbpwz0XqqFt16TWLFVx0HpLd9P5H7_ni0dueA" />
+            {/* Advanced targeting meta tags */}
+            <meta name="subject" content="طراح سایت حرفه‌ای، خدمات سئو و طراحی گرافیک" />
+            <meta name="abstract" content="دیزاین پرداز - بهترین طراح سایت، متخصص سئو و طراح گرافیک ایران" />
+            <meta name="topic" content="طراحی وب سایت، بهینه سازی سایت، طراحی گرافیک" />
+            <meta name="summary" content="خدمات کامل طراحی دیجیتال توسط بهترین طراح سایت ایران" />
+            <meta name="Classification" content="Web Design, SEO, Graphic Design Services" />
+            <meta name="designer" content="تیم طراحان دیزاین پرداز" />
+            <meta name="copyright" content="دیزاین پرداز - تمامی حقوق محفوظ است" />
+            <meta name="reply-to" content="info@designpardaz.ir" />
+            <meta name="owner" content="دیزاین پرداز" />
+            <meta name="rating" content="general" />
+            <meta name="revisit-after" content="1 days" />
+
+            {/* Local business targeting */}
+            <meta name="geo.region" content="IR-07" />
+            <meta name="geo.placename" content="Tehran" />
+            <meta name="ICBM" content="35.6892, 51.3890" />
+            <meta name="geo.position" content="35.6892;51.3890" />
+            <meta name="zipcode" content="1234567890" />
+            <meta name="city" content="Tehran" />
+            <meta name="country" content="Iran" />
+
+            {/* Social media optimization */}
+            <meta property="business:contact_data:locality" content="Tehran" />
+            <meta property="business:contact_data:region" content="Tehran" />
+            <meta property="business:contact_data:country_name" content="Iran" />
             {/* JSON-LD Structured Data */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "دیزاین پرداز",
-                        "alternateName": "Design Pardaz",
+                        "@type": "ProfessionalService",
+                        "name": "دیزاین پرداز - طراح سایت و متخصص سئو",
+                        "alternateName": ["طراح سایت دیزاین پرداز", "متخصص سئو دیزاین پرداز"],
+                        "description": "بهترین طراح سایت ایران - خدمات طراحی وب‌سایت حرفه‌ای، سئو تضمینی و طراحی گرافیک",
                         "url": "https://designpardaz.ir",
-                        "logo": "https://designpardaz.ir/logo.png",
-                        "description": "ارائه‌دهنده خدمات حرفه‌ای طراحی وب‌سایت، سئو، طراحی گرافیک و برندینگ با بیش از ۸ سال تجربه",
-                        "foundingDate": "2017",
-                        "founders": [
-                            {
-                                "@type": "Person",
-                                "name": "تیم دیزاین پرداز"
-                            }
-                        ],
+                        "image": "https://designpardaz.ir/images/services-hero.jpg",
+                        "priceRange": "$$",
+                        "telephone": "+98-912-333-4444",
+                        "email": "info@designpardaz.ir",
                         "address": {
                             "@type": "PostalAddress",
-                            "streetAddress": "تهران",
+                            "streetAddress": "خیابان ولیعصر",
                             "addressLocality": "تهران",
                             "addressRegion": "تهران",
                             "postalCode": "1234567890",
                             "addressCountry": "IR"
                         },
-                        "contactPoint": [
+                        "areaServed": [
                             {
-                                "@type": "ContactPoint",
-                                "telephone": "+98-21-3333-4444",
-                                "contactType": "customer service",
-                                "areaServed": "IR",
-                                "availableLanguage": ["Persian", "English"],
-                                "hoursAvailable": {
-                                    "@type": "OpeningHoursSpecification",
-                                    "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"],
-                                    "opens": "09:00",
-                                    "closes": "18:00"
-                                }
+                                "@type": "Country",
+                                "name": "Iran"
                             },
                             {
-                                "@type": "ContactPoint",
-                                "email": "info@designpardaz.ir",
-                                "contactType": "customer support"
+                                "@type": "City",
+                                "name": "Tehran"
+                            },
+                            {
+                                "@type": "City",
+                                "name": "Isfahan"
+                            },
+                            {
+                                "@type": "City",
+                                "name": "Mashhad"
                             }
                         ],
-                        "sameAs": [
-                            "https://instagram.com/designpardaz.ir",
-                            "https://telegram.me/designpardaz",
-                            "https://linkedin.com/company/designpardaz",
-                            "https://wa.me/989123334444"
+                        "serviceType": [
+                            "طراح سایت حرفه‌ای",
+                            "خدمات سئو تضمینی",
+                            "طراحی گرافیک حرفه‌ای",
+                            "طراحی UI/UX",
+                            "توسعه وب‌سایت",
+                            "بهینه‌سازی موتورهای جستجو"
                         ],
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
-                            "name": "خدمات دیزاین پرداز",
+                            "name": "خدمات کامل دیجیتال",
                             "itemListElement": [
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "طراحی وب‌سایت",
-                                        "description": "طراحی وب‌سایت حرفه‌ای و واکنش‌گرا"
-                                    }
+                                        "name": "طراحی سایت حرفه‌ای",
+                                        "description": "طراحی وب‌سایت مدرن و واکنش‌گرا توسط بهترین طراح سایت ایران"
+                                    },
+                                    "price": "5000000",
+                                    "priceCurrency": "IRR"
                                 },
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "سئو و بهینه‌سازی",
-                                        "description": "بهینه‌سازی سایت برای موتورهای جستجو"
-                                    }
+                                        "name": "خدمات سئو تضمینی",
+                                        "description": "بهینه‌سازی سایت برای گوگل و افزایش ترافیک ارگانیک"
+                                    },
+                                    "price": "3000000",
+                                    "priceCurrency": "IRR"
                                 },
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "طراحی گرافیک",
-                                        "description": "طراحی لوگو، هویت بصری و مواد گرافیکی"
-                                    }
+                                        "name": "طراحی گرافیک و لوگو",
+                                        "description": "طراحی هویت بصری، لوگو و مواد تبلیغاتی"
+                                    },
+                                    "price": "2000000",
+                                    "priceCurrency": "IRR"
                                 }
                             ]
                         },
                         "aggregateRating": {
                             "@type": "AggregateRating",
                             "ratingValue": "4.9",
-                            "reviewCount": "180",
-                            "bestRating": "5",
-                            "worstRating": "1"
+                            "reviewCount": "312",
+                            "bestRating": "5"
                         },
-                        "review": {
-                            "@type": "Review",
-                            "reviewRating": {
-                                "@type": "Rating",
-                                "ratingValue": "5",
-                                "bestRating": "5"
+                        "review": [
+                            {
+                                "@type": "Review",
+                                "author": {
+                                    "@type": "Person",
+                                    "name": "محمد احمدی"
+                                },
+                                "reviewRating": {
+                                    "@type": "Rating",
+                                    "ratingValue": "5"
+                                },
+                                "reviewBody": "بهترین طراح سایت که تا حالا باهاش کار کردم. سایتم رو عالی طراحی کرد و سئوش هم فوق العاده بود."
                             },
-                            "author": {
-                                "@type": "Person",
-                                "name": "علی احمدی"
-                            },
-                            "reviewBody": "خدمات عالی و تیم حرفه‌ای. وب‌سایت ما را بهترین شکل ممکن طراحی کردند."
-                        },
-                        "areaServed": {
-                            "@type": "Country",
-                            "name": "Iran"
+                            {
+                                "@type": "Review",
+                                "author": {
+                                    "@type": "Person",
+                                    "name": "سارا رضایی"
+                                },
+                                "reviewRating": {
+                                    "@type": "Rating",
+                                    "ratingValue": "5"
+                                },
+                                "reviewBody": "خدمات سئو دیزاین پرداز واقعاً تضمینی بود. سایتم تو گوگل رتبه یک شد."
+                            }
+                        ]
+                    })
+                }}
+            />
+
+            {/* Person Schema for Personal Branding */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Person",
+                        "name": "تیم طراحان دیزاین پرداز",
+                        "alternateName": "بهترین طراح سایت ایران",
+                        "description": "طراح سایت حرفه‌ای، متخصص سئو و طراح گرافیک با بیش از ۸ سال تجربه",
+                        "image": "https://designpardaz.ir/images/team-photo.jpg",
+                        "url": "https://designpardaz.ir",
+                        "sameAs": [
+                            "https://instagram.com/designpardaz.ir",
+                            "https://linkedin.com/company/designpardaz"
+                        ],
+                        "jobTitle": "طراح سایت و متخصص سئو",
+                        "worksFor": {
+                            "@type": "Organization",
+                            "name": "دیزاین پرداز"
                         },
                         "knowsAbout": [
-                            "طراحی وب",
-                            "سئو",
+                            "طراحی وب‌سایت",
+                            "سئو و بهینه‌سازی",
                             "طراحی گرافیک",
-                            "برندینگ",
-                            "UI/UX",
-                            "توسعه وب"
+                            "UI/UX Design",
+                            "WordPress",
+                            "HTML/CSS",
+                            "JavaScript"
                         ],
-                        "memberOf": {
-                            "@type": "Organization",
-                            "name": "اتحادیه شرکت‌های طراحی وب ایران"
-                        },
-                        "award": [
-                            "بهترین شرکت طراحی وب ۱۴۰۲",
-                            "گواهی کیفیت ISO 9001"
+                        "hasOccupation": {
+                            "@type": "Occupation",
+                            "name": "طراح سایت حرفه‌ای",
+                            "occupationLocation": {
+                                "@type": "Country",
+                                "name": "Iran"
+                            }
+                        }
+                    })
+                }}
+            />
+
+            {/* Enhanced FAQ Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "بهترین طراح سایت کیست؟",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "دیزاین پرداز با ۸ سال تجربه و بیش از ۵۰۰ پروژه موفق، یکی از بهترین طراحان سایت ایران محسوب می‌شود."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "چطور سایتم رو سئو کنم؟",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "سئو سایت شامل بهینه‌سازی کلیدواژه‌ها، محتوا، سرعت سایت و لینک‌سازی است. تیم متخصص دیزاین پرداز این خدمات را به صورت حرفه‌ای ارائه می‌دهد."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "هزینه طراحی لوگو چقدر است؟",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "هزینه طراحی لوگو بسته به پیچیدگی طرح از ۵۰۰ هزار تا ۳ میلیون تومان متغیر است. برای مشاوره رایگان تماس بگیرید."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "چقدر طول می‌کشد تا سایت در گوگل رتبه بگیرد؟",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "معمولاً ۳ تا ۶ ماه طول می‌کشد تا سایت در گوگل رتبه‌های بالایی کسب کند. این زمان بسته به رقابت کلیدواژه متفاوت است."
+                                }
+                            }
                         ]
                     })
                 }}
