@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
     ArrowRightIcon,
     ChevronDownIcon,
@@ -33,7 +34,6 @@ const companyData = {
     }
 };
 
-// Pre-defined positions to avoid hydration mismatch
 const particlePositions = [
     { left: '10%', top: '20%', delay: '0s' },
     { left: '80%', top: '10%', delay: '0.5s' },
@@ -47,15 +47,19 @@ const particlePositions = [
     { left: '5%', top: '45%', delay: '0.9s' }
 ];
 
-// Pre-defined progress widths
 const progressWidths = ['w-3/4', 'w-4/5', 'w-2/3', 'w-5/6', 'w-3/5'];
 
 export default function HeroSection() {
     const [mounted, setMounted] = useState(false);
+    const [videoError, setVideoError] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    const handleVideoError = () => {
+        setVideoError(true);
+    };
 
     if (!mounted) {
         return (
@@ -86,7 +90,6 @@ export default function HeroSection() {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-sky-900 to-slate-800">
-            {/* CSS Animations */}
             <style jsx>{`
                 @keyframes float {
                     0%, 100% { transform: translateY(0px); }
@@ -100,15 +103,30 @@ export default function HeroSection() {
                     0%, 100% { background-position: 0% 50%; }
                     50% { background-position: 100% 50%; }
                 }
+                @keyframes pulse-logo {
+                    0%, 100% { transform: scale(1) rotate(0deg); }
+                    50% { transform: scale(1.05) rotate(2deg); }
+                }
+                @keyframes video-glow {
+                    0%, 100% {
+                        box-shadow: 0 0 30px rgba(14, 165, 233, 0.4), 0 0 50px rgba(14, 165, 233, 0.2);
+                        border-color: rgba(14, 165, 233, 0.5);
+                    }
+                    50% {
+                        box-shadow: 0 0 40px rgba(14, 165, 233, 0.6), 0 0 70px rgba(14, 165, 233, 0.3);
+                        border-color: rgba(14, 165, 233, 0.7);
+                    }
+                }
                 .animate-float { animation: float 4s ease-in-out infinite; }
                 .animate-glow { animation: glow 2s ease-in-out infinite; }
                 .animate-gradient {
                     background-size: 200% 200%;
                     animation: gradient 8s ease infinite;
                 }
+                .animate-pulse-logo { animation: pulse-logo 3s ease-in-out infinite; }
+                .animate-video-glow { animation: video-glow 3s ease-in-out infinite; }
             `}</style>
 
-            {/* Background with Fixed Particles */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-blue-600/10 animate-gradient"></div>
                 {particlePositions.map((particle, i) => (
@@ -128,13 +146,54 @@ export default function HeroSection() {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Content */}
                     <div className="text-center lg:text-right space-y-8">
                         <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500/20 text-sky-300 rounded-full text-sm backdrop-blur-sm border border-sky-400/30">
                                 <LightBulbIcon className="w-4 h-4" />
                                 <span>ایده‌های خلاقانه</span>
                                 <StarIcon className="w-4 h-4 fill-current text-yellow-400" />
+                            </div>
+
+                            <div className="flex items-center justify-center lg:justify-start gap-8 mb-8">
+                                <div className="relative">
+                                    <div className="w-48 h-48 rounded-3xl overflow-hidden bg-gradient-to-br from-sky-500/20 to-blue-600/20 backdrop-blur-sm border-4 border-sky-400/50 flex items-center justify-center animate-pulse-logo animate-video-glow shadow-2xl">
+                                        {!videoError && (
+                                            <video
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                className="w-44 h-44 object-contain rounded-2xl"
+                                                onError={handleVideoError}
+                                                onLoadStart={() => setVideoError(false)}
+                                            >
+                                                <source src="/gif-logo.mp4" type="video/mp4" />
+                                            </video>
+                                        )}
+                                        {videoError && (
+                                            <Image
+                                                src="/logo.png"
+                                                alt="دیزاین پرداز لوگو"
+                                                width={176}
+                                                height={176}
+                                                className="object-contain rounded-2xl"
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-full flex items-center justify-center animate-float shadow-xl">
+                                        <StarIcon className="w-6 h-6 text-white fill-current" />
+                                    </div>
+                                    <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full flex items-center justify-center animate-float shadow-xl" style={{animationDelay: '0.5s'}}>
+                                        <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div className="absolute top-4 -left-6 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center animate-float shadow-xl" style={{animationDelay: '1s'}}>
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div className="text-right">
+                                    <h2 className="text-4xl font-bold text-white mb-2">{companyData.name}</h2>
+                                    <p className="text-sky-300 text-xl">{companyData.slogan}</p>
+                                </div>
                             </div>
 
                             <h1 className="text-4xl lg:text-6xl font-black text-white leading-tight">
@@ -155,7 +214,6 @@ export default function HeroSection() {
                             </p>
                         </div>
 
-                        {/* Services Grid */}
                         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
                             {Object.entries(companyData.services).map(([key, value], index) => {
                                 const icons = [ComputerDesktopIcon, PaintBrushIcon, EyeIcon, CodeBracketIcon, MagnifyingGlassIcon];
@@ -175,7 +233,6 @@ export default function HeroSection() {
                             })}
                         </div>
 
-                        {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <button className="group px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-lg hover:from-sky-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-xl animate-glow">
                                 <span className="flex items-center gap-2">
@@ -193,8 +250,7 @@ export default function HeroSection() {
                             </button>
                         </div>
 
-                        {/* Trust Indicators */}
-                        <div className="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-300">
+                        <div className="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-300 pb-8">
                             <div className="flex items-center gap-2">
                                 <ShieldCheckIcon className="w-4 h-4 text-sky-300" />
                                 <span>ضمانت کیفیت</span>
@@ -210,7 +266,6 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Hero Visual */}
                     <div className="relative">
                         <div className="relative mx-auto max-w-lg">
                             <div className="relative transform hover:rotate-0 transition-transform duration-500 group">
@@ -245,7 +300,6 @@ export default function HeroSection() {
                                 </div>
                             </div>
 
-                            {/* Floating Icons */}
                             <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-sky-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg animate-float">
                                 <PaintBrushIcon className="w-6 h-6 text-white" />
                             </div>
@@ -260,7 +314,6 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
                 <div className="flex flex-col items-center gap-2">
                     <div className="text-xs text-sky-300/60">ادامه مطالب</div>
