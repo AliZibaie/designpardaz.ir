@@ -1,11 +1,12 @@
 'use client';
 
-// Company Data for SEO - Updated with realistic data
+import { CONTACT_PHONE } from '@/lib/constants/contact';
+
 const companyData = {
     name: 'دیزاین پرداز',
-    slogan: 'طراحی وب نوین',
-    description: 'دیزاین پرداز تیمی جوان و خلاق برای ارائه بهترین خدمات طراحی وب و توسعه نرم‌افزار. ما آینده کسب‌وکار شما را می‌سازیم.',
-    phone: '021-3333-4444',
+    slogan: 'طراحی سایت، CRM و ربات',
+    description: 'دیزاین پرداز — طراحی سایت، CRM، ربات تلگرام و بله، وردپرس و ادمین پنل اختصاصی.',
+    phone: CONTACT_PHONE.tel,
     email: 'info@designpardaz.ir',
     address: 'تهران، ایران',
     stats: {
@@ -92,7 +93,7 @@ export default function FinalCTASection() {
                             className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-black text-lg rounded-2xl hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-cyan-500/25"
                         >
                             <PhoneIcon className="w-6 h-6 group-hover:animate-bounce" />
-                            <span>۰۲۱-۳۳۳۳-۴۴۴۴</span>
+                            <span dir="ltr">{CONTACT_PHONE.displayLatin}</span>
                             <span className="text-sm font-normal text-cyan-100">مشاوره رایگان</span>
                         </a>
 

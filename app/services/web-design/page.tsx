@@ -7,20 +7,27 @@ import PersonalDesign from '@/components/services/web-design/PersonalDesign'
 import WebAppDesign from '@/components/services/web-design/WebAppDesign'
 import LandingPageDesign from '@/components/services/web-design/LandingPageDesign'
 import RedesignServices from '@/components/services/web-design/RedesignServices'
+import WordPressDesign from '@/components/services/web-design/WordPressDesign'
+import TelegramBotDesign from '@/components/services/automation/TelegramBotDesign'
+import BaleBotDesign from '@/components/services/automation/BaleBotDesign'
+import CrmDesign from '@/components/services/automation/CrmDesign'
 
 export const metadata: Metadata = {
-    title: 'طراحی سایت حرفه ای | دیزاین پرداز - تیم جوان و خلاق',
-    description: 'خدمات طراحی سایت شرکتی، فروشگاه اینترنتی، وب اپلیکیشن و لندینگ پیج توسط تیم جوان دیزاین پرداز. قیمت مناسب، کیفیت بالا و طراحی مدرن.',
+    title: 'طراحی سایت، CRM، ربات تلگرام و وردپرس | دیزاین پرداز',
+    description: 'خدمات طراحی سایت، وردپرس، CRM اختصاصی، ادمین پنل، ربات تلگرام و بله با قیمت بازار ایران. مشاوره رایگان ☎ 09354842515',
     keywords: [
         'طراحی سایت',
         'طراحی سایت شرکتی',
+        'طراحی سایت وردپرس',
+        'CRM',
+        'سیستم CRM',
+        'ادمین پنل',
+        'ربات تلگرام',
+        'ربات بله',
         'فروشگاه اینترنتی',
         'وب اپلیکیشن',
         'لندینگ پیج',
-        'ریدیزاین سایت',
         'دیزاین پرداز',
-        'طراحی وب سایت ایران',
-        'تیم طراحی جوان'
     ],
     openGraph: {
         title: 'طراحی سایت حرفه ای | دیزاین پرداز',
@@ -112,6 +119,10 @@ export default function WebDesignPage() {
                 <div id="redesign">
                     <RedesignServices />
                 </div>
+                <WordPressDesign />
+                <TelegramBotDesign />
+                <BaleBotDesign />
+                <CrmDesign />
             </main>
         </>
     )

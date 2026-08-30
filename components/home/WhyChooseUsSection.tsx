@@ -27,47 +27,46 @@ export default function WhyChooseUsSection() {
                         انتخاب کنید؟
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        تیم جوان و خلاق ما آماده است تا ایده‌های شما را به واقعیت تبدیل کند و بهترین کیفیت را با قیمت منصفانه ارائه دهد
+                        طراحی سایت، CRM، ربات و ادمین پنل — همه در یک تیم با قیمت شفاف بازار ایران
                     </p>
                 </div>
 
-                {/* Features Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
                         {
                             icon: RocketLaunchIcon,
-                            title: 'سرعت بالا',
-                            description: 'تحویل پروژه در کمترین زمان ممکن با بالاترین کیفیت و دقت در جزئیات',
+                            title: 'تحویل سریع',
+                            description: 'سایت وردپرس ۷ تا ۳۰ روز، ربات ۵ تا ۲۵ روز — زمان‌بندی شفاف و به‌موقع',
                             gradient: 'from-cyan-500 to-blue-500'
                         },
                         {
                             icon: ShieldCheckIcon,
-                            title: 'گارانتی کیفیت',
-                            description: '3 ماه گارانتی و پشتیبانی رایگان برای تمام پروژه‌ها با امکان ویرایش',
+                            title: 'پشتیبانی واقعی',
+                            description: '۶ ماه تا ۱ سال پشتیبانی رایگان + آموزش کامل ادمین پنل',
                             gradient: 'from-blue-500 to-indigo-500'
                         },
                         {
                             icon: CurrencyDollarIcon,
-                            title: 'قیمت منصفانه',
-                            description: 'بهترین قیمت در بازار با امکان پرداخت اقساطی و تخفیف ویژه دانشجویان',
+                            title: 'قیمت بازار ایران',
+                            description: 'قیمت‌گذاری شفاف بر اساس نرخ واقعی — بدون هزینه پنهان',
                             gradient: 'from-cyan-400 to-cyan-600'
                         },
                         {
                             icon: UserGroupIcon,
-                            title: 'تیم متخصص',
-                            description: 'تیمی از بهترین متخصصان طراحی وب و سئو با تجربه کار روی پروژه‌های متنوع',
+                            title: 'یک تیم، همه خدمات',
+                            description: 'طراحی سایت + CRM + ربات تلگرام + سئو — بدون هماهنگی با چند پیمانکار',
                             gradient: 'from-blue-600 to-slate-700'
                         },
                         {
                             icon: ChatBubbleLeftRightIcon,
-                            title: 'پشتیبانی سریع',
-                            description: 'پشتیبانی سریع در ساعات کاری و پاسخگویی به سوالات در کمترین زمان',
+                            title: 'مشاوره رایگان',
+                            description: 'قبل از شروع پروژه، نیازسنجی دقیق و پیشنهاد بهترین راه‌حل',
                             gradient: 'from-indigo-500 to-cyan-500'
                         },
                         {
                             icon: ChartBarIcon,
-                            title: 'رضایت مشتریان',
-                            description: 'تمرکز بر کیفیت و رضایت مشتری با ارائه مشاوره رایگان قبل از شروع پروژه',
+                            title: 'تمرکز بر فروش',
+                            description: 'هر پروژه با هدف جذب مشتری و افزایش درآمد طراحی می‌شود',
                             gradient: 'from-slate-600 to-blue-600'
                         }
                     ].map((feature, index) => (

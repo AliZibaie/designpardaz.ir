@@ -9,22 +9,36 @@ import {
     ShieldCheckIcon,
     SparklesIcon,
     RocketLaunchIcon,
-    HeartIcon
+    HeartIcon,
+    ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline';
 
 const servicesData = [
     {
         category: 'طراحی و توسعه وب',
         icon: CodeBracketIcon,
-        description: 'از سایت‌های ساده تا پلتفرم‌های پیچیده، همه چیز را با کیفیت بالا طراحی می‌کنیم',
+        description: 'طراحی سایت، وردپرس، فروشگاه و ادمین پنل با قیمت بازار ایران',
         color: 'from-blue-500 to-cyan-500',
         services: [
-            { name: 'طراحی سایت شرکتی', href: '/services/web-design#corporate', popular: true },
-            { name: 'فروشگاه اینترنتی', href: '/services/web-design#ecommerce', popular: true },
-            { name: 'طراحی سایت شخصی', href: '/services/web-design#personal' },
-            { name: 'وب اپلیکیشن', href: '/services/web-design#webapp', popular: true },
-            { name: 'طراحی لندینگ پیج', href: '/services/web-design#landing' },
-            { name: 'ریدیزاین سایت', href: '/services/web-design#redesign' }
+            { name: 'طراحی سایت شرکتی', href: '/services/web-design#corporate', popular: true, price: 'از ۱۲ میلیون' },
+            { name: 'طراحی سایت وردپرس', href: '/services/web-design#wordpress', popular: true, price: 'از ۱۲ میلیون' },
+            { name: 'فروشگاه اینترنتی', href: '/services/web-design#ecommerce', popular: true, price: 'از ۳۵ میلیون' },
+            { name: 'وب اپلیکیشن', href: '/services/web-design#webapp', popular: false, price: 'از ۶۵ میلیون' },
+            { name: 'طراحی لندینگ پیج', href: '/services/web-design#landing', popular: false, price: 'از ۸ میلیون' },
+            { name: 'ریدیزاین سایت', href: '/services/web-design#redesign', popular: false, price: 'از ۱۰ میلیون' },
+        ]
+    },
+    {
+        category: 'CRM و ربات',
+        icon: ChatBubbleLeftRightIcon,
+        description: 'CRM اختصاصی، ربات تلگرام، ربات بله و اتوماسیون فروش',
+        color: 'from-violet-500 to-purple-600',
+        services: [
+            { name: 'سیستم CRM اختصاصی', href: '/services/web-design#crm', popular: true, price: 'از ۴۵ میلیون' },
+            { name: 'ربات تلگرام', href: '/services/web-design#telegram-bot', popular: true, price: 'از ۵ میلیون' },
+            { name: 'ربات بله', href: '/services/web-design#bale-bot', popular: false, price: 'از ۴ میلیون' },
+            { name: 'ربات فروشگاهی', href: '/services/web-design#telegram-bot', popular: true, price: 'از ۱۵ میلیون' },
+            { name: 'ادمین پنل اختصاصی', href: '/services/web-design#crm', popular: false, price: 'از ۳۰ میلیون' },
         ]
     },
     {
@@ -141,7 +155,7 @@ export default function ServicesPage() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <div className="grid lg:grid-cols-2 gap-8">
                     {servicesData.map((category, index) => {
                         const IconComponent = category.icon;
                         return (
@@ -187,8 +201,13 @@ export default function ServicesPage() {
 
                                         <div className="mt-6 pt-6 border-t border-gray-100">
                                             <a
-                                                href={`/services/${category.category === 'طراحی و توسعه وب' ? 'web-design' :
-                                                    category.category === 'سئو و بهینه‌سازی' ? 'seo' : 'graphic-design'}`}
+                                                href={`/services/${
+                                                    category.category === 'طراحی و توسعه وب' || category.category === 'CRM و ربات'
+                                                        ? 'web-design'
+                                                        : category.category === 'سئو و بهینه‌سازی'
+                                                          ? 'seo'
+                                                          : 'graphic-design'
+                                                }`}
                                                 className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${category.color} text-white rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
                                             >
                                                 <span>مشاهده جزئیات</span>

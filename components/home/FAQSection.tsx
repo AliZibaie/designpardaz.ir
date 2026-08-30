@@ -2,28 +2,33 @@
 
 import { ChatBubbleLeftRightIcon, ChevronDownIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import Link from "next/link";
+import { CONTACT_PHONE } from '@/lib/constants/contact';
 
-// Updated FAQ Data with realistic information
 const faqs = [
     {
-        question: 'چقدر طول می‌کشد تا سایتم آماده شود؟',
-        answer: 'زمان تحویل بسته به پیچیدگی پروژه بین ۵ تا ۲۱ روز کاری متغیر است. ما همواره سعی می‌کنیم در کمترین زمان ممکن، بهترین کیفیت را ارائه دهیم.'
+        question: 'قیمت طراحی سایت چقدر است؟',
+        answer: 'طراحی سایت شرکتی از ۱۲ میلیون، وردپرس از ۱۲ میلیون، فروشگاه اینترنتی از ۳۵ میلیون و CRM اختصاصی از ۴۵ میلیون تومان شروع می‌شود. قیمت نهایی بر اساس امکانات و ادمین پنل مورد نیاز شما تعیین می‌شود. مشاوره رایگان: ' + CONTACT_PHONE.displayLatin
     },
     {
-        question: 'آیا پس از تحویل سایت پشتیبانی ارائه می‌دهید؟',
-        answer: 'بله، ۳ ماه پشتیبانی رایگان و آموزش کامل کار با سایت ارائه می‌دهیم. همچنین در طول این مدت تمام بروزرسانی‌های لازم انجام می‌شود.'
+        question: 'ربات تلگرام و بله چه کاربردی دارند؟',
+        answer: 'ربات تلگرام و بله برای فروش آنلاین، پاسخگویی خودکار، ثبت سفارش و اتصال به CRM استفاده می‌شوند. ربات ساده از ۴ تا ۵ میلیون و ربات فروشگاهی از ۱۵ تا ۲۵ میلیون تومان — با پنل مدیریت اختصاصی.'
     },
     {
-        question: 'هزینه طراحی سایت چقدر است؟',
-        answer: 'هزینه بر اساس نیازهای شما و پیچیدگی پروژه محاسبه می‌شود. ما قیمت‌گذاری منصفانه و رقابتی داریم. برای مشاوره رایگان با ما در تماس باشید.'
+        question: 'CRM اختصاصی چه مزایایی دارد؟',
+        answer: 'CRM اختصاصی با ادمین پنل حرفه‌ای، مدیریت مشتری، گزارش فروش و اتصال به سایت و ربات را یکجا فراهم می‌کند. برخلاف نرم‌افزارهای آماده، دقیقاً مطابق فرآیند کسب‌وکار شما طراحی می‌شود.'
     },
     {
-        question: 'آیا سایت‌هایتان برای موبایل بهینه هستند؟',
-        answer: 'کاملاً! تمام سایت‌هایی که طراحی می‌کنیم با تکنولوژی‌های مدرن و responsive design ساخته شده و روی تمام دستگاه‌ها بهینه کار می‌کنند.'
+        question: 'چقدر طول می‌کشد پروژه آماده شود؟',
+        answer: 'سایت وردپرس ۷ تا ۳۰ روز، ربات تلگرام ۵ تا ۲۵ روز، CRM ۳۰ تا ۹۰ روز — بسته به پیچیدگی. ما زمان‌بندی شفاف و تحویل به‌موقع را تضمین می‌کنیم.'
     },
     {
-        question: 'چه تضمینی برای کیفیت کار ارائه می‌دهید؟',
-        answer: 'ما متعهد به ارائه کار با بالاترین کیفیت هستیم. در صورت عدم رضایت شما، تا رسیدن به نتیجه مطلوب روی پروژه کار خواهیم کرد.'
+        question: 'آیا پشتیبانی و آموزش ادمین پنل دارید؟',
+        answer: 'بله! ۶ ماه تا ۱ سال پشتیبانی رایگان، آموزش کامل پنل مدیریت و بروزرسانی امنیتی برای تمام پروژه‌ها ارائه می‌دهیم.'
+    },
+    {
+        question: 'چرا دیزاین پرداز را انتخاب کنم؟',
+        answer: 'طراحی سایت + CRM + ربات + ادمین پنل در یک تیم — قیمت شفاف بازار ایران، سئو حرفه‌ای و پشتیبانی واقعی. همین الان مشاوره رایگان بگیرید!'
     }
 ];
 
@@ -83,10 +88,13 @@ export default function FAQSection() {
                 {/* Contact CTA */}
                 <div className="text-center mt-12">
                     <p className="text-gray-300 mb-6">سوال دیگری دارید؟</p>
-                    <button className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25">
+                    <Link
+                        href={`tel:${CONTACT_PHONE.tel}`}
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25"
+                    >
                         <PhoneIcon className="w-5 h-5" />
-                        مشاوره رایگان دریافت کنید
-                    </button>
+                        مشاوره رایگان — {CONTACT_PHONE.displayLatin}
+                    </Link>
                 </div>
             </div>
         </section>

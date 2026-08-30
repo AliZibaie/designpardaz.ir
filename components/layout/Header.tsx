@@ -33,6 +33,7 @@ import {
     RocketLaunchIcon,
     SparklesIcon
 } from '@heroicons/react/24/outline';
+import { CONTACT_PHONE } from '@/lib/constants/contact';
 
 const servicesMenuData = [
     {
@@ -63,7 +64,47 @@ const servicesMenuData = [
                 description: 'پورتفولیو و وبسایت شخصی',
                 icon: UserGroupIcon,
                 featured: false,
-                price: 'از ۳ میلیون تومان'
+                price: 'از ۵ میلیون تومان'
+            },
+            {
+                title: 'طراحی سایت وردپرس',
+                href: '/services/web-design#wordpress',
+                description: 'سایت وردپرس با ادمین پنل',
+                icon: DocumentTextIcon,
+                featured: true,
+                price: 'از ۱۲ میلیون تومان'
+            }
+        ]
+    },
+    {
+        category: 'CRM و ربات',
+        categorySlug: 'automation',
+        categoryIcon: CogIcon,
+        categoryDescription: 'CRM، ربات تلگرام و بله',
+        services: [
+            {
+                title: 'سیستم CRM',
+                href: '/services/web-design#crm',
+                description: 'CRM اختصاصی با ادمین پنل',
+                icon: CogIcon,
+                featured: true,
+                price: 'از ۴۵ میلیون تومان'
+            },
+            {
+                title: 'ربات تلگرام',
+                href: '/services/web-design#telegram-bot',
+                description: 'فروش و پشتیبانی در تلگرام',
+                icon: ChatBubbleLeftRightIcon,
+                featured: true,
+                price: 'از ۵ میلیون تومان'
+            },
+            {
+                title: 'ربات بله',
+                href: '/services/web-design#bale-bot',
+                description: 'ربات فروش و پاسخگویی بله',
+                icon: ChatBubbleLeftRightIcon,
+                featured: false,
+                price: 'از ۴ میلیون تومان'
             }
         ]
     },
@@ -135,8 +176,8 @@ const servicesMenuData = [
 
 const companyInfo = {
     name: 'دیزاین پرداز',
-    slogan: 'طراحی وب حرفه‌ای',
-    phone: '+98-21-3333-4444',
+    slogan: 'طراحی سایت، CRM و ربات',
+    phone: CONTACT_PHONE.tel,
     email: 'info@designpardaz.ir',
     address: 'تهران، ایران',
     workingHours: 'شنبه تا چهارشنبه ۹-۱۸، پنج‌شنبه ۹-۱۴',
@@ -316,7 +357,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                     aria-label={`تماس با ${companyInfo.name}`}
                                 >
                                     <PhoneIcon className="w-4 h-4 group-hover:animate-pulse" />
-                                    <span dir="ltr" className="font-mono">021-3333-4444</span>
+                                    <span dir="ltr" className="font-mono">{CONTACT_PHONE.displayLatin}</span>
                                     <span className="hidden xl:inline-block text-xs opacity-70">تماس رایگان</span>
                                 </a>
 
@@ -573,7 +614,7 @@ export default function Header({ className = '' }: HeaderProps) {
                                 </Link>
 
                                 <Link
-                                    href="tel:02133334444"
+                                    href={`tel:${CONTACT_PHONE.tel}`}
                                     className="hidden sm:flex md:hidden items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
                                 >
                                     <PhoneIcon className="w-4 h-4" />

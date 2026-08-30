@@ -23,13 +23,14 @@ import {
     LightBulbIcon,
     SparklesIcon,
 } from '@heroicons/react/24/outline';
+import { CONTACT_PHONE } from '@/lib/constants/contact';
 
 // Contact Information
 const contactInfo = {
     phone: {
-        number: '021-3333-4444',
-        display: '۰۲۱-۳۳۳۳-۴۴۴۴',
-        whatsapp: '+989123456789',
+        number: CONTACT_PHONE.tel,
+        display: CONTACT_PHONE.display,
+        whatsapp: CONTACT_PHONE.raw,
         available24: true
     },
     email: {
@@ -53,7 +54,7 @@ const contactInfo = {
         instagram: '@designpardaz.ir',
         telegram: '@designpardaz',
         linkedin: 'company/designpardaz',
-        whatsapp: '+989123456789'
+        whatsapp: CONTACT_PHONE.raw
     }
 };
 

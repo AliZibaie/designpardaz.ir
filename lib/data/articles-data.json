@@ -2,83 +2,167 @@
   "authors": [
     {
       "id": "1",
-      "name": "تست تستی",
-      "slug": "test-testi",
-      "avatar": "/authors/test-testi.jpg",
-      "role": "توسعه‌دهنده تست",
-      "bio": "نویسنده تستی برای آزمایش سیستم مقالات",
-      "expertise": ["React.js", "JavaScript", "Testing"],
-      "experience": "5+ سال",
+      "name": "تیم دیزاین پرداز",
+      "slug": "designpardaz-team",
+      "avatar": "/logo.png",
+      "role": "متخصص طراحی سایت و CRM",
+      "bio": "تیم دیزاین پرداز — طراحی سایت، CRM، ربات تلگرام و ادمین پنل اختصاصی",
+      "expertise": ["طراحی سایت", "CRM", "ربات تلگرام", "وردپرس", "سئو"],
+      "experience": "۸+ سال",
       "social": {
-        "instagram": "https://instagram.com/test.testi",
-        "website": "https://testtesti.dev"
+        "instagram": "https://instagram.com/designpardaz.ir",
+        "website": "https://designpardaz.ir"
       },
       "stats": {
-        "articles": 3,
-        "followers": 1000,
-        "likes": 500
+        "articles": 6,
+        "followers": 5000,
+        "likes": 1200
       }
     }
   ],
   "categories": [
     {
       "id": "1",
-      "name": "برنامه‌نویسی وب",
-      "slug": "web-development",
-      "description": "آموزش‌های کامل توسعه وب با جدیدترین تکنولوژی‌ها",
-      "icon": "CodeBracketIcon",
-      "color": "from-blue-500 to-purple-600",
+      "name": "طراحی سایت",
+      "slug": "web-design",
+      "description": "راهنمای کامل طراحی سایت، وردپرس و ادمین پنل",
+      "icon": "ComputerDesktopIcon",
+      "color": "from-blue-500 to-cyan-600",
       "count": 2
     },
     {
       "id": "2",
-      "name": "طراحی UI/UX",
-      "slug": "ui-ux-design",
-      "description": "اصول و تکنیک‌های طراحی رابط و تجربه کاربری",
-      "icon": "PaintBrushIcon",
-      "color": "from-pink-500 to-rose-600",
-      "count": 1
+      "name": "CRM و ربات",
+      "slug": "crm-automation",
+      "description": "CRM، ربات تلگرام، بله و اتوماسیون فروش",
+      "icon": "CogIcon",
+      "color": "from-violet-500 to-purple-600",
+      "count": 2
+    },
+    {
+      "id": "3",
+      "name": "سئو و بازاریابی",
+      "slug": "seo-marketing",
+      "description": "بهینه‌سازی سایت و افزایش فروش آنلاین",
+      "icon": "MagnifyingGlassIcon",
+      "color": "from-green-500 to-emerald-600",
+      "count": 2
     }
   ],
   "articles": [
     {
       "id": "1",
-      "title": "آموزش React.js برای مبتدیان",
-      "slug": "react-tutorial-for-beginners",
-      "excerpt": "یادگیری React.js از صفر تا ساخت اولین پروژه",
-      "content": "\n            <h2>مقدمه</h2>\n            <p>React.js یکی از محبوب‌ترین کتابخانه‌های JavaScript است.</p>\n            \n            <h2>شروع کار</h2>\n            <p>برای شروع کار با React باید ابتدا Node.js را نصب کنید.</p>\n            \n            <pre><code>npx create-react-app my-app</code></pre>\n            \n            <h2>نتیجه‌گیری</h2>\n            <p>React ابزاری قدرتمند برای ساخت رابط‌های کاربری است.</p>\n        ",
-      "publishedAt": "2024-01-15T10:00:00Z",
-      "readTime": 8,
-      "views": 2500,
-      "likes": 120,
+      "title": "چرا کسب‌وکار شما به طراحی سایت حرفه‌ای نیاز دارد؟",
+      "slug": "why-your-business-needs-professional-website",
+      "excerpt": "۷ دلیل علمی که ثابت می‌کند بدون سایت حرفه‌ای، مشتریان را به رقبا از دست می‌دهید — و چطور همین امروز شروع کنید.",
+      "content": "\n            <h2>مشتریان شما الان در گوگل دنبال شما می‌گردند</h2>\n            <p>بیش از ۸۰٪ مشتریان قبل از خرید، ابتدا در اینترنت جستجو می‌کنند. اگر سایت ندارید یا سایت قدیمی دارید، آن‌ها مستقیم سراغ رقیب شما می‌روند. <strong>طراحی سایت حرفه‌ای</strong> اولین قدم برای جذب این مشتریان است.</p>\n            \n            <h2>سایت = اعتبار ۲۴ ساعته</h2>\n            <p>یک سایت شرکتی با <strong>ادمین پنل</strong> قدرتمند، شبانه‌روز معرف خدمات شماست — بدون حقوق، بدون مرخصی. مشتری هر ساعت از شبانه‌روز می‌تواند با شما آشنا شود و درخواست بدهد.</p>\n            \n            <h2>قیمت طراحی سایت در ایران (۱۴۰۴-۱۴۰۵)</h2>\n            <ul>\n                <li><strong>سایت شرکتی:</strong> از ۱۲ میلیون تومان</li>\n                <li><strong>وردپرس حرفه‌ای:</strong> از ۱۲ تا ۳۵ میلیون تومان</li>\n                <li><strong>فروشگاه اینترنتی:</strong> از ۳۵ میلیون تومان</li>\n            </ul>\n            <p>این سرمایه‌گذاری معمولاً در ۲-۳ ماه اول با جذب مشتری جدید برمی‌گردد.</p>\n            \n            <h2>چرا دیزاین پرداز؟</h2>\n            <p>ما علاوه بر <strong>طراحی سایت</strong>، <strong>CRM</strong>، <strong>ربات تلگرام</strong> و <strong>سئو</strong> را هم یکجا ارائه می‌دهیم — یعنی یک تیم، یک قرارداد، یک پشتیبانی. <a href=\"/contact\">مشاوره رایگان بگیرید</a> و ببینید چقدر سریع می‌توانید آنلاین فروش داشته باشید.</p>\n        ",
+      "publishedAt": "2025-08-15T10:00:00Z",
+      "readTime": 7,
+      "views": 4200,
+      "likes": 210,
       "featured": true,
       "trending": true,
       "difficulty": "مبتدی",
       "status": "published",
       "authorId": "1",
       "categoryId": "1",
-      "tags": ["React.js", "JavaScript", "Frontend"],
-      "image": {
-        "main": "/articles/react-tutorial.jpg",
-        "alt": "آموزش React.js"
-      },
+      "tags": ["طراحی سایت", "قیمت طراحی سایت", "سایت شرکتی", "ادمین پنل"],
+      "image": { "main": "/articles/web-design-guide.jpg", "alt": "طراحی سایت حرفه‌ای" },
       "seo": {
-        "metaTitle": "آموزش React.js برای مبتدیان | راهنمای شروع",
-        "metaDescription": "یادگیری React.js از صفر تا ساخت اولین پروژه برای مبتدیان",
-        "keywords": ["React.js", "آموزش React", "JavaScript"],
-        "canonicalUrl": "https://designpardaz.ir/articles/react-tutorial-for-beginners",
-        "ogImage": "/articles/react-tutorial-og.jpg"
+        "metaTitle": "چرا به طراحی سایت حرفه‌ای نیاز دارید؟ | قیمت ۱۴۰۵ — دیزاین پرداز",
+        "metaDescription": "۷ دلیل که ثابت می‌کند بدون سایت حرفه‌ای مشتری از دست می‌دهید. قیمت طراحی سایت از ۱۲ میلیون. مشاوره رایگان.",
+        "keywords": ["طراحی سایت", "قیمت طراحی سایت", "طراح سایت", "ادمین پنل"],
+        "canonicalUrl": "https://designpardaz.ir/articles/why-your-business-needs-professional-website",
+        "ogImage": "/articles/web-design-guide.jpg"
       }
     },
     {
       "id": "2",
-      "title": "معرفی Next.js و مزایای آن",
-      "slug": "nextjs-introduction-benefits",
-      "excerpt": "آشنایی با فریمورک Next.js و دلایل استفاده از آن",
-      "content": "\n            <h2>Next.js چیست؟</h2>\n            <p>Next.js فریمورکی بر پایه React است که امکانات بیشتری ارائه می‌دهد.</p>\n            \n            <h2>مزایای Next.js</h2>\n            <ul>\n                <li>Server Side Rendering</li>\n                <li>Static Site Generation</li>\n                <li>API Routes</li>\n                <li>Image Optimization</li>\n            </ul>\n            \n            <h2>نصب Next.js</h2>\n            <pre><code>npx create-next-app@latest my-next-app</code></pre>\n        ",
-      "publishedAt": "2024-01-10T14:00:00Z",
+      "title": "CRM اختصاصی یا نرم‌افزار آماده؟ کدام برای شما بهتر است",
+      "slug": "custom-crm-vs-ready-software",
+      "excerpt": "مقایسه کامل CRM اختصاصی با نرم‌افزارهای آماده — هزینه، مزایا و اینکه کدام گزینه فروش شما را ۳ برابر می‌کند.",
+      "content": "\n            <h2>CRM چیست و چرا مهم است؟</h2>\n            <p><strong>سیستم CRM</strong> (مدیریت ارتباط با مشتری) تمام اطلاعات مشتریان، تماس‌ها، فروش و پیگیری‌ها را در یک <strong>ادمین پنل</strong> متمرکز می‌کند. بدون CRM، لیدها گم می‌شوند و فروش از دست می‌رود.</p>\n            \n            <h2>CRM آماده vs CRM اختصاصی</h2>\n            <table>\n                <tr><th>ویژگی</th><th>آماده</th><th>اختصاصی</th></tr>\n                <tr><td>هزینه اولیه</td><td>کم</td><td>از ۴۵ میلیون تومان</td></tr>\n                <tr><td>تطابق با فرآیند</td><td>محدود</td><td>۱۰۰٪ سفارشی</td></tr>\n                <tr><td>اتصال ربات و سایت</td><td>سخت</td><td>کامل</td></tr>\n                <tr><td>رشد بلندمدت</td><td>محدود</td><td>نامحدود</td></tr>\n            </table>\n            \n            <h2>قیمت CRM اختصاصی در ایران</h2>\n            <ul>\n                <li>CRM پایه: از ۴۵ میلیون تومان</li>\n                <li>CRM حرفه‌ای: از ۸۰ میلیون تومان</li>\n                <li>CRM سازمانی: از ۱۵۰ میلیون تومان</li>\n            </ul>\n            \n            <h2>نتیجه‌گیری</h2>\n            <p>اگر کسب‌وکار کوچک و ساده دارید، CRM آماده کافی است. اما اگر فرآیند فروش خاص، چند شعبه یا نیاز به اتصال <strong>ربات تلگرام</strong> دارید — CRM اختصاصی سرمایه‌گذاری هوشمندانه‌ای است. <a href=\"/contact\">با ما مشاوره رایگان بگیرید</a>.</p>\n        ",
+      "publishedAt": "2025-08-10T14:00:00Z",
+      "readTime": 9,
+      "views": 3800,
+      "likes": 185,
+      "featured": true,
+      "trending": true,
+      "difficulty": "متوسط",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "2",
+      "tags": ["CRM", "سیستم CRM", "ادمین پنل", "اتوماسیون فروش"],
+      "image": { "main": "/articles/crm-guide.jpg", "alt": "CRM اختصاصی" },
+      "seo": {
+        "metaTitle": "CRM اختصاصی یا آماده؟ مقایسه کامل + قیمت ۱۴۰۵",
+        "metaDescription": "مقایسه CRM اختصاصی با نرم‌افزار آماده. قیمت CRM از ۴۵ میلیون. مشاوره رایگان دیزاین پرداز.",
+        "keywords": ["CRM", "سیستم CRM", "CRM اختصاصی", "ادمین پنل", "قیمت CRM"],
+        "canonicalUrl": "https://designpardaz.ir/articles/custom-crm-vs-ready-software",
+        "ogImage": "/articles/crm-guide.jpg"
+      }
+    },
+    {
+      "id": "3",
+      "title": "ربات تلگرام: فروش ۲۴ ساعته بدون نیروی اضافه",
+      "slug": "telegram-bot-sales-automation",
+      "excerpt": "چطور با ربات تلگرام فروش خود را ۲ برابر کنید — انواع ربات، قیمت بازار ایران و راهنمای انتخاب.",
+      "content": "\n            <h2>چرا ربات تلگرام؟</h2>\n            <p>بیش از ۵۰ میلیون ایرانی در تلگرام فعال هستند. <strong>ربات تلگرام</strong> به شما امکان می‌دهد بدون حضور فیزیکی، ۲۴ ساعته فروش کنید، سفارش بگیرید و پشتیبانی دهید.</p>\n            \n            <h2>انواع ربات و قیمت (بازار ایران ۱۴۰۴-۱۴۰۵)</h2>\n            <ul>\n                <li><strong>ربات ساده:</strong> ۵ تا ۸ میلیون — اطلاع‌رسانی و فرم</li>\n                <li><strong>ربات پشتیبانی:</strong> ۸ تا ۱۵ میلیون — تیکت و پاسخگوی خودکار</li>\n                <li><strong>ربات فروشگاهی:</strong> ۱۵ تا ۳۰ میلیون — سبد خرید و پرداخت</li>\n                <li><strong>ربات + CRM:</strong> ۳۰ تا ۵۰ میلیون — اتصال کامل</li>\n            </ul>\n            \n            <h2>ربات بله هم داریم</h2>\n            <p>برای کسب‌وکارهایی که مخاطب ایرانی دارند، <strong>ربات بله</strong> از ۴ میلیون تومان گزینه عالی است.</p>\n            \n            <h2>شروع کنید</h2>\n            <p>تیم دیزاین پرداز ربات شما را با <strong>پنل مدیریت</strong> اختصاصی تحویل می‌دهد. <a href=\"/services/web-design#telegram-bot\">مشاهده پکیج‌ها</a> یا <a href=\"/contact\">تماس برای مشاوره رایگان</a>.</p>\n        ",
+      "publishedAt": "2025-08-05T09:30:00Z",
       "readTime": 6,
-      "views": 1800,
+      "views": 5100,
+      "likes": 240,
+      "featured": true,
+      "trending": false,
+      "difficulty": "مبتدی",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "2",
+      "tags": ["ربات تلگرام", "ربات بله", "ربات فروشگاهی", "اتوماسیون"],
+      "image": { "main": "/articles/telegram-bot.jpg", "alt": "ربات تلگرام" },
+      "seo": {
+        "metaTitle": "ربات تلگرام برای فروش | قیمت ۱۴۰۵ + راهنمای کامل",
+        "metaDescription": "ربات تلگرام از ۵ میلیون تومان. فروش ۲۴ ساعته، پشتیبانی و اتصال CRM. سفارش در دیزاین پرداز.",
+        "keywords": ["ربات تلگرام", "قیمت ربات تلگرام", "ربات بله", "ربات فروشگاهی"],
+        "canonicalUrl": "https://designpardaz.ir/articles/telegram-bot-sales-automation",
+        "ogImage": "/articles/telegram-bot.jpg"
+      }
+    },
+    {
+      "id": "4",
+      "title": "طراحی سایت وردپرس: سریع، ارزان و حرفه‌ای",
+      "slug": "wordpress-website-design-guide",
+      "excerpt": "راهنمای کامل طراحی سایت وردپرس — قیمت، زمان تحویل، مزایا و اینکه چرا ۴۰٪ سایت‌های دنیا وردپرس هستند.",
+      "content": "\n            <h2>وردپرس بهترین انتخاب برای اکثر کسب‌وکارهاست</h2>\n            <p><strong>طراحی سایت وردپرس</strong> سریع‌ترین و مقرون‌به‌صرفه‌ترین راه برای داشتن سایت حرفه‌ای با <strong>ادمین پنل</strong> قدرتمند است. شما بدون برنامه‌نویس می‌توانید محتوا، محصول و صفحات را مدیریت کنید.</p>\n            \n            <h2>قیمت طراحی سایت وردپرس در ایران</h2>\n            <ul>\n                <li>پایه (تا ۵ صفحه): از ۱۲ میلیون تومان — ۷ تا ۱۰ روز</li>\n                <li>حرفه‌ای (تا ۱۵ صفحه): از ۲۵ میلیون تومان — ۱۴ تا ۲۱ روز</li>\n                <li>فروشگاه ووکامرس: از ۳۵ میلیون تومان — ۲۱ تا ۳۰ روز</li>\n            </ul>\n            \n            <h2>مزایای وردپرس + سئو</h2>\n            <p>وردپرس با افزونه‌های SEO آماده برای رتبه‌گیری در گوگل بهینه است. ما هر سایت وردپرسی را با <strong>سئو پایه</strong> تحویل می‌دهیم.</p>\n            \n            <p><a href=\"/services/web-design#wordpress\">مشاهده پکیج‌های وردپرس</a> | <a href=\"/contact\">مشاوره رایگان</a></p>\n        ",
+      "publishedAt": "2025-07-28T11:00:00Z",
+      "readTime": 5,
+      "views": 2900,
+      "likes": 130,
+      "featured": false,
+      "trending": true,
+      "difficulty": "مبتدی",
+      "status": "published",
+      "authorId": "1",
+      "categoryId": "1",
+      "tags": ["وردپرس", "طراحی سایت وردپرس", "ووکامرس", "ادمین پنل"],
+      "image": { "main": "/articles/wordpress.jpg", "alt": "طراحی سایت وردپرس" },
+      "seo": {
+        "metaTitle": "طراحی سایت وردپرس | قیمت ۱۴۰۵ از ۱۲ میلیون — دیزاین پرداز",
+        "metaDescription": "طراحی سایت وردپرس حرفه‌ای از ۱۲ میلیون. ادمین پنل، ووکامرس، سئو. تحویل ۷ تا ۳۰ روز.",
+        "keywords": ["طراحی سایت وردپرس", "وردپرس", "قیمت وردپرس", "ووکامرس"],
+        "canonicalUrl": "https://designpardaz.ir/articles/wordpress-website-design-guide",
+        "ogImage": "/articles/wordpress.jpg"
+      }
+    },
+    {
+      "id": "5",
+      "title": "ادمین پنل اختصاصی: کنترل کامل کسب‌وکار در یک داشبورد",
+      "slug": "custom-admin-panel-benefits",
+      "excerpt": "چرا ادمین پنل اختصاصی بهتر از پنل‌های آماده است — و چطور مدیریت سایت، CRM و فروش را ساده می‌کند.",
+      "content": "\n            <h2>ادمین پنل چیست؟</h2>\n            <p><strong>ادمین پنل</strong> (پنل مدیریت) پشت‌صحنه سایت، CRM یا ربات شماست. جایی که محتوا، محصول، مشتری و گزارش‌ها را مدیریت می‌کنید.</p>\n            \n            <h2>پنل آماده vs پنل اختصاصی</h2>\n            <p>پنل‌های آماده (مثل وردپرس) برای شروع خوب هستند. اما وقتی فرآیند کسب‌وکار پیچیده می‌شود — چند نقش کاربری، گزارش سفارشی، اتصال API — <strong>ادمین پنل اختصاصی</strong> تنها راه حرفه‌ای است.</p>\n            \n            <h2>امکانات پنل اختصاصی دیزاین پرداز</h2>\n            <ul>\n                <li>داشبورد تحلیلی real-time</li>\n                <li>مدیریت کاربران و سطح دسترسی</li>\n                <li>اتصال به ربات تلگرام و بله</li>\n                <li>گزارش PDF و Excel</li>\n                <li>رابط فارسی و UX ساده</li>\n            </ul>\n            \n            <p>قیمت از ۳۰ میلیون (بخشی از CRM) تا ۱۵۰ میلیون تومان. <a href=\"/contact\">درخواست دمو رایگان</a></p>\n        ",
+      "publishedAt": "2025-07-20T08:00:00Z",
+      "readTime": 8,
+      "views": 2100,
       "likes": 95,
       "featured": false,
       "trending": false,
@@ -86,46 +170,40 @@
       "status": "published",
       "authorId": "1",
       "categoryId": "1",
-      "tags": ["Next.js", "React", "SSR"],
-      "image": {
-        "main": "/articles/nextjs-intro.jpg",
-        "alt": "معرفی Next.js"
-      },
+      "tags": ["ادمین پنل", "پنل مدیریت", "CRM", "داشبورد"],
+      "image": { "main": "/articles/admin-panel.jpg", "alt": "ادمین پنل اختصاصی" },
       "seo": {
-        "metaTitle": "معرفی Next.js و مزایای آن | راهنمای کاربردی",
-        "metaDescription": "آشنایی با فریمورک Next.js و دلایل استفاده از آن در پروژه‌های React",
-        "keywords": ["Next.js", "React Framework", "SSR"],
-        "canonicalUrl": "https://designpardaz.ir/articles/nextjs-introduction-benefits",
-        "ogImage": "/articles/nextjs-intro-og.jpg"
+        "metaTitle": "ادمین پنل اختصاصی | طراحی پنل مدیریت حرفه‌ای",
+        "metaDescription": "طراحی ادمین پنل اختصاصی با داشبورد، CRM و اتصال ربات. قیمت از ۳۰ میلیون. دیزاین پرداز.",
+        "keywords": ["ادمین پنل", "پنل مدیریت", "طراحی ادمین پنل", "داشبورد مدیریتی"],
+        "canonicalUrl": "https://designpardaz.ir/articles/custom-admin-panel-benefits",
+        "ogImage": "/articles/admin-panel.jpg"
       }
     },
     {
-      "id": "3",
-      "title": "اصول طراحی UI/UX مدرن",
-      "slug": "modern-ui-ux-design-principles",
-      "excerpt": "یادگیری اصول و قوانین طراحی رابط کاربری مدرن",
-      "content": "\n            <h2>اصول طراحی UI</h2>\n            <p>طراحی رابط کاربری مؤثر نیازمند رعایت اصول خاصی است.</p>\n            \n            <h2>قوانین مهم</h2>\n            <ul>\n                <li>سادگی و وضوح</li>\n                <li>سازگاری و یکنواختی</li>\n                <li>قابلیت استفاده</li>\n                <li>زیبایی بصری</li>\n            </ul>\n            \n            <h2>ابزارهای طراحی</h2>\n            <p>Figma، Adobe XD و Sketch از محبوب‌ترین ابزارهای طراحی UI هستند.</p>\n        ",
-      "publishedAt": "2024-01-05T09:30:00Z",
-      "readTime": 10,
-      "views": 3200,
-      "likes": 180,
+      "id": "6",
+      "title": "سئو سایت: ۵ اقدام فوری برای رتبه گرفتن در گوگل",
+      "slug": "seo-quick-wins-google-ranking",
+      "excerpt": "۵ کار ساده که همین هفته انجام دهید تا سایتتان در گوگل بالا بیاید — یا بگذارید ما انجام دهیم.",
+      "content": "\n            <h2>سئو = مشتری رایگان از گوگل</h2>\n            <p><strong>سئو سایت</strong> یعنی وقتی کسی «طراحی سایت»، «CRM» یا «ربات تلگرام» جستجو می‌کند، سایت شما اول نتایج باشد. این ترافیک رایگان و با کیفیت است.</p>\n            \n            <h2>۵ اقدام فوری</h2>\n            <ol>\n                <li><strong>سرعت سایت:</strong> زیر ۳ ثانیه بارگذاری — مشتری منتظر نمی‌ماند</li>\n                <li><strong>موبایل فرندلی:</strong> ۷۰٪ جستجو از موبایل است</li>\n                <li><strong>عنوان و توضیحات:</strong> کلیدواژه «طراحی سایت» در title و meta</li>\n                <li><strong>محتوای مفید:</strong> مقالات مثل همین — گوگل محتوا را دوست دارد</li>\n                <li><strong>ساختار URL:</strong> آدرس‌های تمیز و فارسی/انگلیسی استاندارد</li>\n            </ol>\n            \n            <h2>سئو حرفه‌ای دیزاین پرداز</h2>\n            <p>ما هر <strong>طراحی سایت</strong> را با سئو پایه تحویل می‌دهیم. برای سئو پیشرفته از ۸ میلیون تومان. <a href=\"/services/seo\">خدمات سئو</a> | <a href=\"/contact\">مشاوره رایگان</a></p>\n        ",
+      "publishedAt": "2025-07-15T16:00:00Z",
+      "readTime": 6,
+      "views": 3500,
+      "likes": 160,
       "featured": true,
-      "trending": false,
+      "trending": true,
       "difficulty": "مبتدی",
       "status": "published",
       "authorId": "1",
-      "categoryId": "2",
-      "tags": ["UI Design", "UX Design", "طراحی رابط"],
-      "image": {
-        "main": "/articles/ui-ux-principles.jpg",
-        "alt": "اصول طراحی UI/UX"
-      },
+      "categoryId": "3",
+      "tags": ["سئو", "سئو سایت", "بهینه سازی", "گوگل"],
+      "image": { "main": "/articles/seo-guide.jpg", "alt": "سئو سایت" },
       "seo": {
-        "metaTitle": "اصول طراحی UI/UX مدرن | راهنمای طراحی رابط",
-        "metaDescription": "یادگیری اصول و قوانین طراحی رابط کاربری مدرن و تجربه کاربری بهتر",
-        "keywords": ["UI Design", "UX Design", "طراحی رابط کاربری"],
-        "canonicalUrl": "https://designpardaz.ir/articles/modern-ui-ux-design-principles",
-        "ogImage": "/articles/ui-ux-principles-og.jpg"
+        "metaTitle": "سئو سایت: ۵ اقدام فوری برای رتبه گوگل | دیزاین پرداز",
+        "metaDescription": "۵ کار فوری برای سئو سایت و رتبه در گوگل. خدمات سئو حرفه‌ای از ۸ میلیون. مشاوره رایگان.",
+        "keywords": ["سئو", "سئو سایت", "بهینه سازی سایت", "رتبه گوگل"],
+        "canonicalUrl": "https://designpardaz.ir/articles/seo-quick-wins-google-ranking",
+        "ogImage": "/articles/seo-guide.jpg"
       }
     }
   ]

@@ -19,6 +19,7 @@ import {
     ChatBubbleLeftRightIcon,
     UserGroupIcon,
 } from '@heroicons/react/24/outline';
+import { CONTACT_PHONE } from '@/lib/constants/contact';
 
 // Company Data
 const companyData = {
@@ -468,7 +469,7 @@ export default function AboutUsPage() {
                         {/* Contact Info */}
                         <div className="grid md:grid-cols-3 gap-8 mb-12">
                             <a
-                                href="tel:021-3333-4444"
+                                href={`tel:${CONTACT_PHONE.tel}`}
                                 className="group flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
                             >
                                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
