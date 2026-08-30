@@ -1,4 +1,4 @@
-import type { Metadata } from "next/types";
+import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -115,18 +115,6 @@ export const metadata: Metadata = {
     category: "creative design services",
     classification: "Digital Creative Services",
     referrer: "origin-when-cross-origin",
-    colorScheme: "light dark",
-    themeColor: [
-        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-        { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-    ],
-    viewport: {
-        width: "device-width",
-        initialScale: 1,
-        maximumScale: 5,
-        userScalable: true,
-        viewportFit: "cover",
-    },
     manifest: "/manifest.json",
     icons: {
         icon: [
@@ -221,6 +209,20 @@ export const metadata: Metadata = {
         "article:publisher": "https://designpardaz.ir"
     },
 };
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: "cover",
+    colorScheme: "light dark",
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+        { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+    ],
+};
+
 export default function RootLayout({
                                        children,
                                    }: {
